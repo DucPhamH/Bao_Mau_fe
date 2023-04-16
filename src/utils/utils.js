@@ -5,5 +5,5 @@ export function isAxiosError(error) {
 }
 
 export function isAxiosUnprocessableEntityError(error) {
-  return isAxiosError(error) && error.response?.status === HttpStatusCode.UnprocessableEntity
+  return isAxiosError(error) && error.response?.status === HttpStatusCode.BadRequest
 }
