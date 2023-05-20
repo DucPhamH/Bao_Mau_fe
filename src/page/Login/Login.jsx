@@ -7,7 +7,10 @@
 // import { isAxiosUnprocessableEntityError } from '../../utils/utils'
 // import { useContext } from 'react'
 // import { AppContext } from '../../contexts/app.context'
-
+import { Link } from 'react-router-dom'
+import logo from '../../asset/img/babysister.png'
+import { FiPhoneCall } from 'react-icons/fi'
+import { BsFillEyeSlashFill } from 'react-icons/bs'
 // const loginSchema = schema.omit(['confirm_password'])
 export default function Login() {
   // const { setIsAuthenticated } = useContext(AppContext)
@@ -92,6 +95,44 @@ export default function Login() {
     //     </button>
     //   </div>
     // </form>
-    <div>Login</div>
+    <div>
+      <div className='flex w-full justify-between items-center pb-10 px-10'>
+        <div className='w-[70px] h-[90px]  flex justify-center items-center bg-[#42FCCF] border border-black'>
+          <img className=' w-[60%] h-[80%]' src={logo} alt='' />
+        </div>
+        <div className='text-4xl text-blue-700 underline'>
+          <Link to='/register'>登録</Link>
+        </div>
+      </div>
+      <form className='w-full px-10' action=''>
+        <div className=' relative mb-10'>
+          <label className='block mb-2 text-xl font-medium text-black'>電話番号を入力する</label>
+          <div class='absolute right-0 flex items-center pr-5 justify-center bottom-5 pointer-events-none'>
+            <FiPhoneCall />
+          </div>
+          <input
+            type='phone'
+            id='phone'
+            className='bg-[#D9D9D9] border border-gray-300 text-gray-900 text-2xl rounded-full  block w-full p-4'
+          />
+        </div>
+        <div className=' relative mb-10'>
+          <label className='block mb-2 text-xl font-medium text-black'>パスワードを入力する</label>
+          <div class='absolute right-0 flex items-center pr-5 justify-center bottom-5 pointer-events-none'>
+            <BsFillEyeSlashFill />
+          </div>
+          <input
+            type='password'
+            id='password'
+            className='bg-[#D9D9D9] border border-gray-300 text-gray-900 text-2xl rounded-full  block w-full p-4'
+          />
+        </div>
+        <div className='w-full flex justify-center items-center pt-14'>
+          <button class='bg-[#D324D7] hover:bg-blue-500  mx-5 text-white py-4 px-8 hover:border hover:border-black rounded-full'>
+            ログイン
+          </button>
+        </div>
+      </form>
+    </div>
   )
 }

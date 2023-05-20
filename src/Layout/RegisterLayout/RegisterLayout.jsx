@@ -25,7 +25,7 @@ export default function RegisterLayout({ children }) {
     <form className='modal'>
       <div className='overlay'></div>
       <div className='modal-content bg-white w-[420px]'>
-        <div className='cursor-pointer' onClick={toggleOpenHome}>
+        <div className='flex w-full justify-end text-4xl font-extrabold cursor-pointer' onClick={toggleOpenHome}>
           X
         </div>
         {children}
