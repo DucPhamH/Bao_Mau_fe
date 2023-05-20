@@ -1,9 +1,12 @@
 // import React, { useContext } from 'react'
 // import UserAvatar from './UserAvatar'
-// import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 // import { AppContext } from '../../contexts/app.context'
 // import { useMutation } from '@tanstack/react-query'
 // import { logoutAccount } from '../../api/auth.api'
+import React from 'react'
+import logo from '../../asset/img/babysister.png'
+import RegisterLayout from '../../Layout/RegisterLayout'
 
 export default function Header() {
   // const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
@@ -18,8 +21,17 @@ export default function Header() {
   // const handleLogout = () => {
   //   logoutMutation.mutate()
   // }
+  const navigate = useNavigate()
+
+  const toggleOpenLogin = () => {
+    navigate('/login')
+  }
+  const toggleOpenRegister = () => {
+    navigate('/register')
+  }
+
   return (
-    <header className='bg-white'>
+    <header className='bg-white w-full h-full flex items-center justify-between border border-b-black  '>
       {/* <div className='container mx-auto px-4 py-8 flex items-center'>
         <div className='mr-auto md:w-48 flex-shrink-0'>
           <img className='h-8 md:h-14' src='https://i.ibb.co/98pHdFq/2021-10-27-15h51-15.png' alt='' />
@@ -113,7 +125,28 @@ export default function Header() {
         </nav>
       </div>
       <hr /> */}
-      Header
+      <div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
+        <img className=' w-[60%] h-[80%]' src={logo} alt='' />
+      </div>
+
+      <div className='flex mx-14'>
+        <div>
+          <button
+            onClick={toggleOpenLogin}
+            class='bg-[#D9D9D9] hover:bg-gray-500 mx-5 text-black font-mono py-8 px-16 hover:border hover:border-black rounded-full'
+          >
+            ログイン
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={toggleOpenRegister}
+            class='bg-[#D9D9D9] hover:bg-gray-500 mx-5 text-black font-mono py-8 px-16 hover:border hover:border-black rounded-full'
+          >
+            サインアップ
+          </button>
+        </div>
+      </div>
     </header>
   )
 }

@@ -47,7 +47,7 @@ export default function useRouteElement() {
     }
     // {
     //   path: '',
-    //   element: <RejectedRoute />,
+    //   element: <MainLayout />,
     //   children: [
     //     {
     //       path: 'login',

@@ -1,6 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function RegisterLayout({ children }) {
+  const navigate = useNavigate()
+
+  const toggleOpenHome = () => {
+    navigate('/')
+  }
   return (
     // <section className='min-h-screen flex items-stretch text-white '>
     //   <div className='lg:flex w-1/2 hidden bg-no-repeat bg-cover relative items-center back_ground_register'>
@@ -13,8 +18,18 @@ export default function RegisterLayout({ children }) {
     //     <div className='absolute lg:hidden z-10 inset-0 bg-no-repeat bg-cover items-center back_ground_register'>
     //       <div className='absolute bg-black opacity-60 inset-0 z-0' />
     //     </div>
-    <div className='w-full py-6 z-20'>{children}</div>
+    // <div className='w-full py-6 z-20'>{children}</div>
     //   </div>
     // </section>
+
+    <form className='modal'>
+      <div className='overlay'></div>
+      <div className='modal-content bg-white w-[420px]'>
+        <div className='cursor-pointer' onClick={toggleOpenHome}>
+          X
+        </div>
+        {children}
+      </div>
+    </form>
   )
 }
