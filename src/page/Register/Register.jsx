@@ -135,7 +135,7 @@ export default function Register() {
           <label className='block mb-2 text-xl font-medium text-black'>オブジェクトを選択</label>
           <div className='flex w-full justify-between items-center my-5'>
             <div className='flex bg-[#D9D9D9] rounded-full p-2 items-center'>
-              <label htmlFor='default-radio-1' className='mr-2 text-2xl text-gray-900 dark:text-gray-300'>
+              <label htmlFor='default-radio-1' className='mr-2 text-2xl text-black'>
                 ユーザー
               </label>
               <input
@@ -148,7 +148,7 @@ export default function Register() {
               />
             </div>
             <div className='flex bg-[#D9D9D9] rounded-full p-2 items-center'>
-              <label htmlFor='default-radio-1' className='mr-2 text-2xl text-gray-900 dark:text-gray-300'>
+              <label htmlFor='default-radio-1' className='mr-2 text-2xl text-black'>
                 ベビーシッター・料理人
               </label>
               <input
