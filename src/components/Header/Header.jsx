@@ -1,26 +1,26 @@
-import React, { useContext } from 'react'
-import UserAvatar from './UserAvatar'
-import { Link } from 'react-router-dom'
-import { AppContext } from '../../contexts/app.context'
-import { useMutation } from '@tanstack/react-query'
-import { logoutAccount } from '../../api/auth.api'
+// import React, { useContext } from 'react'
+// import UserAvatar from './UserAvatar'
+// import { Link } from 'react-router-dom'
+// import { AppContext } from '../../contexts/app.context'
+// import { useMutation } from '@tanstack/react-query'
+// import { logoutAccount } from '../../api/auth.api'
 
 export default function Header() {
-  const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
+  // const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
 
-  const logoutMutation = useMutation({
-    mutationFn: logoutAccount,
-    onSuccess: () => {
-      setIsAuthenticated(false)
-    }
-  })
+  // const logoutMutation = useMutation({
+  //   mutationFn: logoutAccount,
+  //   onSuccess: () => {
+  //     setIsAuthenticated(false)
+  //   }
+  // })
 
-  const handleLogout = () => {
-    logoutMutation.mutate()
-  }
+  // const handleLogout = () => {
+  //   logoutMutation.mutate()
+  // }
   return (
     <header className='bg-white'>
-      <div className='container mx-auto px-4 py-8 flex items-center'>
+      {/* <div className='container mx-auto px-4 py-8 flex items-center'>
         <div className='mr-auto md:w-48 flex-shrink-0'>
           <img className='h-8 md:h-14' src='https://i.ibb.co/98pHdFq/2021-10-27-15h51-15.png' alt='' />
         </div>
@@ -112,7 +112,8 @@ export default function Header() {
           </ul>
         </nav>
       </div>
-      <hr />
+      <hr /> */}
+      Header
     </header>
   )
 }
