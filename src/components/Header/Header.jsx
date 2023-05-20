@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom'
 // import { logoutAccount } from '../../api/auth.api'
 import React from 'react'
 import logo from '../../asset/img/babysister.png'
-import RegisterLayout from '../../Layout/RegisterLayout'
 
 export default function Header() {
   // const { isAuthenticated, setIsAuthenticated } = useContext(AppContext)
