@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
+import Sidebar from '../../components/Sidebar/Sidebar'
 export default function EmployeeList() {
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
@@ -23,7 +24,11 @@ export default function EmployeeList() {
         </div>
       </div>
       <div className='col-span-1 mx-20'>
-        <div className='bg-[#ffffff] rounded-full'>dasasf</div>
+        {/* chỉnh sửa tiếp */}
+        {/*  */}
+        <Sidebar></Sidebar>
+        {/*  */}
+        {/*  */}
       </div>
     </div>
   )
