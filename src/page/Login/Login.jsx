@@ -4,6 +4,7 @@ import { schemaLogin } from '../../utils/rules'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from '@tanstack/react-query'
 import { loginAccount } from '../../api/auth.api'
+import { toast } from 'react-toastify'
 import { isAxiosUnprocessableEntityError } from '../../utils/utils'
 // import { useContext } from 'react'
 // import { AppContext } from '../../contexts/app.context'
@@ -34,6 +35,7 @@ export default function Login() {
     loginAccontMutation.mutate(data, {
       onSuccess: (data) => {
         console.log(data)
+        toast(data.data?.message)
         navigate('/')
       },
       onError: (error) => {
