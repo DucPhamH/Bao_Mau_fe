@@ -5,8 +5,10 @@ import Home from './page/Home'
 import Login from './page/Login'
 import Profile from './page/Profile'
 import Register from './page/Register'
+import EmployeeList from './page/EmployeeList'
 import { useContext } from 'react'
 import { AppContext } from './contexts/app.context'
+import Mainlayout from './Layout/MainLayout/MainLayout'
 
 // function ProtectedRoute() {
 //   const { isAuthenticated } = useContext(AppContext)
@@ -48,6 +50,14 @@ export default function useRouteElement() {
     {
       path: 'profile',
       element: <Profile />
+    },
+    {
+      path: 'employeelist',
+      element: (
+        <Mainlayout>
+          <EmployeeList />
+        </Mainlayout>
+      )
     }
 
     // {

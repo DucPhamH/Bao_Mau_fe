@@ -13,8 +13,12 @@ html {
 .font-itim {
   font-family: 'Itim', cursive;
 }
-.-indent-md {
-  text-indent: -12rem;
+#sort {
+  appearance: none;
+}
+select option {
+  background: white;
+  color: black;
 }
 body {
   font-family: 'Montserrat', sans-serif;
