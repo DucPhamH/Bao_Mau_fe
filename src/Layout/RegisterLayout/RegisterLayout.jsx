@@ -22,7 +22,7 @@ export default function RegisterLayout({ children }) {
     //   </div>
     // </section>
 
-    <form className='modal'>
+    <div className='modal'>
       <div className='overlay'></div>
       <div className='modal-content bg-white w-[420px]'>
         <div className='flex w-full justify-end text-4xl font-extrabold cursor-pointer' onClick={toggleOpenHome}>
@@ -30,6 +30,6 @@ export default function RegisterLayout({ children }) {
         </div>
         {children}
       </div>
-    </form>
+    </div>
   )
 }

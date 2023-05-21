@@ -44,7 +44,12 @@ export default function useRouteElement() {
           <Register />
         </RegisterLayout>
       )
+    },
+    {
+      path: 'profile',
+      element: <Profile />
     }
+
     // {
     //   path: '',
     //   element: <MainLayout />,
