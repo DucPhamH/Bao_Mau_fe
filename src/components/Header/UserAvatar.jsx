@@ -1,78 +1,88 @@
-// import { Link } from 'react-router-dom'
-// import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import { FaUserAlt } from 'react-icons/fa'
+import { BiHomeAlt } from 'react-icons/bi'
+import { FiLogOut } from 'react-icons/fi'
+import { AiOutlineCalendar, AiOutlineHeart, AiOutlinePlus } from 'react-icons/ai'
+import React from 'react'
 
 function UserAvatar({ handleLogout }) {
-  // const [open, setOpen] = useState(false)
-  // const showPopover = () => {
-  //   setOpen(true)
-  // }
-  // const hidePopover = () => {
-  //   setOpen(false)
-  // }
-  return (
-    // <div className='group relative inline-block' onMouseEnter={showPopover} onMouseLeave={hidePopover}>
-    //   <button
-    //     className='flex mr-3 items-center text-xl font-bold text-gray-900 rounded-full hover:text-yellow-500 md:mx-7 md:text-xl lg:text-2xl'
-    //     type='button'
-    //   >
-    //     <svg
-    //       className='h-9 lg:h-10 p-2 text-gray-500'
-    //       aria-hidden='true'
-    //       focusable='false'
-    //       data-prefix='far'
-    //       data-icon='user'
-    //       role='img'
-    //       xmlns='http://www.w3.org/2000/svg'
-    //       viewBox='0 0 448 512'
-    //     >
-    //       <path
-    //         fill='currentColor'
-    //         d='M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z'
-    //       />
-    //     </svg>
-    //     <div className='hidden md:block'>Phạm Đức</div>
-    //     <svg
-    //       className='w-5 h-5 hidden md:block mx-1.5'
-    //       aria-hidden='true'
-    //       fill='currentColor'
-    //       viewBox='0 0 20 20'
-    //       xmlns='http://www.w3.org/2000/svg'
-    //     >
-    //       <path
-    //         fillRule='evenodd'
-    //         d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'
-    //         clipRule='evenodd'
-    //       ></path>
-    //     </svg>
-    //   </button>
+  const [modal, setModal] = React.useState(false)
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
 
-    //   {/* <!-- Dropdown menu --> */}
-    //   {open && (
-    //     <div
-    //       className='z-10 fix_hover top-14 right-10 transform scale-0 group-hover:scale-100 absolute
-    //       transition duration-300 ease-in-out md:top-14 bg-white divide-y divide-gray-100 rounded-lg shadow w-56'
-    //     >
-    //       <ul className='py-2 text-sm text-gray-700'>
-    //         <li>
-    //           <Link to='/profile' className='block px-4 py-2 text-2xl hover:bg-gray-100'>
-    //             Tài khoản của tôi
-    //           </Link>
-    //         </li>
-    //         <li>
-    //           <Link to='#' className='block px-4 py-2 text-2xl hover:bg-gray-100'>
-    //             Đơn mua
-    //           </Link>
-    //         </li>
-    //       </ul>
-    //       <div className='py-2'>
-    //         <div onClick={handleLogout} className='block text-red-500 px-4 py-2 text-2xl  hover:bg-gray-100'>
-    //           Đăng xuất
-    //         </div>
-    //       </div>
-    //     </div>
-    //   )}
-    // </div>
-    <div>User UserAvatar</div>
+  return (
+    <div className='group relative inline-block' onClick={toggleModal}>
+      <button className='flex mr-3 items-center text-4xl font-bold text-gray-900 rounded-full ' type='button'>
+        Nguyen Van A
+        <div className='p-5'>
+          <FaUserAlt />
+        </div>
+      </button>
+
+      {/* <!-- Dropdown menu --> */}
+      {modal && (
+        <div className='modal'>
+          <div className='overlay'></div>
+          <div className='modal-content bg-white w-[420px]'>
+            <div className='flex justify-between items-center mx-10'>
+              <div className='flex text-4xl justify-center items-center'>
+                <div className='mr-5 '>
+                  <FaUserAlt />
+                </div>
+                Nguyen Van A
+              </div>
+              <div className=' text-6xl font-medium cursor-pointer' onClick={toggleModal}>
+                X
+              </div>
+            </div>
+            <hr className='my-6 mx-16 h-1 bg-gray-500' />
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <BiHomeAlt />
+              </div>
+              <div className='text-4xl'>ホームページ</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <FaUserAlt />
+              </div>
+              <div className='text-4xl'>自分情報</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <AiOutlineCalendar />
+              </div>
+              <div className='text-4xl'>エントリー情報</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <AiOutlineHeart />
+              </div>
+              <div className='text-4xl'>お気に入り</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <AiOutlinePlus />
+              </div>
+              <div className='text-4xl'>新しい仕事の作成</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <FiLogOut />
+              </div>
+              <div className='text-4xl'>ログアウト</div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 

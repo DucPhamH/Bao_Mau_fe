@@ -4,13 +4,13 @@ import Employee from '../../components/Employee'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import {useState} from 'react';
 export default function EmployeeList() {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false)
   const option1 = (event) => {
     setIsActive(true)
-  };
+  }
   const option2 = (event) => {
     setIsActive(false)
-  };
+  }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
       <div className='flex-col col-span-2 mx-16 mt-32'>
