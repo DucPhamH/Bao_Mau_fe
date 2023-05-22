@@ -11,5 +11,12 @@ export default function Profile() {
   // })
   // const user = userData?.data
   // console.log(user)
-  return <div className='pt-64 text-6xl text-black'>Profile</div>
+  return (
+    <div className='w-full flex bg-[#DCEAFF]'>
+      <div className='flex mx-16 mt-32'>
+        <div className=''>profile</div>
+        <div>profile2</div>
+      </div>
+    </div>
+  )
 }

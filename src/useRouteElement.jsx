@@ -49,7 +49,11 @@ export default function useRouteElement() {
     },
     {
       path: 'profile',
-      element: <Profile />
+      element: (
+        <Mainlayout>
+          <Profile />
+        </Mainlayout>
+      )
     },
     {
       path: 'employeelist',
