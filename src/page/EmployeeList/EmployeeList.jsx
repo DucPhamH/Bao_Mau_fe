@@ -12,7 +12,7 @@ export default function EmployeeList() {
   };
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
-      <div className='flex-col col-span-2 mx-16 mt-32'>
+      <div className='flex-col col-span-2 mx-16 mt-96'>
         <div className='flex justify-between'>
           <button
             className={
@@ -35,7 +35,7 @@ export default function EmployeeList() {
             料理人 (219)
           </button>
         </div>
-        <div className='w-full mt-10 bg-[#ffffff] rounded-full'>
+        <div className='w-full mt-10 bg-[#ffffff] rounded-full mb-96'>
           <div className='relative'>
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
             <select id='sort' className='bg-[#D9D9D9] border rounded-full mt-12 ml-16 p-2.5 pr-56 font-mono'>
