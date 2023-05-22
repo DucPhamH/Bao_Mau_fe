@@ -1,15 +1,15 @@
 import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import {useState} from 'react';
+import { useState } from 'react'
 export default function EmployeeList() {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false)
   const option1 = (event) => {
     setIsActive(true)
-  };
+  }
   const option2 = (event) => {
     setIsActive(false)
-  };
+  }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
       <div className='flex-col col-span-2 mx-16 mt-96'>

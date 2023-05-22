@@ -1,45 +1,83 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+
 import { FaUserAlt } from 'react-icons/fa'
+import { BiHomeAlt } from 'react-icons/bi'
+import { FiLogOut } from 'react-icons/fi'
+import { AiOutlineCalendar, AiOutlineHeart, AiOutlinePlus } from 'react-icons/ai'
+import React from 'react'
 
 function UserAvatar({ handleLogout }) {
-  const [open, setOpen] = useState(false)
-  const showPopover = () => {
-    setOpen(true)
+  const [modal, setModal] = React.useState(false)
+  const toggleModal = () => {
+    setModal(!modal)
   }
-  const hidePopover = () => {
-    setOpen(false)
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
   }
+
   return (
-    <div className='group relative inline-block' onMouseEnter={showPopover} onMouseLeave={hidePopover}>
+    <div className='group relative inline-block' onClick={toggleModal}>
       <button className='flex mr-3 items-center text-4xl font-bold text-gray-900 rounded-full ' type='button'>
-        <div className='hidden md:block'>Nguyen Van A</div>
+        Nguyen Van A
         <div className='p-5'>
           <FaUserAlt />
         </div>
       </button>
 
       {/* <!-- Dropdown menu --> */}
-      {open && (
-        <div
-          className='z-10 fix_hover top-14 right-10 transform scale-0 group-hover:scale-100 absolute
-          transition duration-300 ease-in-out md:top-14 bg-white divide-y divide-gray-100 rounded-lg shadow w-56'
-        >
-          <ul className='py-2 text-sm text-gray-700'>
-            <li>
-              <Link to='/profile' className='block px-4 py-2 text-2xl hover:bg-gray-100'>
-                Tài khoản của tôi
-              </Link>
-            </li>
-            <li>
-              <Link to='#' className='block px-4 py-2 text-2xl hover:bg-gray-100'>
-                Đơn mua
-              </Link>
-            </li>
-          </ul>
-          <div className='py-2'>
-            <div onClick={handleLogout} className='block text-red-500 px-4 py-2 text-2xl  hover:bg-gray-100'>
-              Đăng xuất
+      {modal && (
+        <div className='modal'>
+          <div className='overlay'></div>
+          <div className='modal-content bg-white w-[420px]'>
+            <div className='flex justify-between items-center mx-10'>
+              <div className='flex text-4xl justify-center items-center'>
+                <div className='mr-5 '>
+                  <FaUserAlt />
+                </div>
+                Nguyen Van A
+              </div>
+              <div className=' text-6xl font-medium cursor-pointer' onClick={toggleModal}>
+                X
+              </div>
+            </div>
+            <hr className='my-6 mx-16 h-1 bg-gray-500' />
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <BiHomeAlt />
+              </div>
+              <div className='text-4xl'>ホームページ</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <FaUserAlt />
+              </div>
+              <div className='text-4xl'>自分情報</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <AiOutlineCalendar />
+              </div>
+              <div className='text-4xl'>エントリー情報</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <AiOutlineHeart />
+              </div>
+              <div className='text-4xl'>お気に入り</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <AiOutlinePlus />
+              </div>
+              <div className='text-4xl'>新しい仕事の作成</div>
+            </div>
+            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+              <div className='text-5xl pr-8'>
+                <FiLogOut />
+              </div>
+              <div className='text-4xl'>ログアウト</div>
             </div>
           </div>
         </div>
