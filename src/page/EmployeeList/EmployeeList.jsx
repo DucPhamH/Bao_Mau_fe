@@ -39,8 +39,8 @@ export default function EmployeeList() {
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96 pb-16'>
           <div className='relative'>
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
-            <select id='sort' className='bg-[#D9D9D9] border rounded-full mt-12 ml-16 p-2.5 pr-56 font-mono'>
-              <option selected value='A-Z'>
+            <select defaultValue={'A-Z'} id='sort' className='bg-[#D9D9D9] border rounded-full mt-12 ml-16 p-2.5 pr-56 font-mono'>
+              <option value='A-Z'>
                 &#160;&#160;&#160;&#160;&#160;A-Z
               </option>
               <option value='Z-A'>&#160;&#160;&#160;&#160;&#160;Z-A</option>

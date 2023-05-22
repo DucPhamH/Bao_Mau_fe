@@ -6,15 +6,15 @@ export default function Searchbar() {
       <div className='p-5'></div>
       <form>
         <div className='ml-12'>
-          <label for='experience'>経験</label>
+          <label htmlFor='experience'>経験</label>
           <br />
           <input className='my-12 pr-64 bg-[#D9D9D9] rounded-xl px-5 py-2' type='text' id='experience' name='experience' />
           <br />
-          <label for='degree'>給料 ( まで)</label>
+          <label htmlFor='degree'>給料 ( まで)</label>
           <br />
           <input className='my-12 pr-64 bg-[#D9D9D9] rounded-xl px-5 py-2' type='text' id='degree' name='degree' />
           <br />
-          <label for='age'>年齢 ( まで)</label>
+          <label htmlFor='age'>年齢 ( まで)</label>
           <br />
           <input className='my-12 pr-64 bg-[#D9D9D9] rounded-xl px-5 py-2' type='text' id='age' name='age' />
         </div>
