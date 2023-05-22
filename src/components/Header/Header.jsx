@@ -124,9 +124,11 @@ export default function Header() {
         </nav>
       </div>
       <hr /> */}
-      <div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
+      <Link to='/'><div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
         <img className=' w-[60%] h-[80%]' src={logo} alt='' />
-      </div>
+        
+        </div>
+        </Link>
 
       <div className='flex mx-14'>
         <div>
