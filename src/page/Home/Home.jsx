@@ -4,7 +4,7 @@ import bg from '../../asset/img/bg.png'
 export default function Home() {
   return (
     <div className='relative'>
-      <img src={bg} alt='not found' />
+      <img src={bg} alt='not found' className='w-full object-cover' />
       <div className='absolute w-full h-full top-0 left-0'>
         <div className='w-full flex justify-center items-center my-28'>
           <div className='bg-[#9EFFA8] text-[#FA1313] text-8xl font-alex flex justify-center items-center h-36 w-[500px]  rounded-full'>
