@@ -75,20 +75,18 @@ export default function useRouteElement() {
       ]
     },
     {
-      path: 'profile',
-      element: (
-        <Mainlayout>
-          <Profile />
-        </Mainlayout>
-      )
-    },
-    {
-      path: 'employeelist',
-      element: (
-        <Mainlayout>
-          <EmployeeList />
-        </Mainlayout>
-      )
+      path: '',
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: 'profile',
+          element: (
+            <MainLayout>
+              <Profile />
+            </MainLayout>
+          )
+        }
+      ]
     }
   ])
   return routeElement
