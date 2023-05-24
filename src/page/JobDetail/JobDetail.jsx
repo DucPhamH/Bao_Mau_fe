@@ -49,7 +49,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[1] }}
                   onClick={() => handleClick(1)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -59,7 +59,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[2] }}
                   onClick={() => handleClick(2)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -74,7 +74,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[3] }}
                   onClick={() => handleClick(3)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -84,7 +84,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[4] }}
                   onClick={() => handleClick(4)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -100,7 +100,7 @@ export default function JobDetail() {
                   key={1}
                   style={{ color: buttonColors[5] }}
                   onClick={() => handleClick(5)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -110,7 +110,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[6] }}
                   onClick={() => handleClick(6)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -125,7 +125,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[7] }}
                   onClick={() => handleClick(7)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -135,7 +135,7 @@ export default function JobDetail() {
                 <div
                   style={{ color: buttonColors[8] }}
                   onClick={() => handleClick(8)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -151,7 +151,7 @@ export default function JobDetail() {
                   key={1}
                   style={{ color: buttonColors[9] }}
                   onClick={() => handleClick(9)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -162,7 +162,7 @@ export default function JobDetail() {
                   key={2}
                   style={{ color: buttonColors[10] }}
                   onClick={() => handleClick(10)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -178,7 +178,7 @@ export default function JobDetail() {
                   key={1}
                   style={{ color: buttonColors[11] }}
                   onClick={() => handleClick(11)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -189,7 +189,7 @@ export default function JobDetail() {
                   key={2}
                   style={{ color: buttonColors[12] }}
                   onClick={() => handleClick(12)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -205,7 +205,7 @@ export default function JobDetail() {
                   key={1}
                   style={{ color: buttonColors[13] }}
                   onClick={() => handleClick(13)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
@@ -216,7 +216,7 @@ export default function JobDetail() {
                   key={2}
                   style={{ color: buttonColors[14] }}
                   onClick={() => handleClick(14)}
-                  className='flex flex-row mr-36 cursor-pointer hover:text-green-500'
+                  className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                 >
                   <div className='mr-12'>
                     <BiCheckCircle />
