@@ -4,14 +4,15 @@ import { currentAccount } from '../../api/auth.api'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
 import { useState } from 'react'
 export default function Profile() {
-  // const { data: userData } = useQuery({
-  //   queryKey: ['profile'],
-  //   queryFn: () => {
-  //     return currentAccount()
-  //   }
-  // })
-  // const user = userData?.data
-  // console.log(user)
+  const { data: userData } = useQuery({
+    queryKey: ['profile'],
+    queryFn: () => {
+      return currentAccount()
+    }
+  })
+  const user = userData?.data
+  console.log(user)
+
   let password
   const [showPassword, setShowPassword] = useState(false)
   function toggleShowPassword() {
