@@ -12,10 +12,12 @@ export default function Profile() {
   // const user = userData?.data
   // console.log(user)
   return (
-    <div className='w-full flex bg-[#DCEAFF]'>
-      <div className='flex mx-16 mt-32'>
-        <div className=''>profile</div>
-        <div>profile2</div>
+    <div className='w-full bg-[#DCEAFF]'>
+      <div className='mx-16'>
+        <button className='bg-[#FED5D5] font-itim px-8 rounded-full py-1 border border-black float-right'>
+          Update
+        </button>
+        <div>abcd</div>
       </div>
     </div>
   )
