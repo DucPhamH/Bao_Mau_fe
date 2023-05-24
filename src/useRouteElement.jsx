@@ -10,15 +10,25 @@ import { useContext } from 'react'
 import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 
+// const isAuthenticated = false
 // function ProtectedRoute() {
-//   const { isAuthenticated } = useContext(AppContext)
 //   return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
 // }
 
 // function RejectedRoute() {
-//   const { isAuthenticated } = useContext(AppContext)
 //   return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
-// }
+//}
+
+function ProtectedRoute() {
+  const { isAuthenticated } = useContext(AppContext)
+  console.log(isAuthenticated)
+  return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
+}
+
+function RejectedRoute() {
+  const { isAuthenticated } = useContext(AppContext)
+  return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
+}
 
 export default function useRouteElement() {
   const routeElement = useRoutes([
@@ -31,30 +41,7 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    {
-      path: 'login',
-      element: (
-        <RegisterLayout>
-          <Login />
-        </RegisterLayout>
-      )
-    },
-    {
-      path: 'register',
-      element: (
-        <RegisterLayout>
-          <Register />
-        </RegisterLayout>
-      )
-    },
-    {
-      path: 'profile',
-      element: (
-        <Mainlayout>
-          <Profile />
-        </Mainlayout>
-      )
-    },
+
     {
       path: 'employeelist',
       element: (
@@ -62,44 +49,44 @@ export default function useRouteElement() {
           <EmployeeList />
         </Mainlayout>
       )
-    }
+    },
 
-    // {
-    //   path: '',
-    //   element: <MainLayout />,
-    //   children: [
-    //     {
-    //       path: 'login',
-    //       element: (
-    //         <RegisterLayout>
-    //           <Login />
-    //         </RegisterLayout>
-    //       )
-    //     },
-    //     {
-    //       path: 'register',
-    //       element: (
-    //         <RegisterLayout>
-    //           <Register />
-    //         </RegisterLayout>
-    //       )
-    //     }
-    //   ]
-    // }
-    // {
-    //   path: '',
-    //   element: <ProtectedRoute />,
-    //   children: [
-    //     {
-    //       path: 'profile',
-    //       element: (
-    //         <MainLayout>
-    //           <Profile />
-    //         </MainLayout>
-    //       )
-    //     }
-    //   ]
-    // }
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: 'login',
+          element: (
+            <RegisterLayout>
+              <Login />
+            </RegisterLayout>
+          )
+        },
+        {
+          path: 'register',
+          element: (
+            <RegisterLayout>
+              <Register />
+            </RegisterLayout>
+          )
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: 'profile',
+          element: (
+            <MainLayout>
+              <Profile />
+            </MainLayout>
+          )
+        }
+      ]
+    }
   ])
   return routeElement
 }

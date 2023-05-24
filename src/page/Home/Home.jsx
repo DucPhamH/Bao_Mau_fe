@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import bg from '../../asset/img/bg.png'
+import { AppContext } from '../../contexts/app.context'
 
 export default function Home() {
+  // const { isAuthenticated } = useContext(AppContext)
+  // console.log(isAuthenticated)
   return (
     <div className='relative'>
       <img src={bg} alt='not found' className='w-full object-cover' />
