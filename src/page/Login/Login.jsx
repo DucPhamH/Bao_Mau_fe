@@ -12,9 +12,10 @@ import { AppContext } from '../../contexts/app.context'
 import logo from '../../asset/img/babysister.png'
 import { FiPhoneCall } from 'react-icons/fi'
 import { BsFillEyeSlashFill } from 'react-icons/bs'
+import { getInfoFromLS } from '../../utils/auth'
 
 export default function Login() {
-  const { setIsAuthenticated } = useContext(AppContext)
+  const { setIsAuthenticated, setInfo } = useContext(AppContext)
   const navigate = useNavigate()
 
   const {
@@ -36,6 +37,7 @@ export default function Login() {
       onSuccess: (data) => {
         console.log(data)
         toast(data.data?.message)
+        setInfo(getInfoFromLS())
         setIsAuthenticated(true)
         navigate('/')
       },

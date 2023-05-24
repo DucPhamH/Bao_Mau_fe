@@ -54,8 +54,12 @@ instance.interceptors.response.use(
       saveInfoFromLS(response.data.data.user)
       saveAccessTokenToLS(accessToken)
     } else if (url === 'users/logout') {
+      console.log(response.data)
       accessToken = ''
       clearAccessTokenFromLS()
+      toast(response.data.message)
+
+      // window.location.reload()
     }
     return response
   },
@@ -64,6 +68,14 @@ instance.interceptors.response.use(
       const data = error.response?.data
       const message = data.message || error.message
       toast.error(message)
+    }
+    if (error.response?.status === HttpStatusCode.Unauthorized) {
+      const data = error.response?.data
+      console.log(data)
+      const message = data.message || error.message
+      clearAccessTokenFromLS()
+      toast.error(message)
+      window.location.reload()
     }
     return Promise.reject(error)
   }

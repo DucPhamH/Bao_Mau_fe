@@ -1,16 +1,16 @@
-// import { useQuery } from '@tanstack/react-query'
-// import React from 'react'
-// import { currentAccount } from '../../api/auth.api'
+import { useQuery } from '@tanstack/react-query'
+import React from 'react'
+import { currentAccount } from '../../api/auth.api'
 
 export default function Profile() {
-  // const { data: userData, isLoading } = useQuery({
-  //   queryKey: ['products'],
-  //   queryFn: () => {
-  //     return currentAccount()
-  //   }
-  // })
-  // const user = userData?.data
-  // console.log(user)
+  const { data: userData } = useQuery({
+    queryKey: ['profile'],
+    queryFn: () => {
+      return currentAccount()
+    }
+  })
+  const user = userData?.data
+  console.log(user)
   return (
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16'>
