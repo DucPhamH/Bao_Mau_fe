@@ -9,7 +9,6 @@ import EmployeeList from './page/EmployeeList'
 import { useContext } from 'react'
 import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
-import UserInfo from './page/UserInfo'
 
 // const isAuthenticated = false
 // function ProtectedRoute() {
@@ -48,15 +47,6 @@ export default function useRouteElement() {
       element: (
         <Mainlayout>
           <EmployeeList />
-        </Mainlayout>
-      )
-    },
-
-    {
-      path: 'userinfo',
-      element: (
-        <Mainlayout>
-          <UserInfo />
         </Mainlayout>
       )
     },
