@@ -66,12 +66,18 @@ export default function useRouteElement() {
       ]
     },
     {
-      path: 'profile',
-      element: (
-        <Mainlayout>
-          <Profile />
-        </Mainlayout>
-      )
+      path: '',
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: 'profile',
+          element: (
+            <MainLayout>
+              <Profile />
+            </MainLayout>
+          )
+        }
+      ]
     },
     {
       path: 'employeelist',
