@@ -1,22 +1,27 @@
 import { createContext, useState } from 'react'
-import { getAccessTokenFromLS } from '../utils/auth'
+import { getAccessTokenFromLS, getInfoFromLS } from '../utils/auth'
 
 const initialAppContext = {
   isAuthenticated: Boolean(getAccessTokenFromLS()),
-  setIsAuthenticated: () => null
+  setIsAuthenticated: () => null,
+  info: getInfoFromLS(),
+  setInfo: () => null
 }
 
 export const AppContext = createContext(initialAppContext)
 
 export const AppProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(initialAppContext.isAuthenticated)
-  console.log(getAccessTokenFromLS())
-  console.log(isAuthenticated)
+  const [info, setInfo] = useState(initialAppContext.info)
+  //console.log(getAccessTokenFromLS())
+  //console.log(info)
   return (
     <AppContext.Provider
       value={{
         isAuthenticated,
-        setIsAuthenticated
+        setIsAuthenticated,
+        info,
+        setInfo
       }}
     >
       {children}

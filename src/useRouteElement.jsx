@@ -11,15 +11,16 @@ import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 import JobDetail from './page/JobDetail'
 
-// function ProtectedRoute() {
-//   const { isAuthenticated } = useContext(AppContext)
-//   return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
-// }
+function ProtectedRoute() {
+  const { isAuthenticated } = useContext(AppContext)
+  console.log(isAuthenticated)
+  return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
+}
 
-// function RejectedRoute() {
-//   const { isAuthenticated } = useContext(AppContext)
-//   return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
-// }
+function RejectedRoute() {
+  const { isAuthenticated } = useContext(AppContext)
+  return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
+}
 
 export default function useRouteElement() {
   const routeElement = useRoutes([
@@ -32,21 +33,37 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
+
     {
-      path: 'login',
+      path: 'employeelist',
       element: (
-        <RegisterLayout>
-          <Login />
-        </RegisterLayout>
+        <Mainlayout>
+          <EmployeeList />
+        </Mainlayout>
       )
     },
+
     {
-      path: 'register',
-      element: (
-        <RegisterLayout>
-          <Register />
-        </RegisterLayout>
-      )
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: 'login',
+          element: (
+            <RegisterLayout>
+              <Login />
+            </RegisterLayout>
+          )
+        },
+        {
+          path: 'register',
+          element: (
+            <RegisterLayout>
+              <Register />
+            </RegisterLayout>
+          )
+        }
+      ]
     },
     {
       path: 'profile',
@@ -63,52 +80,7 @@ export default function useRouteElement() {
           <EmployeeList />
         </Mainlayout>
       )
-    },
-    {
-      path: 'jobdetail',
-      element: (
-        <MainLayout>
-          <JobDetail />
-        </MainLayout>
-      )
     }
-
-    // {
-    //   path: '',
-    //   element: <MainLayout />,
-    //   children: [
-    //     {
-    //       path: 'login',
-    //       element: (
-    //         <RegisterLayout>
-    //           <Login />
-    //         </RegisterLayout>
-    //       )
-    //     },
-    //     {
-    //       path: 'register',
-    //       element: (
-    //         <RegisterLayout>
-    //           <Register />
-    //         </RegisterLayout>
-    //       )
-    //     }
-    //   ]
-    // }
-    // {
-    //   path: '',
-    //   element: <ProtectedRoute />,
-    //   children: [
-    //     {
-    //       path: 'profile',
-    //       element: (
-    //         <MainLayout>
-    //           <Profile />
-    //         </MainLayout>
-    //       )
-    //     }
-    //   ]
-    // }
   ])
   return routeElement
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import HttpStatusCode from '../constants/httpStatusCode.enum'
-import { clearAccessTokenFromLS, getAccessTokenFromLS, saveAccessTokenToLS } from './auth'
+import { clearAccessTokenFromLS, getAccessTokenFromLS, saveAccessTokenToLS, saveInfoFromLS } from './auth'
 
 // class Http {
 //   private accessToken
@@ -28,8 +28,10 @@ var accessToken = getAccessTokenFromLS()
 
 instance.interceptors.request.use(
   (config) => {
+    //console.log(config)
     if (accessToken && config.headers) {
       config.headers.Authorization = accessToken
+      console.log(config.headers.Authorization)
       return config
     }
     return config
@@ -46,8 +48,10 @@ instance.interceptors.response.use(
 
     if (url === 'users/login') {
       // console.log(url)
+
       accessToken = response.data.data.accessToken
-      console.log(accessToken)
+      //console.log(accessToken)
+      saveInfoFromLS(response.data.data.user)
       saveAccessTokenToLS(accessToken)
     } else if (url === 'users/logout') {
       accessToken = ''
