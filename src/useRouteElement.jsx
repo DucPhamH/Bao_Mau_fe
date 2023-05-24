@@ -11,15 +11,6 @@ import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 import UserInfo from './page/UserInfo'
 
-// const isAuthenticated = false
-// function ProtectedRoute() {
-//   return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
-// }
-
-// function RejectedRoute() {
-//   return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
-//}
-
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
   console.log(isAuthenticated)
