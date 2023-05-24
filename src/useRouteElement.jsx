@@ -53,6 +53,15 @@ export default function useRouteElement() {
     },
 
     {
+      path: 'userinfo',
+      element: (
+        <Mainlayout>
+          <UserInfo />
+        </Mainlayout>
+      )
+    },
+
+    {
       path: '',
       element: <RejectedRoute />,
       children: [
