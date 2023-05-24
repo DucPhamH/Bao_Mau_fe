@@ -80,6 +80,14 @@ export default function useRouteElement() {
           <EmployeeList />
         </Mainlayout>
       )
+    },
+    {
+      path: 'jobdetail',
+      element: (
+        <MainLayout>
+          <JobDetail />
+        </MainLayout>
+      )
     }
   ])
   return routeElement
