@@ -29,7 +29,9 @@ export default function JobDetail() {
               言語: 日本語、英語
             </div>
             <div>
-              <button className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'>応募する</button>
+              <button className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'>
+                応募する
+              </button>
             </div>
           </div>
           <div className='mt-12'>仕事の詳細情報:</div>
