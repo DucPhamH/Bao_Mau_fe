@@ -11,9 +11,9 @@ export default function Employee() {
         <div>
           <div className='mt-2 cursor-pointer'>Lê Thị A</div>
           <div className='flex -ml-1.5 mt-1'>
-            <GiPositionMarker size={20}/>
+            <GiPositionMarker size={20} />
             <div className='-mt-1 font-bold text-3xl'>東京</div>
-        </div>
+          </div>
           <div className='flex my-8'>
             <div className='pr-20'>年齢 : 20</div>
             <div className='pr-40'>実験 :2 年</div>
