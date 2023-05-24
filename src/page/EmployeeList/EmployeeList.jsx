@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
-import Sidebar from '../../components/Sidebar/Sidebar'
+import Employee from '../../components/Employee'
+import Searchbar from '../../components/Searchbar/Searchbar'
 import { useState } from 'react'
 export default function EmployeeList() {
   const [isActive, setIsActive] = useState(false)
@@ -12,7 +13,7 @@ export default function EmployeeList() {
   }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
-      <div className='flex-col col-span-2 mx-16 mt-96'>
+      <div className='flex-col col-span-2 mx-16 mt-32'>
         <div className='flex justify-between'>
           <button
             className={
@@ -35,23 +36,27 @@ export default function EmployeeList() {
             料理人 (219)
           </button>
         </div>
-        <div className='w-full mt-10 bg-[#ffffff] rounded-full mb-96'>
+        <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96 pb-16'>
           <div className='relative'>
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
-            <select id='sort' className='bg-[#D9D9D9] border rounded-full mt-12 ml-16 p-2.5 pr-56 font-mono'>
-              <option selected value='A-Z'>
-                &#160;&#160;&#160;&#160;&#160;A-Z
-              </option>
+            <select
+              defaultValue={'A-Z'}
+              id='sort'
+              className='bg-[#D9D9D9] border rounded-full mt-12 ml-16 p-2.5 pr-56 font-mono'
+            >
+              <option value='A-Z'>&#160;&#160;&#160;&#160;&#160;A-Z</option>
               <option value='Z-A'>&#160;&#160;&#160;&#160;&#160;Z-A</option>
             </select>
           </div>
-          <div></div>
+          <Employee></Employee>
+          <Employee></Employee>
+          <Employee></Employee>
         </div>
       </div>
       <div className='col-span-1 mx-20'>
         {/* chỉnh sửa tiếp */}
         {/*  */}
-        <Sidebar></Sidebar>
+        <Searchbar></Searchbar>
         {/*  */}
         {/*  */}
       </div>
