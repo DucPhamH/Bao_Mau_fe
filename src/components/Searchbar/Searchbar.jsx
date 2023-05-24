@@ -8,7 +8,12 @@ export default function Searchbar() {
         <div className='ml-12'>
           <label htmlFor='experience'>経験</label>
           <br />
-          <input className='my-12 pr-64 bg-[#D9D9D9] rounded-xl px-5 py-2' type='text' id='experience' name='experience' />
+          <input
+            className='my-12 pr-64 bg-[#D9D9D9] rounded-xl px-5 py-2'
+            type='text'
+            id='experience'
+            name='experience'
+          />
           <br />
           <label htmlFor='degree'>給料 ( まで)</label>
           <br />
