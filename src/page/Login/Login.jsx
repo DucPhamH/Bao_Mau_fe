@@ -74,7 +74,7 @@ export default function Login() {
       <form className='w-full px-10' onSubmit={onSubmit} noValidate>
         <div className=' relative mb-10'>
           <label className='block mb-2 text-xl text-black'>電話番号を入力する</label>
-          <div className='absolute right-0 flex items-center pr-5 justify-center bottom-12 pointer-events-none'>
+          <div className='absolute right-0 flex items-center pr-5 justify-center bottom-12 cursor-default scale-150 top-[40%]'>
             <FiPhoneCall />
           </div>
           <input
