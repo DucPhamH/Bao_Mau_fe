@@ -13,8 +13,8 @@ export default function Home() {
           </div>
         </div>
         <div className='w-full flex justify-center items-center'>
-          <button className='bg-[#87FDE8] mx-5 font-itim text-4xl py-12 px-[550px]  rounded-full'>
-            ウェブサイトのスローガン
+          <button className='bg-[#87FDE8] mx-5 font-dotgothic text-4xl py-12 px-[550px] rounded-full'>
+            お前はもう死んでいる
           </button>
         </div>
       </div>
