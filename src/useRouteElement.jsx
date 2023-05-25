@@ -10,6 +10,8 @@ import { useContext } from 'react'
 import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 import JobDetail from './page/JobDetail'
+import EmployeeInfo from './page/EmployeeInfo'
+import Employee from './components/Employee'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -92,6 +94,14 @@ export default function useRouteElement() {
       element: (
         <MainLayout>
           <JobDetail />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'employeeinfo',
+      element: (
+        <MainLayout>
+          <EmployeeInfo />
         </MainLayout>
       )
     }
