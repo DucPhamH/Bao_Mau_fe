@@ -57,7 +57,9 @@ function UserAvatar({ handleLogout, info }) {
               <div className='text-5xl pr-8'>
                 <FaUserAlt />
               </div>
-              <div className='text-4xl'>自分情報</div>
+              <Link to='/profile'>
+                <div className='text-4xl'>自分情報</div>
+              </Link>
             </div>
             <div className='mx-20 mb-6 cursor-pointer flex items-center'>
               <div className='text-5xl pr-8'>

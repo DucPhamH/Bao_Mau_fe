@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../../contexts/app.context'
 import { useMutation } from '@tanstack/react-query'
@@ -34,9 +34,11 @@ export default function Header() {
 
   return (
     <header className='bg-white w-full h-full flex items-center justify-between border border-b-black  '>
-      <div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
-        <img className=' w-[60%] h-[80%]' src={logo} alt='' />
-      </div>
+      <Link to='/'>
+        <div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
+          <img className=' w-[60%] h-[80%]' src={logo} alt='' />
+        </div>
+      </Link>
 
       <div className='flex mx-14'>
         {!isAuthenticated ? (
