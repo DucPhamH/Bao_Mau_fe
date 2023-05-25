@@ -115,20 +115,18 @@ export default function Profile() {
               <textarea
                 disabled
                 className='bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-              >
-                みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
-              </textarea>
+                value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+              ></textarea>
               <div className='ml-2 mt-12'>詳細情報</div>
               <textarea
                 disabled
                 className='bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
-              >
-                みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
+                value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
                 事前課題が終わった人は、このスレッドへの返信で完了報告をお願いします。 期限：5月24日(水)　13:00
                 報告文サンプルは事前学習資料にありますので、確認してください。
                 今回はスプレッドシートでの提出のため、完了報告がないと、終わったかどうか判断できません。
-                報告がなければ0点になりますので、ご注意ください。
-              </textarea>
+                報告がなければ0点になりますので、ご注意ください。'
+              ></textarea>
             </div>
           </div>
         </div>
@@ -136,13 +134,17 @@ export default function Profile() {
           <div className='bg-[#FFFFFF] rounded-3xl col-span-1 border-2 border-[#B9BFC9]'>
             <div className='mx-12 my-8'>
               <div>程度</div>
-              <textarea disabled className='mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'>
-                みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
-              </textarea>
+              <textarea
+                disabled
+                className='mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
+                value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+              ></textarea>
               <div className='mt-6'>実験</div>
-              <textarea disabled className='mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'>
-                みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
-              </textarea>
+              <textarea
+                disabled
+                className='mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
+                value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+              ></textarea>
             </div>
           </div>
           <div className='bg-[#FFFFFF] rounded-3xl col-start-2 col-span-1 border-2 border-[#B9BFC9]'>
@@ -151,9 +153,8 @@ export default function Profile() {
               <textarea
                 disabled
                 className='bg-[rgba(217,217,217,0.15)] mt-4 border rounded-xl border-black h-36 px-4 py-2 w-full resize-none'
-              >
-                みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
-              </textarea>
+                value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+              ></textarea>
             </div>
           </div>
         </div>
