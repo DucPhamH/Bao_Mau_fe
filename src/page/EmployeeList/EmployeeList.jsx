@@ -18,7 +18,7 @@ export default function EmployeeList() {
           <button
             className={
               isActive
-                ? 'bg-[#7101ff] text-white font-itim text-4xl cols-span-4 py-5 rounded-full'
+                ? 'bg-[#7101ff] text-white font-itim text-4xl col-span-4 py-5 rounded-full'
                 : 'bg-[#ffffff] font-itim text-4xl py-5 col-span-4 rounded-full'
             }
             onClick={option1}
