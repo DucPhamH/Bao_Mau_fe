@@ -53,14 +53,15 @@ function UserAvatar({ handleLogout, info }) {
               </div>
               <div className='text-4xl'>ホームページ</div>
             </div>
-            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
-              <div className='text-5xl pr-8'>
-                <FaUserAlt />
-              </div>
-              <Link to='/profile'>
+            <Link to='/profile'>
+              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='text-5xl pr-8'>
+                  <FaUserAlt />
+                </div>
+
                 <div className='text-4xl'>自分情報</div>
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div className='mx-20 mb-6 cursor-pointer flex items-center'>
               <div className='text-5xl pr-8'>
                 <AiOutlineCalendar />
