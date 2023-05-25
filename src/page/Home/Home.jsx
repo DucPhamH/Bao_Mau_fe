@@ -13,9 +13,12 @@ export default function Home() {
           </div>
         </div>
         <div className='w-full flex justify-center items-center'>
-          <button className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 w-full rounded-full'>
+          {/* <button className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 w-full rounded-full'>
             お前はもう死んでいる
-          </button>
+          </button> */}
+          <div className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 w-full rounded-full text-center'>
+            お前はもう死んでいる
+          </div>
         </div>
       </div>
     </div>
