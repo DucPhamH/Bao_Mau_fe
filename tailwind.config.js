@@ -11,8 +11,21 @@ module.exports = {
         xl: '1280px',
         '2xl': '1536px'
       },
-      fontFamily: { ankokuzonji: ['Ankoku Zonji'] }
-    },
-    plugins: [require('@tailwindcss/line-clamp')]
-  }
+      fontFamily: { ankokuzonji: ['Ankoku Zonji'] },
+      keyframes: {
+        move: {
+          '0%': {
+            transform: 'translate(100%)'
+          },
+          '100%': {
+            transform: 'translate(-100%)'
+          }
+        }
+      },
+      animation: {
+        move: 'move 10s linear infinite'
+      }
+    }
+  },
+  plugins: [require('@tailwindcss/line-clamp')]
 }

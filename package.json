@@ -26,6 +26,8 @@
     "react-toastify": "^9.1.2",
     "sass": "^1.62.0",
     "slick-carousel": "^1.8.1",
+    "tailwindcss-animation": "^1.0.1",
+    "tailwindcss-animation-delay": "^1.0.7",
     "tailwindcss-text-indent": "^1.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.1.1"

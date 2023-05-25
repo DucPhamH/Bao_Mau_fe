@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { currentAccount } from '../../api/auth.api'
-import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
 import { useState } from 'react'
 export default function Profile() {
   const { data: userData } = useQuery({
@@ -13,7 +12,7 @@ export default function Profile() {
   const user = userData?.data
   console.log(user)
 
-  const [showPassword, setShowPassword] = useState(false)
+  // const [showPassword, setShowPassword] = useState(false)
   // function toggleShowPassword() {
   //   setShowPassword((current) => !current)
   // }
@@ -37,9 +36,9 @@ export default function Profile() {
   //   )
   // }
 
-  const toggleShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
+  // const toggleShowPassword = () => {
+  //   setShowPassword(!showPassword)
+  // }
 
   return (
     <div className='w-full bg-[#DCEAFF]'>
