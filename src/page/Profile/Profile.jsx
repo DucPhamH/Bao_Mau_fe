@@ -40,9 +40,7 @@ export default function Profile() {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword)
   }
-  const toggleHidePassword = () => {
-    setShowPassword(false)
-  }
+
   return (
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>

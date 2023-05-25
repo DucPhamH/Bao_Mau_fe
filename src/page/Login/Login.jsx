@@ -8,10 +8,10 @@ import { toast } from 'react-toastify'
 import { isAxiosUnprocessableEntityError } from '../../utils/utils'
 import { useContext } from 'react'
 import { AppContext } from '../../contexts/app.context'
-
+import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
+import { useState } from 'react'
 import logo from '../../asset/img/babysister.png'
 import { FiPhoneCall } from 'react-icons/fi'
-import { BsFillEyeSlashFill } from 'react-icons/bs'
 import { getInfoFromLS } from '../../utils/auth'
 
 export default function Login() {
@@ -56,6 +56,11 @@ export default function Login() {
       }
     })
   })
+  const [showPassword, setShowPassword] = useState(false)
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+
   return (
     <div>
       <div className='flex w-full justify-between items-center pb-10 px-10'>
@@ -84,11 +89,14 @@ export default function Login() {
 
         <div className=' relative mb-10'>
           <label className='block mb-2 text-xl font-medium text-black'>パスワードを入力する</label>
-          <div className='absolute right-0 flex items-center pr-5 justify-center bottom-12 pointer-events-none'>
-            <BsFillEyeSlashFill />
+          <div
+            className='absolute right-0 flex items-center pr-5 justify-center bottom-12 top-[40%] cursor-pointer scale-150'
+            onClick={toggleShowPassword}
+          >
+            {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
           </div>
           <input
-            type='password'
+            type={showPassword ? `text` : `password`}
             id='password'
             name='password'
             autoComplete='on'
