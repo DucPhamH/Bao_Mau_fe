@@ -52,10 +52,7 @@ export default function Profile() {
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
               <div className='my-12 text-center'>
                 <div className='rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'>
-                  <img
-                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/768px-Steam_icon_logo.svg.png'
-                    alt=''
-                  />
+                  <img src='https://www.streamscheme.com/wp-content/uploads/2020/04/poggers.png.webp' alt='' />
                 </div>
                 <div>
                   <input className='bg-[#e8e7e74d] border-2 rounded-full text-center' disabled value='Le Thi A'></input>

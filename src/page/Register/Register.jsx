@@ -49,7 +49,7 @@ export default function Register() {
   })
 
   return (
-    <div>
+    <div className='font-itim'>
       <div className='flex w-full justify-between items-center pb-16 px-10'>
         <div className='w-[70px] h-[90px]  flex justify-center items-center bg-[#42FCCF] border border-black'>
           <img className=' w-[60%] h-[80%]' src={logo} alt='' />
@@ -105,7 +105,7 @@ export default function Register() {
           <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.confirm_password?.message}</div>
         </div>
         <div>
-          <label className='block mb-2 text-xl font-medium text-black'>オブジェクトを選択</label>
+          <label className='block mb-2 text-xl text-black'>オブジェクトを選択</label>
           <div className='flex w-full justify-between items-center my-5'>
             <div className='flex bg-[#D9D9D9] rounded-full p-2 items-center'>
               <label htmlFor='default-radio-1' className='mr-2 text-2xl text-black'>
@@ -136,8 +136,8 @@ export default function Register() {
           </div>
         </div>
         <div className='w-full flex justify-center items-center pt-14'>
-          <button className='bg-[#D324D7] hover:bg-blue-500  mx-5 text-white py-4 px-8 hover:border hover:border-black rounded-full'>
-            サインアップ
+          <button className='bg-[#D324D7] hover:bg-blue-500  mx-5 text-white py-4 px-8 border rounded-full'>
+            登録
           </button>
         </div>
       </form>

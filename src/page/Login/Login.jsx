@@ -62,7 +62,7 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <div className='font-itim'>
       <div className='flex w-full justify-between items-center pb-10 px-10'>
         <div className='w-[70px] h-[90px]  flex justify-center items-center bg-[#42FCCF] border border-black'>
           <img className=' w-[60%] h-[80%]' src={logo} alt='' />
@@ -73,7 +73,7 @@ export default function Login() {
       </div>
       <form className='w-full px-10' onSubmit={onSubmit} noValidate>
         <div className=' relative mb-10'>
-          <label className='block mb-2 text-xl font-medium text-black'>電話番号を入力する</label>
+          <label className='block mb-2 text-xl text-black'>電話番号を入力する</label>
           <div className='absolute right-0 flex items-center pr-5 justify-center bottom-12 pointer-events-none'>
             <FiPhoneCall />
           </div>
@@ -88,7 +88,7 @@ export default function Login() {
         </div>
 
         <div className=' relative mb-10'>
-          <label className='block mb-2 text-xl font-medium text-black'>パスワードを入力する</label>
+          <label className='block mb-2 text-xl text-black'>パスワードを入力する</label>
           <div
             className='absolute right-0 flex items-center pr-5 justify-center bottom-12 top-[40%] cursor-pointer scale-150'
             onClick={toggleShowPassword}
@@ -107,7 +107,7 @@ export default function Login() {
         </div>
 
         <div className='w-full flex justify-center items-center pt-14'>
-          <button className='bg-[#D324D7] hover:bg-blue-500  mx-5 text-white py-4 px-8 hover:border hover:border-black rounded-full'>
+          <button className='bg-[#D324D7] hover:bg-blue-500  mx-5 text-white py-4 px-8 border rounded-full'>
             ログイン
           </button>
         </div>
