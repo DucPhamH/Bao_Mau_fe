@@ -69,19 +69,6 @@ export default function Profile() {
               <div className='bg-[rgba(217,217,217,0.15)] rounded-xl border py-1 border-black'>
                 <div className='mx-3'>012345678</div>
               </div>
-
-              <div className='w-full relative'>
-                <div className='ml-5 mt-5'>パスワード</div>
-                <div className='right-4 top-[60%] absolute cursor-pointer scale-150' onClick={toggleShowPassword}>
-                  {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                </div>
-                <input
-                  type={showPassword ? `text` : `password`}
-                  className='bg-[rgba(217,217,217,0.15)] px-4  rounded-xl border py-1 w-full border-black'
-                  value='123456'
-                  disabled
-                ></input>
-              </div>
             </div>
           </div>
           <div className='bg-[#FFFFFF] rounded-3xl col-start-3 row-start-1 col-span-6 row-span-5 border-2 border-[#B9BFC9]'>
