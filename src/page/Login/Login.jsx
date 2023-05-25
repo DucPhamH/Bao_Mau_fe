@@ -67,7 +67,7 @@ export default function Login() {
         <div className='w-[70px] h-[90px]  flex justify-center items-center bg-[#42FCCF] border border-black'>
           <img className=' w-[60%] h-[80%]' src={logo} alt='' />
         </div>
-        <div className='text-4xl text-blue-700 underline'>
+        <div className='text-4xl text-[#D324D7] underline'>
           <Link to='/register'>登録</Link>
         </div>
       </div>

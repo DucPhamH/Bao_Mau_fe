@@ -54,7 +54,7 @@ export default function Register() {
         <div className='w-[70px] h-[90px]  flex justify-center items-center bg-[#42FCCF] border border-black'>
           <img className=' w-[60%] h-[80%]' src={logo} alt='' />
         </div>
-        <div className='text-6xl text-blue-700 mr-48 mt-28'>登録</div>
+        <div className='text-6xl text-[#D324D7] mr-48 mt-28'>登録</div>
       </div>
       <form className='w-full px-10' onSubmit={onSubmit} noValidate>
         <div className=' relative mb-10'>

@@ -46,7 +46,7 @@ export default function Header() {
             <div>
               <button
                 onClick={toggleOpenLogin}
-                className='bg-[#D9D9D9] hover:bg-gray-500 mx-5 text-black font-itim py-8 px-16 hover:border hover:border-black rounded-full'
+                className='bg-[#D9D9D9] hover:bg-gray-500 mx-5 text-black font-itim text-4xl py-6 px-7 hover:border hover:border-black rounded-3xl'
               >
                 ログイン
               </button>
@@ -54,7 +54,7 @@ export default function Header() {
             <div>
               <button
                 onClick={toggleOpenRegister}
-                className='bg-[#D9D9D9] hover:bg-gray-500 mx-5 text-black font-itim py-8 px-16 hover:border hover:border-black rounded-full'
+                className='bg-[#D9D9D9] hover:bg-gray-500 mx-5 text-black font-itim text-4xl py-6 px-7 hover:border hover:border-black rounded-3xl'
               >
                 サインアップ
               </button>
