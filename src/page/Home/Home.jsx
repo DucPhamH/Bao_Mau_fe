@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import bg from '../../asset/img/bg.png'
+import pepe from '../../asset/img/pepe.png'
 import { AppContext } from '../../contexts/app.context'
 
 export default function Home() {
@@ -16,9 +17,11 @@ export default function Home() {
         {/* <button className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 w-full rounded-full'>
             お前はもう死んでいる
           </button> */}
-        <div className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 rounded-full'>
-          <div className='animate-move whitespace-nowrap overflow-hidden'>
-            <p className=''>お前はもう死んでいる</p>
+        <div className='bg-[#87FDE8] mx-5 font-unown text-8xl py-12 rounded-full'>
+          <div className='animate-move whitespace-nowrap overflow-hidden flex'>
+            <img src={pepe} alt='' className='h-24' />
+            <p className=''>omae ha mou shindeiru</p>
+            <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' />
           </div>
         </div>
       </div>

@@ -10,8 +10,8 @@ html {
 
 @layer base {
   @font-face {
-    font-family: 'Ankoku Zonji';
-    src: url(./asset/font/Zomzi.TTF) format('truetype');
+    font-family: 'Unown';
+    src: url(./asset/font/Unown.ttf) format('truetype');
   }
 }
 

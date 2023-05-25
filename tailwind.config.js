@@ -11,7 +11,7 @@ module.exports = {
         xl: '1280px',
         '2xl': '1536px'
       },
-      fontFamily: { ankokuzonji: ['Ankoku Zonji'] },
+      fontFamily: { unown: ['Unown'] },
       keyframes: {
         move: {
           '0%': {
