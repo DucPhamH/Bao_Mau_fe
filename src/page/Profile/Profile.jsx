@@ -115,16 +115,17 @@ export default function Profile() {
                     <div className='ml-2'>性別</div>
                     <input
                       className='bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
+                      disabled
                       value='female'
                     ></input>
                   </div>
                   <div className='row-start-2 col-start-1 col-span-2'>
                     <div className='ml-2'>誕生日</div>
-                    <input className='border w-full rounded-xl text-center py-1' value='6/9/6969'></input>
+                    <input className='border w-full rounded-xl text-center py-1' value='6/9/6969' disabled></input>
                   </div>
                   <div className='row-start-2 col-start-3 col-span-2'>
                     <div className='ml-2'>給料</div>
-                    <input className='border rounded-xl w-full text-center py-1' value='200円'></input>
+                    <input className='border rounded-xl w-full text-center py-1' value='200円' disabled></input>
                   </div>
                 </div>
                 <div className='ml-2 mt-6'>Your Address</div>
