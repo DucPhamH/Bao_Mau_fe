@@ -58,22 +58,18 @@ export default function Profile() {
                   />
                 </div>
                 <div>
-                  <input
-                    className='bg-[#e8e7e74d] m-auto w-fit px-16 border-2 rounded-full text-center'
-                    disabled
-                    value='Le Thi A'
-                  ></input>
+                  <input className='bg-[#e8e7e74d] border-2 rounded-full text-center' disabled value='Le Thi A'></input>
                 </div>
                 <div>
                   <input
-                    className='m-auto w-fit px-16 mt-2 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'
+                    className='px-6 mt-2 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'
                     disabled
                     value='nguyenvana123@gmail.com'
                   ></input>
                 </div>
                 <div>
                   <input
-                    className='m-auto w-fit px-24 bg-[#D9D9D9] text-center mt-12 rounded-lg py-2'
+                    className='px-24 bg-[#D9D9D9] text-center mt-12 rounded-lg py-2'
                     disabled
                     value='Employee'
                   ></input>

@@ -10,7 +10,8 @@ module.exports = {
         lg: '1024px',
         xl: '1280px',
         '2xl': '1536px'
-      }
+      },
+      fontFamily: { ankokuzonji: ['Ankoku Zonji'] }
     },
     plugins: [require('@tailwindcss/line-clamp')]
   }
