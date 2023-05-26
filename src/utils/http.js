@@ -82,5 +82,6 @@ instance.interceptors.response.use(
 )
 
 const http = instance
+console.log(http.headers)
 
 export default http
