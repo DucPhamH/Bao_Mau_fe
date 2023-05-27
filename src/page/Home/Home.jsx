@@ -5,7 +5,7 @@ import { AppContext } from '../../contexts/app.context'
 
 export default function Home() {
   return (
-    <div className='relative'>
+    <div className='relative overflow-x-hidden w-[100%]'>
       <img src={bg} alt='not found' className='w-full object-cover' />
       <div className='absolute w-full h-full top-0 left-0'>
         <div className='w-full flex justify-center items-center my-28'>
