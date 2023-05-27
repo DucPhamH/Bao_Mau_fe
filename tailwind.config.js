@@ -15,7 +15,7 @@ module.exports = {
       keyframes: {
         move: {
           '0%': {
-            transform: 'translate(200%)'
+            transform: 'translate(185%)'
           },
           '100%': {
             transform: 'translate(-100%)'
@@ -23,7 +23,7 @@ module.exports = {
         }
       },
       animation: {
-        move: 'move 8s linear infinite'
+        move: 'move 30s linear infinite'
       }
     }
   }

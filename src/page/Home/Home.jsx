@@ -1,9 +1,17 @@
 import React, { useContext } from 'react'
 import bg from '../../asset/img/bg.png'
-import pepe from '../../asset/img/pepe.png'
 import { AppContext } from '../../contexts/app.context'
+import { FaBabyCarriage } from 'react-icons/fa'
+import { TbChefHat } from 'react-icons/tb'
 
 export default function Home() {
+  document.addEventListener(
+    'click',
+    function () {
+      document.querySelector('audio').play()
+    },
+    { once: true }
+  )
   return (
     <div className='relative overflow-x-hidden w-[100%]'>
       <img src={bg} alt='not found' className='w-full object-cover' />
@@ -20,16 +28,25 @@ export default function Home() {
         <div className='bg-[#87FDE8] mx-5 font-unown text-8xl py-12 rounded-full overflow-hidden whitespace-nowrap relative'>
           <span className='absolute animate-move whitespace-nowrap inline-block'>
             <div className='flex'>
-              <img src={pepe} alt='' className='h-24' />
-              <p className=''>omae ha mou shindeiru</p>
-              <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' />
+              {/* <img src={pepe} alt='' className='h-24' />
+              <p className=''>babysitters chefs</p>
+              <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' /> */}
+              <TbChefHat></TbChefHat>Chefs
+              <TbChefHat></TbChefHat>and
+              <FaBabyCarriage></FaBabyCarriage>Babysitters
+              <FaBabyCarriage className='h-24 transform scale-x-[-1]'></FaBabyCarriage>
             </div>
           </span>
           <span id='homepage-animation2' className='animate-move whitespace-nowrap inline-block'>
             <div className='flex'>
-              <img src={pepe} alt='' className='h-24' />
-              <p className=''>omae ha mou shindeiru</p>
-              <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' />
+              {/* <img src={pepe} alt='' className='h-24' />
+              <p className=''>chefs babysitters</p>
+              <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' /> */}
+              <FaBabyCarriage></FaBabyCarriage>Babysitters
+              <FaBabyCarriage className='h-24 transform scale-x-[-1]'></FaBabyCarriage>and
+              <TbChefHat></TbChefHat>
+              Chefs
+              <TbChefHat></TbChefHat>
             </div>
           </span>
         </div>
