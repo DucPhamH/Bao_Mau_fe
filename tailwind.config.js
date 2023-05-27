@@ -15,17 +15,15 @@ module.exports = {
       keyframes: {
         move: {
           '0%': {
-            opacity: '0%',
             transform: 'translate(200%)'
           },
           '100%': {
-            opacity: '100%',
             transform: 'translate(-100%)'
           }
         }
       },
       animation: {
-        move: 'move 12s linear infinite'
+        move: 'move 8s linear infinite'
       }
     }
   }
