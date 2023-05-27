@@ -17,12 +17,21 @@ export default function Home() {
         {/* <button className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 w-full rounded-full'>
             お前はもう死んでいる
           </button> */}
-        <div className='bg-[#87FDE8] mx-5 font-unown text-8xl py-12 rounded-full overflow-hidden'>
-          <div className='animate-move whitespace-nowrap flex'>
-            <img src={pepe} alt='' className='h-24' />
-            <p className=''>omae ha mou shindeiru</p>
-            <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' />
-          </div>
+        <div className='bg-[#87FDE8] mx-5 font-unown text-8xl py-12 rounded-full overflow-hidden whitespace-nowrap relative'>
+          <span className='absolute animate-move whitespace-nowrap inline-block'>
+            <div className='flex'>
+              <img src={pepe} alt='' className='h-24' />
+              <p className=''>omae ha mou shindeiru</p>
+              <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' />
+            </div>
+          </span>
+          <span id='homepage-animation2' className='animate-move whitespace-nowrap inline-block'>
+            <div className='flex'>
+              <img src={pepe} alt='' className='h-24' />
+              <p className=''>omae ha mou shindeiru</p>
+              <img src={pepe} alt='' className='h-24 transform scale-x-[-1]' />
+            </div>
+          </span>
         </div>
       </div>
     </div>

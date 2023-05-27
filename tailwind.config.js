@@ -14,16 +14,16 @@ module.exports = {
       fontFamily: { unown: ['Unown'] },
       keyframes: {
         move: {
-          from: {
-            transform: 'translate(100%)'
+          '0%': {
+            transform: 'translate(200%)'
           },
-          to: {
-            transform: 'translate(-50%)'
+          '100%': {
+            transform: 'translate(-100%)'
           }
         }
       },
       animation: {
-        move: 'move 13s linear infinite'
+        move: 'move 12s linear infinite'
       }
     }
   }

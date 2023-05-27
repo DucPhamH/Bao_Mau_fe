@@ -14,6 +14,9 @@ html {
     src: url(./asset/font/Unown.ttf) format('truetype');
   }
 }
+#homepage-animation2 {
+  animation-delay: -6s;
+}
 
 .font-alex {
   font-family: 'Alex Brush', cursive;
