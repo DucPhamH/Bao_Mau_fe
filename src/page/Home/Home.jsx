@@ -5,13 +5,6 @@ import { FaBabyCarriage } from 'react-icons/fa'
 import { TbChefHat } from 'react-icons/tb'
 
 export default function Home() {
-  document.addEventListener(
-    'click',
-    function () {
-      document.querySelector('audio').play()
-    },
-    { once: true }
-  )
   return (
     <div className='relative overflow-x-hidden w-[100%]'>
       <img src={bg} alt='not found' className='w-full object-cover' />

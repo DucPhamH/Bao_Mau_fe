@@ -4,6 +4,13 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const routeElement = useRouteElement()
+  document.addEventListener(
+    'click',
+    function () {
+      document.querySelector('audio').play()
+    },
+    { once: true }
+  )
   return (
     <div>
       <audio id='audio' loop autoplay>
