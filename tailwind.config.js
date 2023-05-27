@@ -14,18 +14,17 @@ module.exports = {
       fontFamily: { unown: ['Unown'] },
       keyframes: {
         move: {
-          '0%': {
+          from: {
             transform: 'translate(100%)'
           },
-          '100%': {
-            transform: 'translate(-100%)'
+          to: {
+            transform: 'translate(-50%)'
           }
         }
       },
       animation: {
-        move: 'move 10s linear infinite'
+        move: 'move 13s linear infinite'
       }
     }
-  },
-  plugins: [require('@tailwindcss/line-clamp')]
+  }
 }
