@@ -40,7 +40,7 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='mr-5 '>
                   <FaUserAlt />
                 </div>
-                Nguyen Van A
+                {info.name}
               </div>
               <div className=' text-6xl font-medium cursor-pointer' onClick={toggleModal}>
                 X

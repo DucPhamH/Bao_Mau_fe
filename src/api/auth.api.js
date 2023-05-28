@@ -5,7 +5,7 @@ export const logoutAccount = () => http.post('users/logout')
 
 export const currentAccount = () => http.get('users/profile')
 export const updateImage = (body) => {
-  http.post('users/image', body, {
+  http.post('users/uploadImage', body, {
     headers: {
       'Content-Type': 'multipart/form-data'
     }

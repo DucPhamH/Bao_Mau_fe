@@ -11,17 +11,22 @@ import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 import JobDetail from './page/JobDetail'
 import EmployeeInfo from './page/EmployeeInfo'
-import Employee from './components/Employee'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
-  console.log(isAuthenticated)
   return isAuthenticated ? <Outlet /> : <Navigate to='/login' />
 }
 
 function RejectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
   return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
+}
+
+function RoleProtectedRouter() {
+  const { info } = useContext(AppContext)
+  const check = Boolean(info.roles === 1)
+  console.log(check)
+  return check ? <Outlet /> : <Navigate to='/' />
 }
 
 export default function useRouteElement() {
@@ -36,14 +41,14 @@ export default function useRouteElement() {
       )
     },
 
-    {
-      path: 'employeelist',
-      element: (
-        <Mainlayout>
-          <EmployeeList />
-        </Mainlayout>
-      )
-    },
+    // {
+    //   path: 'employeelist',
+    //   element: (
+    //     <Mainlayout>
+    //       <EmployeeList />
+    //     </Mainlayout>
+    //   )
+    // },
 
     {
       path: '',
@@ -82,13 +87,27 @@ export default function useRouteElement() {
       ]
     },
     {
-      path: 'employeelist',
-      element: (
-        <Mainlayout>
-          <EmployeeList />
-        </Mainlayout>
-      )
+      path: '',
+      element: <RoleProtectedRouter />,
+      children: [
+        {
+          path: 'employeelist',
+          element: (
+            <Mainlayout>
+              <EmployeeList />
+            </Mainlayout>
+          )
+        }
+      ]
     },
+    // {
+    //   path: 'employeelist',
+    //   element: (
+    //     <Mainlayout>
+    //       <EmployeeList />
+    //     </Mainlayout>
+    //   )
+    // },
     {
       path: 'jobdetail',
       element: (

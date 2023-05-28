@@ -22,7 +22,7 @@ export default function Header() {
   const handleLogout = () => {
     logoutMutation.mutate()
   }
-  console.log(info)
+  //console.log(info)
   const navigate = useNavigate()
 
   const toggleOpenLogin = () => {
