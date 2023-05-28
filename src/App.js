@@ -13,7 +13,7 @@ function App() {
   )
   return (
     <div>
-      <audio id='audio' loop autoPlay>
+      <audio id='audio' loop>
         <source
           src='https://docs.google.com/uc?export=download&id=1Ei8gl-Prz9NNPqY4LLsef49MG_E2KiyK'
           type='audio/mpeg'
