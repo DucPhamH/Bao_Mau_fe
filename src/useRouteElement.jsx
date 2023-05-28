@@ -88,17 +88,36 @@ export default function useRouteElement() {
     },
     {
       path: '',
-      element: <RoleProtectedRouter />,
+      element: <ProtectedRoute />,
       children: [
         {
-          path: 'employeelist',
-          element: (
-            <Mainlayout>
-              <EmployeeList />
-            </Mainlayout>
-          )
+          path: '',
+          element: <RoleProtectedRouter />,
+          children: [
+            {
+              path: 'employeelist',
+              element: (
+                <Mainlayout>
+                  <EmployeeList />
+                </Mainlayout>
+              )
+            }
+          ]
         }
       ]
+
+      // path: '',
+      // element: <RoleProtectedRouter />,
+      // children: [
+      //   {
+      //     path: 'employeelist',
+      //     element: (
+      //       <Mainlayout>
+      //         <EmployeeList />
+      //       </Mainlayout>
+      //     )
+      //   }
+      // ]
     },
     // {
     //   path: 'employeelist',
