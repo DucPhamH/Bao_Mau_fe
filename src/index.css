@@ -25,9 +25,7 @@ html {
   font-family: 'Itim', cursive;
 }
 
-#sort {
-  appearance: none;
-}
+
 select option {
   background: white;
   color: black;
