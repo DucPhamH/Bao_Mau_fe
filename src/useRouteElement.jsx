@@ -3,7 +3,7 @@ import MainLayout from './Layout/MainLayout'
 import RegisterLayout from './Layout/RegisterLayout'
 import Home from './page/Home'
 import Login from './page/Login'
-import Profile from './page/Profile'
+import UserProfile from './page/UserProfile'
 import Register from './page/Register'
 import EmployeeList from './page/EmployeeList'
 import { useContext } from 'react'
@@ -77,10 +77,10 @@ export default function useRouteElement() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: 'profile',
+          path: 'userprofile',
           element: (
             <MainLayout>
-              <Profile />
+              <UserProfile />
             </MainLayout>
           )
         }

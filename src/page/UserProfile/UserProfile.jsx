@@ -3,7 +3,7 @@ import React from 'react'
 import { currentAccount } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee } from '../../api/employee.api'
-export default function Profile() {
+export default function UserProfile() {
   const [user, setUser] = useState('')
   const { data: userData } = useQuery({
     queryKey: ['profile'],
