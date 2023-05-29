@@ -39,14 +39,15 @@ export default function useRouteElement() {
           <Home />
         </MainLayout>
       )
-    },{
-            path: 'userprofile',
-            element: (
-              <MainLayout>
-                <UserProfile />
-              </MainLayout>
-            )
-          },
+    },
+    {
+      path: 'userprofile',
+      element: (
+        <MainLayout>
+          <UserProfile />
+        </MainLayout>
+      )
+    },
 
     // {
     //   path: 'employeelist',
