@@ -190,6 +190,9 @@ export default function UserProfile() {
                       <option className='text-center' value='female'>
                         female
                       </option>
+                      <option className='text-center' value='other'>
+                        other/unknown
+                      </option>
                     </select>
                   </div>
                   <div className='row-start-2 col-start-1 col-span-2'>
