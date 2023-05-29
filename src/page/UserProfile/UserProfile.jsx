@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { currentAccount } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee } from '../../api/employee.api'
+<<<<<<< HEAD:src/page/Profile/Profile.jsx
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from '../../utils/rules'
@@ -21,6 +22,10 @@ export default function Profile() {
     },
     resolver: yupResolver(employeeSchema)
   })
+=======
+export default function UserProfile() {
+  const [user, setUser] = useState('')
+>>>>>>> fd446ed4e0d93cb4696bfa19fc8944386a2e51f7:src/page/UserProfile/UserProfile.jsx
   const { data: userData } = useQuery({
     queryKey: ['profile'],
     queryFn: () => {
