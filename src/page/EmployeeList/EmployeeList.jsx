@@ -41,7 +41,7 @@ export default function EmployeeList() {
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
             <select
               defaultValue='A-Z'
-              className='text-center bg-[#D9D9D9] border rounded-full mt-12 ml-16 p-2.5 w-72 font-mono appearance-none  '
+              className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono appearance-none  '
             >
               <option className='text-center' value='A-Z'>
                 A-Z
