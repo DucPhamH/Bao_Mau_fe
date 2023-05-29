@@ -1,20 +1,41 @@
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { currentAccount } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee } from '../../api/employee.api'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { employeeSchema } from '../../utils/rules'
 export default function Profile() {
-  const [user, setUser] = useState('')
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    watch,
+    form,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: ''
+    },
+    resolver: yupResolver(employeeSchema)
+  })
   const { data: userData } = useQuery({
     queryKey: ['profile'],
     queryFn: () => {
       return currentAccount()
-    },
-    onSuccess: (data) => {
-      setUser(data.data)
-      console.log(data)
     }
   })
+  const user = userData?.data
+  // console.log(user)
+  console.log(watch())
+  useEffect(() => {
+    if (user) {
+      setValue('name', user.data.name)
+      setValue('email', user.data.email)
+    }
+  }, [user, setValue])
 
   const { data: employeeData } = useQuery({
     queryKey: ['employee'],
@@ -35,16 +56,24 @@ export default function Profile() {
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
               <div className='my-12 text-center'>
                 <div className='rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'>
-                  <img src={user.data?.image} alt='' />
+                  <img src={user?.data.image} alt='' />
                 </div>
                 <div>
-                  <input className='bg-[#e8e7e74d] border-2 rounded-full text-center' disabled value='Le Thi A'></input>
+                  <input
+                    className='bg-[#e8e7e74d] border-2 rounded-full text-center'
+                    name='name'
+                    type='text'
+                    placeholder='name'
+                    {...register('name')}
+                  ></input>
                 </div>
                 <div>
                   <input
                     className='px-6 mt-2 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'
-                    disabled
-                    value='nguyenvana123@gmail.com'
+                    name='email'
+                    type='email'
+                    placeholder='email'
+                    {...register('email')}
                   ></input>
                 </div>
                 <div>
