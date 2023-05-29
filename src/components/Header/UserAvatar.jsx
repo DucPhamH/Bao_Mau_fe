@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom'
 import { FaUserAlt } from 'react-icons/fa'
 import { BiHomeAlt } from 'react-icons/bi'
 import { FiLogOut } from 'react-icons/fi'
-import { AiOutlineCalendar, AiOutlineHeart, AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineCalendar, AiOutlineHeart, AiOutlinePlus, AiOutlineCreditCard } from 'react-icons/ai'
 import React from 'react'
 
 function UserAvatar({ handleLogout, info }) {
   const [modal, setModal] = React.useState(false)
+  console.log(info)
   const toggleModal = () => {
     setModal(!modal)
   }
@@ -47,12 +48,14 @@ function UserAvatar({ handleLogout, info }) {
               </div>
             </div>
             <hr className='my-6 mx-16 h-1 bg-gray-500' />
-            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
-              <div className='text-5xl pr-8'>
-                <BiHomeAlt />
+            <Link to='/'>
+              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='text-5xl pr-8'>
+                  <BiHomeAlt />
+                </div>
+                <div className='text-4xl'>ホームページ</div>
               </div>
-              <div className='text-4xl'>ホームページ</div>
-            </div>
+            </Link>
             <Link to='/userprofile'>
               <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                 <div className='text-5xl pr-8'>
@@ -62,24 +65,50 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='text-4xl'>自分情報</div>
               </div>
             </Link>
-            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
-              <div className='text-5xl pr-8'>
-                <AiOutlineCalendar />
+            {info.roles === 2 ? (
+              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='text-5xl pr-8'>
+                  <AiOutlineCalendar />
+                </div>
+                <div className='text-4xl'>エントリー</div>
               </div>
-              <div className='text-4xl'>エントリー情報</div>
-            </div>
-            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
+            ) : (
+              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='text-5xl pr-8'>
+                  <AiOutlineCalendar />
+                </div>
+                <div className='text-4xl'>エントリー情報</div>
+              </div>
+            )}
+
+            <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
               <div className='text-5xl pr-8'>
                 <AiOutlineHeart />
               </div>
-              <div className='text-4xl'>お気に入り</div>
+              <div className='text-4xl'>契約</div>
             </div>
-            <div className='mx-20 mb-6 cursor-pointer flex items-center'>
-              <div className='text-5xl pr-8'>
-                <AiOutlinePlus />
+            {info.roles === 2 ? (
+              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='text-5xl pr-8'>
+                  <AiOutlineHeart />
+                </div>
+                <div className='text-4xl'>採用される仕事</div>
               </div>
-              <div className='text-4xl'>新しい仕事の作成</div>
+            ) : (
+              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='text-5xl pr-8'>
+                  <AiOutlinePlus />
+                </div>
+                <div className='text-4xl'>新しい仕事の作成</div>
+              </div>
+            )}
+            <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+              <div className='text-5xl pr-8'>
+                <AiOutlineCreditCard />
+              </div>
+              <div className='text-4xl'>ペイメント</div>
             </div>
+
             <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600' onClick={handleLogout}>
               <div className='text-5xl pr-8 '>
                 <FiLogOut />
