@@ -89,6 +89,7 @@ export default function UserProfile() {
                     name='name'
                     type='text'
                     placeholder='name'
+                    defaultValue='Le Thi A'
                     // {...register('name')}
                     disabled
                   ></input>
@@ -146,6 +147,7 @@ export default function UserProfile() {
                   disabled
                   type='email'
                   placeholder='email'
+                  defaultValue='nguyenvana123123@gmail.com'
                   // {...register('email')}
                 ></input>
 
@@ -172,23 +174,30 @@ export default function UserProfile() {
                     <input
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
                       disabled
-                      value='Le Thi A'
+                      defaultValue='Le Thi A'
                     ></input>
                   </div>
                   <div className='col-start-3 col-span-2'>
                     <div className='ml-2'>性別</div>
-                    <input
-                      className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
+                    <select
+                      className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1 appearance-none'
                       disabled
-                      value='female'
-                    ></input>
+                      defaultValue='female'
+                    >
+                      <option className='text-center' value='male'>
+                        male
+                      </option>
+                      <option className='text-center' value='female'>
+                        female
+                      </option>
+                    </select>
                   </div>
                   <div className='row-start-2 col-start-1 col-span-2'>
                     <div className='ml-2'>誕生日</div>
                     <input
                       type='date'
                       className='inputedit border w-full rounded-xl text-center py-1'
-                      value='6969-09-06'
+                      defaultValue='6969-09-06'
                       disabled
                     ></input>
                   </div>
@@ -196,7 +205,7 @@ export default function UserProfile() {
                     <div className='ml-2'>給料</div>
                     <input
                       className='inputedit border rounded-xl w-full text-center py-1'
-                      value='200円'
+                      defaultValue='200円'
                       disabled
                     ></input>
                   </div>
@@ -205,13 +214,13 @@ export default function UserProfile() {
                 <textarea
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-                  value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
                 ></textarea>
                 <div className='ml-2 mt-12'>詳細情報</div>
                 <textarea
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
-                  value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
+                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
                 事前課題が終わった人は、このスレッドへの返信で完了報告をお願いします。 期限：5月24日(水)　13:00
                 報告文サンプルは事前学習資料にありますので、確認してください。
                 今回はスプレッドシートでの提出のため、完了報告がないと、終わったかどうか判断できません。
@@ -227,13 +236,13 @@ export default function UserProfile() {
                 <textarea
                   disabled
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-                  value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
                 ></textarea>
                 <div className='mt-6'>実験</div>
                 <textarea
                   disabled
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-                  value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
                 ></textarea>
               </div>
             </div>
@@ -243,13 +252,14 @@ export default function UserProfile() {
                 <textarea
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] mt-4 border rounded-xl border-black h-36 px-4 py-2 w-full resize-none'
-                  value='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
                 ></textarea>
               </div>
             </div>
           </div>
         </form>
-        <div className='mt-10 flex justify-center'><button
+        <div className='mt-10 flex justify-center'>
+          <button
             className={
               hideButton
                 ? 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black'
@@ -263,7 +273,8 @@ export default function UserProfile() {
             /////
           >
             Save
-          </button></div>
+          </button>
+        </div>
       </div>
     </div>
   )
