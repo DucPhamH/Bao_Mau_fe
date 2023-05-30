@@ -85,22 +85,11 @@ export default function UserProfile() {
                 <div className='rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'>
                   <img src={user?.data.image} alt='imageuser' />
                 </div>
-                <div>
-                  <input
-                    className='inputedit bg-[#e8e7e74d] border-2 rounded-full text-center'
-                    name='name'
-                    type='text'
-                    placeholder='name'
-                    defaultValue='Le Thi A'
-                    disabled
-                  ></input>
-                </div>
-                <div>
-                  <input
-                    className='px-6 mt-2 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'
-                    disabled
-                    value='12345678'
-                  ></input>
+
+                <div className='bg-[#e8e7e74d] mx-36 border-2 rounded-full text-center'>Le Thi A</div>
+
+                <div className='px-6 mt-2 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
+                  12345678
                 </div>
 
                 {/* <input

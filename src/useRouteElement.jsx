@@ -40,14 +40,14 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    {
-      path: 'userprofile',
-      element: (
-        <MainLayout>
-          <UserProfile />
-        </MainLayout>
-      )
-    },
+    // {
+    //   path: 'userprofile',
+    //   element: (
+    //     <MainLayout>
+    //       <UserProfile />
+    //     </MainLayout>
+    //   )
+    // },
 
     // {
     //   path: 'employeelist',
@@ -80,20 +80,20 @@ export default function useRouteElement() {
         }
       ]
     },
-    // {
-    //   path: '',
-    //   element: <ProtectedRoute />,
-    //   children: [
-    //     {
-    //       path: 'userprofile',
-    //       element: (
-    //         <MainLayout>
-    //           <UserProfile />
-    //         </MainLayout>
-    //       )
-    //     }
-    //   ]
-    // },
+    {
+      path: '',
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: 'userprofile',
+          element: (
+            <MainLayout>
+              <UserProfile />
+            </MainLayout>
+          )
+        }
+      ]
+    },
     {
       path: '',
       element: <ProtectedRoute />,
