@@ -9,36 +9,38 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from '../../utils/rules'
 
 export default function UserProfile() {
-  // const {
-  //   register,
-  //   setValue,
-  //   handleSubmit,
-  //   watch,
-  //   form,
-  //   formState: { errors }
-  // } = useForm({
-  //   defaultValues: {
-  //     name: '',
-  //     email: ''
-  //   },
-  //   resolver: yupResolver(employeeSchema)
-  // })
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    watch,
+    form,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+      address: ''
+    },
+    resolver: yupResolver(employeeSchema)
+  })
 
-  // const { data: userData } = useQuery({
-  //   queryKey: ['profile'],
-  //   queryFn: () => {
-  //     return currentAccount()
-  //   }
-  // })
-  // const user = userData?.data
-  // // console.log(user)
-  // console.log(watch())
-  // useEffect(() => {
-  //   if (user) {
-  //     setValue('name', user.data.name)
-  //     setValue('email', user.data.email)
-  //   }
-  // }, [user, setValue])
+  const { data: userData } = useQuery({
+    queryKey: ['profile'],
+    queryFn: () => {
+      return currentAccount()
+    }
+  })
+  const user = userData?.data
+  console.log(user)
+  console.log(watch())
+  useEffect(() => {
+    if (user) {
+      setValue('name', user.data.name)
+      setValue('email', user.data.email)
+      setValue('address', user.data.address)
+    }
+  }, [user, setValue])
 
   // const { data: employeeData } = useQuery({
   //   queryKey: ['employee'],
@@ -81,7 +83,7 @@ export default function UserProfile() {
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
               <div className='my-8 text-center'>
                 <div className='rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'>
-                  {/* <img src={user?.data.image} alt='' /> */}
+                  <img src={user?.data.image} alt='imageuser' />
                 </div>
                 <div>
                   <input
@@ -90,7 +92,6 @@ export default function UserProfile() {
                     type='text'
                     placeholder='name'
                     defaultValue='Le Thi A'
-                    // {...register('name')}
                     disabled
                   ></input>
                 </div>
@@ -147,8 +148,7 @@ export default function UserProfile() {
                   disabled
                   type='email'
                   placeholder='email'
-                  defaultValue='nguyenvana123123@gmail.com'
-                  // {...register('email')}
+                  {...register('email')}
                 ></input>
 
                 {/* <div className='w-full relative'>
@@ -174,7 +174,7 @@ export default function UserProfile() {
                     <input
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
                       disabled
-                      defaultValue='Le Thi A'
+                      {...register('name')}
                     ></input>
                   </div>
                   <div className='col-start-3 col-span-2'>
@@ -217,7 +217,8 @@ export default function UserProfile() {
                 <textarea
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  // defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  {...register('address')}
                 ></textarea>
                 <div className='ml-2 mt-12'>詳細情報</div>
                 <textarea
