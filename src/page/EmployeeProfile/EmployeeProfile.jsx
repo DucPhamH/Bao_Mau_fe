@@ -54,7 +54,7 @@ export default function EmployeeProfile() {
   //////////////////////
   //////////////////////
   const [hideButton, hideUpdateButton] = useState(false)
-  const updateFunction = () => {
+  const updateFunction = (e) => {
     hideUpdateButton(true)
     document.querySelectorAll('.inputedit').forEach((e) => {
       e.disabled = false
@@ -253,6 +253,7 @@ export default function EmployeeProfile() {
         </form>
         <div className='mt-10 flex justify-center'>
           <button
+            type='submit'
             className={
               hideButton
                 ? 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black'
