@@ -4,6 +4,7 @@ import RegisterLayout from './Layout/RegisterLayout'
 import Home from './page/Home'
 import Login from './page/Login'
 import UserProfile from './page/UserProfile'
+import EmployeeProfile from './page/EmployeeProfile'
 import Register from './page/Register'
 import EmployeeList from './page/EmployeeList'
 import { useContext } from 'react'
@@ -40,14 +41,14 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    // {
-    //   path: 'userprofile',
-    //   element: (
-    //     <MainLayout>
-    //       <UserProfile />
-    //     </MainLayout>
-    //   )
-    // },
+    {
+      path: 'userprofile',
+      element: (
+        <MainLayout>
+          <UserProfile />
+        </MainLayout>
+      )
+    },
 
     // {
     //   path: 'employeelist',
@@ -85,10 +86,10 @@ export default function useRouteElement() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: 'userprofile',
+          path: 'employeeprofile',
           element: (
             <MainLayout>
-              <UserProfile />
+              <EmployeeProfile />
             </MainLayout>
           )
         }
