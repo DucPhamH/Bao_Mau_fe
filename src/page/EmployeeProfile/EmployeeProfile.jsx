@@ -1,25 +1,35 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
-import { currentAccount } from '../../api/auth.api'
+import { currentAccount, updateUser } from '../../api/auth.api'
 import { useState } from 'react'
-import { profileEmployee } from '../../api/employee.api'
+import { profileEmployee, updateEmployee } from '../../api/employee.api'
 
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from '../../utils/rules'
+import { toast } from 'react-toastify'
+import { omit } from 'lodash'
 
 export default function EmployeeProfile() {
   const {
     register,
     setValue,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm({
     defaultValues: {
       name: '',
       email: '',
-      address: ''
+      address: '',
+      gender: '',
+      dateOB: new Date(),
+      salary: 0,
+      babysister: true,
+      housemaid: true,
+      degree: '',
+      description: '',
+      experience: '',
+      skill: ''
     },
     resolver: yupResolver(employeeSchema)
   })
@@ -31,8 +41,24 @@ export default function EmployeeProfile() {
     }
   })
   const user = userData?.data
-  console.log(user)
-  console.log(watch())
+  const { data: employeeData } = useQuery({
+    queryKey: ['employee'],
+    queryFn: () => {
+      return profileEmployee()
+    }
+  })
+  const employee = employeeData?.data
+  console.log(employee)
+
+  const updateUserMutation = useMutation({
+    mutationFn: (body) => updateUser(body)
+  })
+
+  const updateEmployeeMutation = useMutation({
+    mutationFn: (body) => updateEmployee(body)
+  })
+  // console.log(user)
+
   useEffect(() => {
     if (user) {
       setValue('name', user.data.name)
@@ -41,13 +67,54 @@ export default function EmployeeProfile() {
     }
   }, [user, setValue])
 
-  // const { data: employeeData } = useQuery({
-  //   queryKey: ['employee'],
-  //   queryFn: () => {
-  //     return profileEmployee()
-  //   }
-  // })
-  // const employee = employeeData?.data
+  useEffect(() => {
+    if (employee) {
+      setValue('gender', employee?.data.gender)
+      setValue('dateOB', employee?.data.dateOB.split('T')[0])
+      setValue('salary', employee?.data.salary)
+      setValue('babysister', employee?.data.babysister)
+      setValue('housemaid', employee?.data.housemaid)
+      setValue('degree', employee?.data.degree)
+      setValue('description', employee?.data.description)
+      setValue('experience', employee?.data.experience)
+      setValue('skill', employee?.data.skill)
+    }
+  }, [employee, setValue])
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+    const employees = omit(data, ['name', 'email', 'address'])
+    const users = omit(data, [
+      'gender',
+      'dateOB',
+      'salary',
+      'babysister',
+      'housemaid',
+      'degree',
+      'description',
+      'experience',
+      'skill'
+    ])
+    console.log(users)
+    updateUserMutation.mutate(users, {
+      onSuccess: (data) => {
+        console.log(data)
+      },
+      onError: (error) => {
+        console.log(error)
+      }
+    })
+    updateEmployeeMutation.mutate(employees, {
+      onSuccess: (data) => {
+        console.log(data)
+        toast(data.data?.message)
+        window.location.reload()
+      },
+      onError: (error) => {
+        console.log(error)
+      }
+    })
+  })
 
   //update button
   //////////////////////
@@ -77,7 +144,7 @@ export default function EmployeeProfile() {
             Update
           </button>
         </div>
-        <form action=''>
+        <form onSubmit={onSubmit} noValidate>
           <div className='mt-10 grid gap-x-6 gap-y-8'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
               <div className='my-8 text-center'>
@@ -99,9 +166,8 @@ export default function EmployeeProfile() {
                     <input
                       id='default-checkbox-1'
                       type='checkbox'
-                      value='babysitter'
-                      // name='roles'
-                      // {...register('roles')}
+                      name='babysister'
+                      {...register('babysister')}
                       className='inputedit scale-[200%] ml-4 accent-cyan-500'
                       disabled
                     />
@@ -113,9 +179,8 @@ export default function EmployeeProfile() {
                     <input
                       id='default-checkbox-2'
                       type='checkbox'
-                      value='chef'
-                      // name='roles'
-                      // {...register('roles')}
+                      name='housemaid'
+                      {...register('housemaid')}
                       className='inputedit scale-[200%] ml-4 accent-orange-500'
                       disabled
                     />
@@ -156,7 +221,9 @@ export default function EmployeeProfile() {
                     <select
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1 appearance-none'
                       disabled
-                      defaultValue='female'
+                      name='gender'
+                      // defaultValue='female'
+                      {...register('gender')}
                     >
                       <option className='text-center' value='male'>
                         male
@@ -174,7 +241,8 @@ export default function EmployeeProfile() {
                     <input
                       type='date'
                       className='inputedit border w-full rounded-xl text-center py-1'
-                      defaultValue='6969-09-06'
+                      name='dateOB'
+                      {...register('dateOB')}
                       disabled
                     ></input>
                   </div>
@@ -182,9 +250,11 @@ export default function EmployeeProfile() {
                     <div className='ml-2'>給料</div>
                     <input
                       className='inputedit border rounded-xl w-full text-center py-1'
-                      defaultValue='200円'
+                      name='salary'
+                      {...register('salary')}
                       disabled
                     ></input>
+                    <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.salary?.message}</div>
                   </div>
                 </div>
                 <div className='ml-2 mt-6'>Your Address</div>
@@ -199,11 +269,8 @@ export default function EmployeeProfile() {
                 <textarea
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
-                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。
-                事前課題が終わった人は、このスレッドへの返信で完了報告をお願いします。 期限：5月24日(水)　13:00
-                報告文サンプルは事前学習資料にありますので、確認してください。
-                今回はスプレッドシートでの提出のため、完了報告がないと、終わったかどうか判断できません。
-                報告がなければ0点になりますので、ご注意ください。'
+                  name='description'
+                  {...register('description')}
                 ></textarea>
               </div>
             </div>
@@ -215,13 +282,15 @@ export default function EmployeeProfile() {
                 <textarea
                   disabled
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  name='degree'
+                  {...register('degree')}
                 ></textarea>
                 <div className='mt-6'>実験</div>
                 <textarea
                   disabled
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
-                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  name='experience'
+                  {...register('experience')}
                 ></textarea>
               </div>
             </div>
@@ -231,30 +300,24 @@ export default function EmployeeProfile() {
                 <textarea
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] mt-4 border rounded-xl border-black h-36 px-4 py-2 w-full resize-none'
-                  defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  name='skill'
+                  {...register('skill')}
                 ></textarea>
               </div>
             </div>
           </div>
+          <div className='mt-10 flex justify-center'>
+            <button
+              className={
+                hideButton
+                  ? 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black'
+                  : 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black invisible'
+              }
+            >
+              Save
+            </button>
+          </div>
         </form>
-        <div className='mt-10 flex justify-center'>
-          <button
-            type='submit'
-            className={
-              hideButton
-                ? 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black'
-                : 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black invisible'
-            }
-            /////
-            /////
-            // onClick={ lam gi do }
-            //////
-            //////
-            /////
-          >
-            Save
-          </button>
-        </div>
       </div>
     </div>
   )
