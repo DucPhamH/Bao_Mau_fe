@@ -14,7 +14,6 @@ export default function EmployeeProfile() {
     setValue,
     handleSubmit,
     watch,
-    form,
     formState: { errors }
   } = useForm({
     defaultValues: {
@@ -86,17 +85,12 @@ export default function EmployeeProfile() {
                   <img src={user?.data.image} alt='imageuser' />
                 </div>
 
-                <div className='bg-[#e8e7e74d] mx-36 border-2 rounded-full text-center'>Le Thi A</div>
+                <div className='bg-[#e8e7e74d] mx-36 border-2 rounded-full text-center'>{user?.data.name}</div>
 
                 <div className='px-6 mt-2 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
-                  12345678
+                  {user?.data.phone}
                 </div>
 
-                {/* <input
-                    className='px-24 bg-[#D9D9D9] text-center mt-12 rounded-lg py-2'
-                    disabled
-                    value='Employee'
-                  ></input> */}
                 <div className='flex mx-16 justify-between mt-16'>
                   <div className='flex  rounded-full items-center'>
                     <label htmlFor='default-checkbox-1' className='mr-2 text-2xl text-black'>
@@ -137,21 +131,11 @@ export default function EmployeeProfile() {
                   disabled
                   type='email'
                   placeholder='email'
+                  name='email'
+                  autoComplete='on'
                   {...register('email')}
                 ></input>
-
-                {/* <div className='w-full relative'>
-                <div className='ml-5 mt-5'>パスワード</div>
-                <div className='right-4 top-[60%] absolute cursor-pointer scale-150' onClick={toggleShowPassword}>
-                  {showPassword ? <MdOutlineVisibility /> : <MdOutlineVisibilityOff />}
-                </div>
-                <input
-                  type={showPassword ? `text` : `password`}
-                  className='bg-[rgba(217,217,217,0.15)] px-4  rounded-xl border py-1 w-full border-black'
-                  value='123456'
-                  disabled
-                ></input>
-              </div> */}
+                <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.email?.message}</div>
               </div>
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl col-start-3 row-start-1 col-span-6 row-span-5 border-2 border-[#B9BFC9]'>
@@ -163,6 +147,7 @@ export default function EmployeeProfile() {
                     <input
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
                       disabled
+                      name='name'
                       {...register('name')}
                     ></input>
                   </div>
@@ -207,6 +192,7 @@ export default function EmployeeProfile() {
                   disabled
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   // defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
+                  name='address'
                   {...register('address')}
                 ></textarea>
                 <div className='ml-2 mt-12'>詳細情報</div>
