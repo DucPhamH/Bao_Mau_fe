@@ -152,7 +152,7 @@ export default function EmployeeProfile() {
                   <img src={user?.data.image} alt='imageuser' />
                 </div>
 
-                <div className='bg-[#e8e7e74d] mx-36 border-2 rounded-full text-center'>{user?.data.name}</div>
+                <div className='bg-[#e8e7e74d] mx-36 px-5 border-2 rounded-full text-center'>{user?.data.name}</div>
 
                 <div className='px-6 mt-2 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
                   {user?.data.phone}
@@ -247,7 +247,7 @@ export default function EmployeeProfile() {
                     ></input>
                   </div>
                   <div className='row-start-2 col-start-3 col-span-2'>
-                    <div className='ml-2'>給料</div>
+                    <div className='ml-2'>給料（円）</div>
                     <input
                       className='inputedit border rounded-xl w-full text-center py-1'
                       name='salary'
