@@ -15,7 +15,7 @@ module.exports = {
       keyframes: {
         move: {
           '0%': {
-            transform: 'translate(185%)'
+            transform: 'translate(98vw)'
           },
           '100%': {
             transform: 'translate(-100%)'

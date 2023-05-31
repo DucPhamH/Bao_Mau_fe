@@ -12,6 +12,10 @@ import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 import JobDetail from './page/JobDetail'
 import EmployeeInfo from './page/EmployeeInfo'
+import ContractedJobsList from './page/ContractedJobsList'
+import EmployeeApplyingList from './page/EmployeeApplyingList'
+import UserPosts from './page/UserPosts'
+import UserRequestsList from './page/UserRequestsList'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -59,6 +63,38 @@ export default function useRouteElement() {
     //   )
     // },
 
+    {
+      path: 'contractedjobslist',
+      element: (
+        <Mainlayout>
+          <ContractedJobsList />
+        </Mainlayout>
+      )
+    },
+    {
+      path: 'employeeapplyinglist',
+      element: (
+        <Mainlayout>
+          <EmployeeApplyingList />
+        </Mainlayout>
+      )
+    },
+    {
+      path: 'userposts',
+      element: (
+        <Mainlayout>
+          <UserPosts />
+        </Mainlayout>
+      )
+    },
+    {
+      path: 'userrequestslist',
+      element: (
+        <Mainlayout>
+          <UserRequestsList />
+        </Mainlayout>
+      )
+    },
     {
       path: '',
       element: <RejectedRoute />,
