@@ -53,9 +53,11 @@ export default function UserProfile() {
   //update button
   //////////////////////
   //////////////////////
-  const [hideButton, hideUpdateButton] = useState(false)
   const updateFunction = () => {
-    hideUpdateButton(true)
+    document.querySelectorAll('.elementeffects').forEach((e) => {
+      if (getComputedStyle(e).visibility === 'visible') e.style.visibility = 'hidden'
+      else e.style.visibility = 'visible'
+    })
     document.querySelectorAll('.inputedit').forEach((e) => {
       e.disabled = false
     })
@@ -86,11 +88,7 @@ export default function UserProfile() {
               <div className='flex mt-9 mr-9 justify-end'>
                 <button
                   type='button'
-                  className={
-                    hideButton
-                      ? 'bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
-                      : 'bg-[#FED5D5] px-8 rounded-full py-1 border border-black'
-                  }
+                  className='elementeffects bg-[#FED5D5] px-8 rounded-full py-1 border border-black visible'
                   onClick={updateFunction}
                 >
                   Update
@@ -99,7 +97,7 @@ export default function UserProfile() {
               <div className='ml-24 mr-32'>
                 <div className='text-4xl'>プロフィールページ</div>
                 <div className='grid gap-y-28 mt-32 ml-16'>
-                  <div className='col-span-1'>名前:</div>
+                  <div className='col-span-1'>名前 :</div>
                   <input
                     className='inputedit indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1'
                     disabled
@@ -117,16 +115,30 @@ export default function UserProfile() {
                     disabled
                     {...register('address')}
                   ></input>
+                  <div className='elementeffects col-span-1 row-start-4 invisible'>古いパスワード :</div>
+                  <input
+                    type='password'
+                    className='elementeffects indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1 invisible'
+                  ></input>
+
+                  <div className='elementeffects col-span-1 row-start-5 invisible'>新しいパスワード :</div>
+                  <input
+                    type='password'
+                    className='elementeffects indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1 invisible'
+                  ></input>
+
+                  <div className='elementeffects col-span-1 row-start-6 invisible'>パスワード確認 :</div>
+                  <input
+                    type='password'
+                    className='elementeffects indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1 invisible'
+                  ></input>
                 </div>
               </div>
               <div className='my-24 flex justify-center'>
                 <button
                   type='submit'
-                  className={
-                    hideButton
-                      ? 'bg-[#FED5D5] px-8 rounded-full py-1 border border-black'
-                      : 'bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
-                  }
+                  className='elementeffects bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
+
                   /////
                   /////
                   // onClick={ lam gi do }
