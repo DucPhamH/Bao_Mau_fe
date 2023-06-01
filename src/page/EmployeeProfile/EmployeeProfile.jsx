@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
-import { currentAccount, updateUser } from '../../api/auth.api'
+import { currentAccount, updateImage, updateUser } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee, updateEmployee } from '../../api/employee.api'
 
@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from '../../utils/rules'
 import { toast } from 'react-toastify'
 import { omit } from 'lodash'
+import UploadAvatar from './UploadAvatar'
 
 export default function EmployeeProfile() {
   const {
@@ -48,7 +49,6 @@ export default function EmployeeProfile() {
     }
   })
   const employee = employeeData?.data
-  console.log(employee)
 
   const updateUserMutation = useMutation({
     mutationFn: (body) => updateUser(body)
@@ -57,6 +57,7 @@ export default function EmployeeProfile() {
   const updateEmployeeMutation = useMutation({
     mutationFn: (body) => updateEmployee(body)
   })
+
   // console.log(user)
 
   useEffect(() => {
@@ -97,16 +98,13 @@ export default function EmployeeProfile() {
     ])
     console.log(users)
     updateUserMutation.mutate(users, {
-      onSuccess: (data) => {
-        console.log(data)
-      },
+      onSuccess: (data) => {},
       onError: (error) => {
         console.log(error)
       }
     })
     updateEmployeeMutation.mutate(employees, {
       onSuccess: (data) => {
-        console.log(data)
         toast(data.data?.message)
         window.location.reload()
       },
@@ -129,6 +127,42 @@ export default function EmployeeProfile() {
   //////////////////////
   //////////////////////
   //////////////////////
+
+  const [modal, setModal] = React.useState(false)
+  // const [image, setImage] = React.useState('')
+
+  // const updateAvatarMutation = useMutation({
+  //   mutationFn: (body) => updateImage(body)
+  // })
+  // const handleImage = (e) => {
+  //   console.log(e.target.files)
+  //   setImage(e.target.files[0])
+  // }
+
+  // const handleApi = () => {
+  //   const formData = new FormData()
+  //   formData.append('imageUser', image)
+  //   updateAvatarMutation.mutate(formData, {
+  //     onSuccess: (data) => {
+  //       console.log(data)
+  //       toast(data.data?.message)
+  //       window.location.reload()
+  //     },
+  //     onError: (error) => {
+  //       console.log(error)
+  //     }
+  //   })
+  // }
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+
   return (
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>
@@ -148,7 +182,10 @@ export default function EmployeeProfile() {
           <div className='mt-10 grid gap-x-6 gap-y-8'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
               <div className='my-8 text-center'>
-                <div className='rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'>
+                <div
+                  onClick={toggleModal}
+                  className='rounded-[50%] border-2  cursor-pointer overflow-hidden inline-block justify-center items-center w-56 h-56'
+                >
                   <img src={user?.data.image} alt='imageuser' />
                 </div>
 
@@ -319,6 +356,7 @@ export default function EmployeeProfile() {
           </div>
         </form>
       </div>
+      {modal && <UploadAvatar toggleModal={toggleModal} />}
     </div>
   )
 }
