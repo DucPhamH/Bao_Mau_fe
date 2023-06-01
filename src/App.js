@@ -7,7 +7,9 @@ function App() {
   document.addEventListener(
     'click',
     function () {
-      document.querySelector('audio').play()
+      let audio = document.querySelector('audio')
+      audio.volume = 0.15
+      audio.play()
     },
     {
       once: true
@@ -17,7 +19,7 @@ function App() {
     <div>
       <audio id='audio' loop>
         <source
-          src='https://docs.google.com/uc?export=download&id=1Ei8gl-Prz9NNPqY4LLsef49MG_E2KiyK'
+          src='https://docs.google.com/uc?export=download&id=1pGwGPBtf66cmnzmfLLmr_6fEw8uxIsUe'
           type='audio/mpeg'
         />
       </audio>

@@ -182,15 +182,19 @@ export default function EmployeeProfile() {
         <form onSubmit={onSubmit} noValidate>
           <div className='mt-10 grid gap-x-6 gap-y-8'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
-              <div className='my-8 text-center'>
-                <div
-                  onClick={toggleModal}
-                  className='rounded-[50%] border-2 cursor-pointer overflow-hidden inline-block w-56 h-56 relative'
-                >
-                  <div className='absolute bottom-6 right-6 w-10 h-10 rounded-lg bg-white flex justify-center items-center'>
-                    <BsCameraFill />
+              <div className='my-8'>
+                <div className='flex justify-center items-center'>
+                  <div className='relative'>
+                    <div
+                      onClick={toggleModal}
+                      className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-56 h-56 flex justify-center items-center'
+                    >
+                      <div className='absolute bottom-6 right-6 w-10 h-10 rounded-lg bg-white flex justify-center items-center'>
+                        <BsCameraFill />
+                      </div>
+                      <img src={user?.data?.image} alt='imageuser' />
+                    </div>
                   </div>
-                  <img src={user?.data?.image} alt='imageuser' />
                 </div>
 
                 <div className='bg-[#e8e7e74d] mx-36 px-5 border-2 rounded-full text-center'>{user?.data.name}</div>

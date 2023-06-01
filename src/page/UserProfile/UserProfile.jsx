@@ -105,20 +105,23 @@ export default function UserProfile() {
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>
         <div className='mt-10 grid gap-x-0 pb-24'>
-          <div className='bg-[#FFFFFF] rounded-3xl col-span-4 border-2 border-[#B9BFC9]'>
+          <div className='bg-[#FFFFFF] rounded-3xl col-span-2 border-2 border-[#B9BFC9]'>
             <div className='mb-8 mt-40 text-center'>
-              <div
-                onClick={toggleModal}
-                className='cursor-pointer rounded-[50%] border-2 overflow-hidden inline-block w-56 h-56 relative'
-              >
-                <div className='absolute bottom-6 right-6 w-10 h-10 rounded-lg bg-white flex justify-center items-center'>
-                  <BsCameraFill />
+              <div className='flex justify-center items-center'>
+                <div className='relative'>
+                  <div
+                    onClick={toggleModal}
+                    className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-56 h-56 flex justify-center items-center'
+                  >
+                    <div className='absolute bottom-6 right-6 w-10 h-10 rounded-lg bg-white flex justify-center items-center'>
+                      <BsCameraFill />
+                    </div>
+                    <img src={user?.data?.image} alt='imageuser' />
+                  </div>
                 </div>
-
-                <img src={user?.data.image} alt='imageuser' />
               </div>
               <div className='bg-[#e8e7e74d] mx-36 mt-16 border-2 rounded-full text-center'>{user?.data.name}</div>
-              <div className='px-6 mt-5 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
+              <div className='mt-5 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
                 {user?.data.phone}
               </div>
               <button
@@ -186,7 +189,7 @@ export default function UserProfile() {
             </div>
           </div>
 
-          <div className='bg-[#FFFFFF] rounded-3xl col-start-5 row-start-1 col-span-5 border-2 border-[#B9BFC9]'>
+          <div className='bg-[#FFFFFF] rounded-3xl col-start-3 row-start-1 col-span-5 border-2 border-[#B9BFC9]'>
             <div className='flex mt-9 mr-9 justify-end'>
               <button
                 type='button'
