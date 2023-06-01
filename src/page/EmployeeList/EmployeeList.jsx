@@ -39,17 +39,9 @@ export default function EmployeeList() {
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>
           <div className='relative'>
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
-            <select
-              defaultValue='A-Z'
-              className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono appearance-none  '
-            >
-              <option className='text-center' value='A-Z'>
-                A-Z
-              </option>
-              <option className='text-center' value='Z-A'>
-                Z-A
-              </option>
-            </select>
+            <button className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'>
+              給料&#32;&#8593;
+            </button>
           </div>
           <div className='h-[70rem] overflow-auto'>
             <Employee></Employee>

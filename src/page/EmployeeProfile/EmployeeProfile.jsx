@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { currentAccount, updateUser } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee, updateEmployee } from '../../api/employee.api'
-
+import { BsCameraFill } from 'react-icons/bs'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { employeeSchema } from '../../utils/rules'
