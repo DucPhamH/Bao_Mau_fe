@@ -185,8 +185,11 @@ export default function EmployeeProfile() {
               <div className='my-8 text-center'>
                 <div
                   onClick={toggleModal}
-                  className='rounded-[50%] border-2  cursor-pointer overflow-hidden inline-block justify-center items-center w-56 h-56'
+                  className='rounded-[50%] border-2 cursor-pointer overflow-hidden inline-block w-56 h-56 relative'
                 >
+                  <div className='absolute bottom-6 right-6 w-10 h-10 rounded-lg bg-white flex justify-center items-center'>
+                    <BsCameraFill />
+                  </div>
                   <img src={user?.data?.image} alt='imageuser' />
                 </div>
 
