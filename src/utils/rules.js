@@ -34,3 +34,12 @@ export const employeeSchema = yup.object({
     .max(160, 'Độ dài từ 5 - 160 ký tự'),
   salary: yup.number().typeError('Salary must be a number')
 })
+
+export const userSchema = yup.object({
+  name: yup.string().required('Tên là bắt buộc').min(4, 'Độ dài từ 4 kí tự trở lên'),
+  email: yup
+    .string()
+    .email('Email không đúng định dạng')
+    .min(5, 'Độ dài từ 5 - 160 ký tự')
+    .max(160, 'Độ dài từ 5 - 160 ký tự')
+})

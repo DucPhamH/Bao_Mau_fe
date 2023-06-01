@@ -1,20 +1,17 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
-import { currentAccount } from '../../api/auth.api'
-import { useState } from 'react'
-import { profileEmployee } from '../../api/employee.api'
-
+import { currentAccount, updateUser } from '../../api/auth.api'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { employeeSchema } from '../../utils/rules'
+import { userSchema } from '../../utils/rules'
+import { toast } from 'react-toastify'
+import UploadAvatar from '../EmployeeProfile/UploadAvatar'
 
 export default function UserProfile() {
   const {
     register,
     setValue,
     handleSubmit,
-    watch,
-    form,
     formState: { errors }
   } = useForm({
     defaultValues: {
@@ -22,7 +19,7 @@ export default function UserProfile() {
       email: '',
       address: ''
     },
-    resolver: yupResolver(employeeSchema)
+    resolver: yupResolver(userSchema)
   })
 
   const { data: userData } = useQuery({
@@ -32,8 +29,7 @@ export default function UserProfile() {
     }
   })
   const user = userData?.data
-  console.log(user)
-  console.log(watch())
+
   useEffect(() => {
     if (user) {
       setValue('name', user.data.name)
@@ -42,13 +38,34 @@ export default function UserProfile() {
     }
   }, [user, setValue])
 
-  // const { data: employeeData } = useQuery({
-  //   queryKey: ['employee'],
-  //   queryFn: () => {
-  //     return profileEmployee()
-  //   }
-  // })
-  // const employee = employeeData?.data
+  const updateUserMutation = useMutation({
+    mutationFn: (body) => updateUser(body)
+  })
+
+  const onSubmit = handleSubmit((data) => {
+    // console.log(users)
+    updateUserMutation.mutate(data, {
+      onSuccess: (data) => {
+        toast(data.data?.message)
+        window.location.reload()
+      },
+      onError: (error) => {
+        console.log(error)
+      }
+    })
+  })
+
+  const [modal, setModal] = React.useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
 
   //update button
   //////////////////////
@@ -68,18 +85,21 @@ export default function UserProfile() {
   return (
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>
-        <form action=''>
+        <form onSubmit={onSubmit}>
           <div className='mt-10 grid gap-x-0 pb-24'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-4 border-2 border-[#B9BFC9]'>
               <div className='mb-8 mt-40 text-center'>
-                <div className='rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'>
+                <div
+                  onClick={toggleModal}
+                  className='cursor-pointer rounded-[50%] border-2 overflow-hidden inline-block justify-center items-center w-56 h-56'
+                >
                   <img src={user?.data.image} alt='imageuser' />
                 </div>
 
-                <div className='bg-[#e8e7e74d] mx-36 mt-16 border-2 rounded-full text-center'>Le Thi A</div>
+                <div className='bg-[#e8e7e74d] mx-36 mt-16 border-2 rounded-full text-center'>{user?.data.name}</div>
 
                 <div className='px-6 mt-5 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
-                  12345678
+                  {user?.data.phone}
                 </div>
               </div>
             </div>
@@ -101,36 +121,23 @@ export default function UserProfile() {
                   <input
                     className='inputedit indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1'
                     disabled
+                    name='name'
+                    autoComplete='on'
                     {...register('name')}
                   ></input>
                   <div className='col-span-1 row-start-2'>メール :</div>
                   <input
                     className='inputedit indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1'
                     disabled
+                    name='email'
                     {...register('email')}
                   ></input>
                   <div className='col-span-1 row-start-3'>住所 :</div>
                   <input
                     className='inputedit indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1'
                     disabled
+                    name='address'
                     {...register('address')}
-                  ></input>
-                  <div className='elementeffects col-span-1 row-start-4 invisible'>古いパスワード :</div>
-                  <input
-                    type='password'
-                    className='elementeffects indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1 invisible'
-                  ></input>
-
-                  <div className='elementeffects col-span-1 row-start-5 invisible'>新しいパスワード :</div>
-                  <input
-                    type='password'
-                    className='elementeffects indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1 invisible'
-                  ></input>
-
-                  <div className='elementeffects col-span-1 row-start-6 invisible'>パスワード確認 :</div>
-                  <input
-                    type='password'
-                    className='elementeffects indent-10 col-start-2 col-span-2 border rounded-xl border-black py-1 invisible'
                   ></input>
                 </div>
               </div>
@@ -138,13 +145,6 @@ export default function UserProfile() {
                 <button
                   type='submit'
                   className='elementeffects bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
-
-                  /////
-                  /////
-                  // onClick={ lam gi do }
-                  //////
-                  //////
-                  /////
                 >
                   Save
                 </button>
@@ -153,6 +153,7 @@ export default function UserProfile() {
           </div>
         </form>
       </div>
+      {modal && <UploadAvatar toggleModal={toggleModal} />}
     </div>
   )
 }
