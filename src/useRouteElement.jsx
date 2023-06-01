@@ -34,6 +34,13 @@ function RoleProtectedRouter() {
   return check ? <Outlet /> : <Navigate to='/' />
 }
 
+function RoleProtectedRouter2() {
+  const { info } = useContext(AppContext)
+  const check = Boolean(info.roles === 2)
+  console.log(check)
+  return check ? <Outlet /> : <Navigate to='/' />
+}
+
 export default function useRouteElement() {
   const routeElement = useRoutes([
     {
@@ -45,24 +52,6 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    // {
-    //   path: 'userprofile',
-    //   element: (
-    //     <MainLayout>
-    //       <UserProfile />
-    //     </MainLayout>
-    //   )
-    // },
-
-    // {
-    //   path: 'employeelist',
-    //   element: (
-    //     <Mainlayout>
-    //       <EmployeeList />
-    //     </Mainlayout>
-    //   )
-    // },
-
     {
       path: 'contractedjobslist',
       element: (
@@ -122,20 +111,18 @@ export default function useRouteElement() {
       element: <ProtectedRoute />,
       children: [
         {
-          path: 'employeeprofile',
-          element: (
-            <MainLayout>
-              <EmployeeProfile />
-            </MainLayout>
-          )
-        },
-        {
-          path: 'userprofile',
-          element: (
-            <MainLayout>
-              <UserProfile />
-            </MainLayout>
-          )
+          path: '',
+          element: <RoleProtectedRouter2 />,
+          children: [
+            {
+              path: 'employeeprofile',
+              element: (
+                <MainLayout>
+                  <EmployeeProfile />
+                </MainLayout>
+              )
+            }
+          ]
         }
       ]
     },
@@ -154,32 +141,20 @@ export default function useRouteElement() {
                   <EmployeeList />
                 </Mainlayout>
               )
+            },
+            {
+              path: 'userprofile',
+              element: (
+                <MainLayout>
+                  <UserProfile />
+                </MainLayout>
+              )
             }
           ]
         }
       ]
-
-      // path: '',
-      // element: <RoleProtectedRouter />,
-      // children: [
-      //   {
-      //     path: 'employeelist',
-      //     element: (
-      //       <Mainlayout>
-      //         <EmployeeList />
-      //       </Mainlayout>
-      //     )
-      //   }
-      // ]
     },
-    // {
-    //   path: 'employeelist',
-    //   element: (
-    //     <Mainlayout>
-    //       <EmployeeList />
-    //     </Mainlayout>
-    //   )
-    // },
+
     {
       path: 'jobdetail',
       element: (

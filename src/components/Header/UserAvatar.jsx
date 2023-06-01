@@ -5,6 +5,8 @@ import { BiHomeAlt } from 'react-icons/bi'
 import { FiLogOut } from 'react-icons/fi'
 import { AiOutlineCalendar, AiOutlineHeart, AiOutlinePlus, AiOutlineCreditCard } from 'react-icons/ai'
 import React from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { currentAccount } from '../../api/auth.api'
 
 function UserAvatar({ handleLogout, info }) {
   const [modal, setModal] = React.useState(false)
@@ -17,6 +19,14 @@ function UserAvatar({ handleLogout, info }) {
   } else {
     document.body.classList.remove('active-modal')
   }
+  const { data: userData } = useQuery({
+    queryKey: ['profile'],
+    queryFn: () => {
+      return currentAccount()
+    }
+  })
+  const user = userData?.data
+  console.log(user)
 
   return (
     <div className='group relative inline-block'>
@@ -25,7 +35,7 @@ function UserAvatar({ handleLogout, info }) {
         onClick={toggleModal}
         type='button'
       >
-        {info.name}
+        {user?.data?.name}
         <div className='p-5'>
           <FaUserAlt />
         </div>
@@ -41,7 +51,7 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='mr-5 '>
                   <FaUserAlt />
                 </div>
-                {info.name}
+                {user?.data?.name}
               </div>
               <div className=' text-6xl font-medium cursor-pointer' onClick={toggleModal}>
                 X

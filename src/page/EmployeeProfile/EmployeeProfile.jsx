@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
-import { currentAccount, updateImage, updateUser } from '../../api/auth.api'
+import { currentAccount, updateUser } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee, updateEmployee } from '../../api/employee.api'
 
@@ -39,10 +39,10 @@ export default function EmployeeProfile() {
     queryKey: ['profile'],
     queryFn: () => {
       return currentAccount()
-    },
-    staleTime: 1 * (60 * 1000)
+    }
   })
   const user = userData?.data
+  console.log(user)
   const { data: employeeData } = useQuery({
     queryKey: ['employee'],
     queryFn: () => {
@@ -97,7 +97,7 @@ export default function EmployeeProfile() {
       'experience',
       'skill'
     ])
-    console.log(users)
+    // console.log(users)
     updateUserMutation.mutate(users, {
       onSuccess: (data) => {},
       onError: (error) => {
@@ -187,7 +187,7 @@ export default function EmployeeProfile() {
                   onClick={toggleModal}
                   className='rounded-[50%] border-2  cursor-pointer overflow-hidden inline-block justify-center items-center w-56 h-56'
                 >
-                  <img src={user?.data.image} alt='imageuser' />
+                  <img src={user?.data?.image} alt='imageuser' />
                 </div>
 
                 <div className='bg-[#e8e7e74d] mx-36 px-5 border-2 rounded-full text-center'>{user?.data.name}</div>
