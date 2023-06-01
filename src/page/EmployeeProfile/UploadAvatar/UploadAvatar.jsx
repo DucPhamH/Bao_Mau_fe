@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import React from 'react'
 import { updateImage } from '../../../api/auth.api'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export default function UploadAvatar({ toggleModal }) {
   const [image, setImage] = React.useState('')
@@ -18,9 +19,10 @@ export default function UploadAvatar({ toggleModal }) {
     formData.append('imageUser', image)
     updateAvatarMutation.mutate(formData, {
       onSuccess: (data) => {
-        console.log(data)
-        toast(data.data?.message)
-        window.location.reload()
+        toast('Update thành công')
+        setTimeout(function () {
+          window.location.reload()
+        }, 3000)
       },
       onError: (error) => {
         console.log(error)

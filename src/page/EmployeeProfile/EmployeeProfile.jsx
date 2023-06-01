@@ -39,7 +39,8 @@ export default function EmployeeProfile() {
     queryKey: ['profile'],
     queryFn: () => {
       return currentAccount()
-    }
+    },
+    staleTime: 1 * (60 * 1000)
   })
   const user = userData?.data
   const { data: employeeData } = useQuery({

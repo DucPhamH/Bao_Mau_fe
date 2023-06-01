@@ -18,7 +18,7 @@ import { clearAccessTokenFromLS, getAccessTokenFromLS, saveAccessTokenToLS, save
 
 const instance = axios.create({
   baseURL: 'https://bao-mau-be-0v27.onrender.com/api/',
-  timeout: 10000,
+  timeout: 5000,
   headers: {
     'Content-Type': 'application/json'
   }
