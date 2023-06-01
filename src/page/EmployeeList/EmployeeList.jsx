@@ -56,7 +56,6 @@ export default function EmployeeList() {
             <Employee></Employee>
             <Employee></Employee>
             <Employee></Employee>
-            <Employee></Employee>
           </div>
         </div>
       </div>
