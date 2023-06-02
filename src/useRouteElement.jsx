@@ -136,10 +136,20 @@ export default function useRouteElement() {
           children: [
             {
               path: 'employeelist',
+              index: true,
               element: (
                 <Mainlayout>
                   <EmployeeList />
                 </Mainlayout>
+              )
+            },
+            {
+              path: 'employeelist/:id',
+              index: true,
+              element: (
+                <MainLayout>
+                  <EmployeeInfo />
+                </MainLayout>
               )
             },
             {
@@ -160,14 +170,6 @@ export default function useRouteElement() {
       element: (
         <MainLayout>
           <JobDetail />
-        </MainLayout>
-      )
-    },
-    {
-      path: 'employeeinfo',
-      element: (
-        <MainLayout>
-          <EmployeeInfo />
         </MainLayout>
       )
     }
