@@ -39,7 +39,11 @@ export default function Login() {
         toast(data.data?.message)
         setInfo(getInfoFromLS())
         setIsAuthenticated(true)
-        navigate('/')
+        if (data.data?.data.user.roles === 1) {
+          navigate('/employeelist')
+        } else {
+          navigate('/')
+        }
       },
       onError: (error) => {
         console.log(error)

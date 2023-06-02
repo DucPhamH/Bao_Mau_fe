@@ -31,7 +31,7 @@ instance.interceptors.request.use(
     //console.log(config)
     if (accessToken && config.headers) {
       config.headers.Authorization = accessToken
-      console.log(config.headers.Authorization)
+      //console.log(config.headers.Authorization)
       return config
     }
     return config

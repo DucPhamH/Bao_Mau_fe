@@ -10,7 +10,7 @@ import { currentAccount } from '../../api/auth.api'
 
 function UserAvatar({ handleLogout, info }) {
   const [modal, setModal] = React.useState(false)
-  console.log(info)
+  // console.log(info)
   const toggleModal = () => {
     setModal(!modal)
   }
@@ -26,7 +26,7 @@ function UserAvatar({ handleLogout, info }) {
     }
   })
   const user = userData?.data
-  console.log(user)
+  //console.log(user)
 
   return (
     <div className='group relative inline-block'>
