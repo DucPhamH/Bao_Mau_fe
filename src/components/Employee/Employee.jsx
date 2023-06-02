@@ -1,10 +1,14 @@
 import React from 'react'
-import { BiUserCircle } from 'react-icons/bi'
 import { GiPositionMarker } from 'react-icons/gi'
 import { getAges, displayNum } from '../../utils/utils'
-export default function Employee({ employee }) {
+import { useNavigate } from 'react-router-dom'
+export default function Employee({ employee, pathName }) {
+  const navigate = useNavigate()
   return (
-    <div className='border-2 font-itim rounded-xl border-black mx-12 my-12 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'>
+    <div
+      onClick={() => navigate(pathName)}
+      className='border-2 font-itim rounded-xl border-black mx-12 my-12 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'
+    >
       <div className='flex ml-3 mt-2'>
         <div>
           <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-56 h-56 flex justify-center items-center bg-white'>

@@ -95,7 +95,7 @@ export default function EmployeeList() {
             {employees &&
               employees.data.map((employee) => (
                 <div key={employee._id}>
-                  <Employee employee={employee} />
+                  <Employee employee={employee} pathName={`${employee._id}`} />
                 </div>
               ))}
           </div>
