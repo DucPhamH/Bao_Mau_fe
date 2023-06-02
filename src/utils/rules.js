@@ -43,3 +43,5 @@ export const userSchema = yup.object({
     .min(5, 'Độ dài từ 5 - 160 ký tự')
     .max(160, 'Độ dài từ 5 - 160 ký tự')
 })
+
+export const searchSchema = yup.object({})

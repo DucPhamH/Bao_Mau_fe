@@ -22,7 +22,7 @@ export default function EmployeeList() {
     },
     isUndefined
   )
-  console.log(queryConfig)
+  // console.log(queryConfig)
   const { data } = useQuery({
     queryKey: ['employees', queryConfig],
     queryFn: () => {
@@ -102,7 +102,7 @@ export default function EmployeeList() {
         </div>
       </div>
       <div className='col-span-1 mx-20'>
-        <Searchbar></Searchbar>
+        <Searchbar queryConfig={queryConfig}></Searchbar>
       </div>
     </div>
   )
