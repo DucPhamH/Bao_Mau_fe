@@ -68,7 +68,7 @@ function UserAvatar({ handleLogout, info }) {
             </Link>
 
             {info.roles === 2 ? (
-              <Link to='/employeeprofile'>
+              <Link to='/employeeprofile' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <FaUserAlt />
@@ -78,7 +78,7 @@ function UserAvatar({ handleLogout, info }) {
                 </div>
               </Link>
             ) : (
-              <Link to='/userprofile'>
+              <Link to='/userprofile' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <FaUserAlt />
@@ -96,12 +96,14 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='text-4xl'>エントリー</div>
               </div>
             ) : (
-              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
-                <div className='text-5xl pr-8'>
-                  <AiOutlineCalendar />
+              <Link to='/employeelist' onClick={toggleModal}>
+                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                  <div className='text-5xl pr-8'>
+                    <AiOutlineCalendar />
+                  </div>
+                  <div className='text-4xl'>エントリー情報</div>
                 </div>
-                <div className='text-4xl'>エントリー情報</div>
-              </div>
+              </Link>
             )}
 
             <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
