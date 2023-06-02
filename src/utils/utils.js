@@ -16,3 +16,7 @@ export function getAges(dateOB) {
 
   return currentYear - year
 }
+
+export function displayNum(num) {
+  return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, '.')
+}

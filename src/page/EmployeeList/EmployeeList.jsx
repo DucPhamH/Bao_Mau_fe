@@ -61,7 +61,7 @@ export default function EmployeeList() {
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
       <div className='col-span-2 mx-16 mt-32'>
-        <div className='grid grid-cols-8'>
+        <div className='grid grid-cols-9'>
           <button
             className={classNames('font-itim text-4xl col-span-4 py-5 rounded-full ', {
               'bg-[#7101ff] text-white': isActiveMaid('false'),
@@ -72,7 +72,7 @@ export default function EmployeeList() {
             ベビーシッター (219)
           </button>
           <button
-            className={classNames('font-itim text-4xl col-span-4 py-5 rounded-full ', {
+            className={classNames('font-itim text-4xl col-start-6 col-span-4 py-5 rounded-full ', {
               'bg-[#7101ff] text-white': isActiveMaid('true'),
               'bg-white text-black ': !isActiveMaid('true')
             })}
