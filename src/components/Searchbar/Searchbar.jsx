@@ -13,18 +13,18 @@ export default function Searchbar({ queryConfig }) {
 
   const onSubmit = handleSubmit((data) => {
     //console.log(data)
-    const dataConfig = omitBy(
-      {
-        ...data
-      },
-      isEmpty
-    )
-    console.log(dataConfig)
+    // const dataConfig = omitBy(
+    //   {
+    //     ...data
+    //   },
+    //   isEmpty
+    // )
+    // console.log(dataConfig)
     navigate({
       pathname: '/employeelist',
       search: createSearchParams({
         ...queryConfig,
-        ...dataConfig
+        ...data
       }).toString()
     })
   })
