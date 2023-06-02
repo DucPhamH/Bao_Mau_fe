@@ -49,6 +49,15 @@ export default function EmployeeList() {
       }).toString()
     })
   }
+  const handleSort = (sortValue) => {
+    navigate({
+      pathname: '/employeelist',
+      search: createSearchParams({
+        ...queryConfig,
+        sort: sortValue
+      }).toString()
+    })
+  }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
       <div className='col-span-2 mx-16 mt-32'>
@@ -67,7 +76,7 @@ export default function EmployeeList() {
               'bg-[#7101ff] text-white': isActiveMaid('true'),
               'bg-white text-black ': !isActiveMaid('true')
             })}
-            onClick={() => handleRole(true)}
+            onClick={() => handleRole('true')}
           >
             料理人 (219)
           </button>
@@ -75,7 +84,10 @@ export default function EmployeeList() {
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>
           <div className='relative'>
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
-            <button className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'>
+            <button
+              onClick={() => handleSort('asc')}
+              className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'
+            >
               給料&#32;&#8593;
             </button>
           </div>
