@@ -1,7 +1,7 @@
 import React from 'react'
 import { CgProfile } from 'react-icons/cg'
 import { BsDot } from 'react-icons/bs'
-import { TbLocation } from 'react-icons/tb'
+import { GiPositionMarker } from 'react-icons/gi'
 import { BsPersonFill } from 'react-icons/bs'
 import { BsCardText } from 'react-icons/bs'
 import { useParams } from 'react-router-dom'
@@ -44,7 +44,7 @@ export default function EmployeeInfo() {
                   <div className='text-3xl/relaxed'>
                     <div className='flex flex-row items-center'>
                       <div>
-                        <TbLocation />
+                        <GiPositionMarker size={20} />
                       </div>
                       <div className='ml-2'>{employee.data.userID.address}</div>
                     </div>
@@ -57,7 +57,7 @@ export default function EmployeeInfo() {
                 </div>
               </div>
               <div>
-                <button className='w-[14rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff] text-4xl'>
+                <button className='w-[14rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#0036B1] text-4xl'>
                   採用
                 </button>
               </div>

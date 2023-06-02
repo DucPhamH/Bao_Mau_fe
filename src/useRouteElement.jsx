@@ -12,6 +12,7 @@ import { AppContext } from './contexts/app.context'
 import Mainlayout from './Layout/MainLayout/MainLayout'
 import JobDetail from './page/JobDetail'
 import EmployeeInfo from './page/EmployeeInfo'
+import CreateJob from './page/CreateJob'
 import ContractedJobsList from './page/ContractedJobsList'
 import EmployeeApplyingList from './page/EmployeeApplyingList'
 import UserPosts from './page/UserPosts'
@@ -170,6 +171,14 @@ export default function useRouteElement() {
       element: (
         <MainLayout>
           <JobDetail />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'createjob',
+      element: (
+        <MainLayout>
+          <CreateJob />
         </MainLayout>
       )
     }
