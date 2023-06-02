@@ -1,6 +1,7 @@
 import React from 'react'
 import { BiUserCircle } from 'react-icons/bi'
 import { GiPositionMarker } from 'react-icons/gi'
+import { getAges } from '../../utils/utils'
 export default function Employee({ employee }) {
   return (
     <div className='border-2 font-itim rounded-xl border-black mx-12 my-12'>
@@ -15,9 +16,9 @@ export default function Employee({ employee }) {
             <div className='-mt-1 font-bold text-3xl'>{employee.userID.address}</div>
           </div>
 
-          <div className='row-start-3 col-span-1'>年齢 : 20</div>
-          <div className='row-start-3 col-start-2 col-span-1'>{employee.experience}</div>
-          <div className='row-start-3 col-start-3 col-span-1'>{employee.degree}</div>
+          <div className='row-start-3 col-span-1'>年齢 : {getAges(employee.dateOB)}</div>
+          <div className='row-start-3 col-start-2 col-span-1'>実験 : {employee.experience}</div>
+          <div className='row-start-3 col-start-3 col-span-1'>給料 : {employee.salary}</div>
           <div className='mb-12 line-clamp-2 row-start-4 col-span-4'>{employee.description}</div>
         </div>
       </div>

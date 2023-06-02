@@ -17,7 +17,8 @@ export default function EmployeeList() {
       querySearch: queryParams.querySearch,
       age: queryParams.age,
       salary: queryParams.salary,
-      housemaid: queryParams.housemaid
+      housemaid: queryParams.housemaid,
+      sort: queryParams.sort
     },
     isUndefined
   )
