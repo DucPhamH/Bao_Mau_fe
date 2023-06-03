@@ -10,7 +10,7 @@ import { getEmployee } from '../../api/employee.api'
 import { getAges } from '../../utils/utils'
 export default function EmployeeInfo() {
   const { id } = useParams()
-  console.log(id)
+  // console.log(id)
   const { data } = useQuery({
     queryKey: ['employee', id],
     queryFn: () => {
@@ -18,7 +18,7 @@ export default function EmployeeInfo() {
     }
   })
   const employee = data?.data
-  console.log(employee)
+  // console.log(employee)
   return (
     <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
       {employee && (

@@ -32,7 +32,7 @@ export default function EmployeeList() {
   })
 
   const employees = data?.data
-  console.log(employees)
+  //console.log(employees)
 
   const { housemaid = 'false' } = queryConfig
   const navigate = useNavigate()

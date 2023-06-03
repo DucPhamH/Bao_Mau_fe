@@ -31,14 +31,14 @@ function RejectedRoute() {
 function RoleProtectedRouter() {
   const { info } = useContext(AppContext)
   const check = Boolean(info.roles === 1)
-  console.log(check)
+  //  console.log(check)
   return check ? <Outlet /> : <Navigate to='/' />
 }
 
 function RoleProtectedRouter2() {
   const { info } = useContext(AppContext)
   const check = Boolean(info.roles === 2)
-  console.log(check)
+  // console.log(check)
   return check ? <Outlet /> : <Navigate to='/' />
 }
 

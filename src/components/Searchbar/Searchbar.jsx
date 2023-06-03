@@ -1,14 +1,11 @@
-import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { searchSchema } from '../../utils/rules'
+
 import { createSearchParams, useNavigate } from 'react-router-dom'
 
 export default function Searchbar({ queryConfig }) {
   const navigate = useNavigate()
-  const { register, handleSubmit } = useForm({
-    resolver: yupResolver(searchSchema)
-  })
+  const { register, handleSubmit } = useForm({})
 
   const onSubmit = handleSubmit((data) => {
     navigate({

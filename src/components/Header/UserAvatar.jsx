@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-
 import { FaUserAlt } from 'react-icons/fa'
 import { BiHomeAlt } from 'react-icons/bi'
 import { FiLogOut } from 'react-icons/fi'
@@ -10,7 +9,6 @@ import { currentAccount } from '../../api/auth.api'
 
 function UserAvatar({ handleLogout, info }) {
   const [modal, setModal] = React.useState(false)
-  // console.log(info)
   const toggleModal = () => {
     setModal(!modal)
   }
@@ -26,7 +24,6 @@ function UserAvatar({ handleLogout, info }) {
     }
   })
   const user = userData?.data
-  //console.log(user)
 
   return (
     <div className='group relative inline-block'>
