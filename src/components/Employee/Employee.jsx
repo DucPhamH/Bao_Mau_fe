@@ -12,7 +12,7 @@ export default function Employee({ employee, pathName }) {
       <div className='flex ml-3 mt-2 w-[70vw]'>
         <div>
           <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-[10vw] h-[10vw] flex justify-center items-center bg-white'>
-            <img src='' alt='imageuser' />
+            <img src={employee.userID.image} alt='imageuser' />
           </div>
         </div>
 
