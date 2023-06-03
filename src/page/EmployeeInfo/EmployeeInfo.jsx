@@ -1,5 +1,4 @@
 import React from 'react'
-import { CgProfile } from 'react-icons/cg'
 import { BsDot } from 'react-icons/bs'
 import { GiPositionMarker } from 'react-icons/gi'
 import { BsPersonFill } from 'react-icons/bs'
@@ -27,7 +26,7 @@ export default function EmployeeInfo() {
             <div className='flex justify-between items-center'>
               <div className='flex flex-row items-center'>
                 <div className='text-[12rem]'>
-                  <CgProfile />
+                  <img src={employee.data.userID.image} alt='imageuser' />
                 </div>
                 <div className='ml-20 font-bold'>
                   <div className='flex flex-row items-center'>
