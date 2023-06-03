@@ -7,6 +7,7 @@ import { userSchema } from '../../utils/rules'
 import { toast } from 'react-toastify'
 import UploadAvatar from '../EmployeeProfile/UploadAvatar'
 import { BsCameraFill } from 'react-icons/bs'
+import ChangePass from './ChangePass'
 export default function UserProfile() {
   const {
     register,
@@ -131,61 +132,7 @@ export default function UserProfile() {
               >
                 Change password
               </button>
-              <form
-                action=''
-                ///////////////////
-                ///////////////////
-                //form đổi pass
-                ///////////////////
-                ///////////////////
-              >
-                <div className='changepassword grid gap-y-28 mt-32 mx-10 invisible'>
-                  <div className='col-span-1'>古いパスワード :</div>
-                  <div className='col-start-2 col-span-2 py-1'>
-                    <input
-                      className='indent-10 w-full border rounded-xl border-black'
-                      type='password'
-                      //////////////////
-                      //////////////////
-                      //password cũ (trình duyệt tự lưu mk cũ nên chắc phải làm j trong changePasswordFunction để tự xoá nó đi)
-                      //////////////////
-                      //////////////////
-                    ></input>
-                  </div>
-                  <div className='col-span-1 row-start-2'>新しいパスワード :</div>
-                  <div className='col-start-2 col-span-2 py-1'>
-                    <input
-                      className='indent-10 w-full border rounded-xl border-black'
-                      type='password'
-                      //////////////////
-                      //////////////////
-                      //password mới
-                      //////////////////
-                      //////////////////
-                    ></input>
-                  </div>
-                  <div className='col-span-1 row-start-3'>パスワード確認 :</div>
-                  <div className='col-start-2 col-span-2 py-1'>
-                    <input
-                      className='indent-10 w-full border rounded-xl border-black'
-                      type='password'
-                      //////////////////
-                      //////////////////
-                      //xác nhận lại pass
-                      //////////////////
-                      //////////////////
-                    ></input>
-                  </div>
-                </div>
-                <div className='my-24 flex justify-center'>
-                  <button
-                    type='submit'
-                    className='changepassword bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
-                  >
-                    Confirm
-                  </button>
-                </div>
-              </form>
+              <ChangePass />
             </div>
           </div>
 
@@ -212,6 +159,7 @@ export default function UserProfile() {
                       autoComplete='on'
                       {...register('name')}
                     ></input>
+                    <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.name?.message}</div>
                   </div>
                   <div className='col-span-1 row-start-2'>メール :</div>
                   <div className='col-start-2 col-span-2 py-1'>
@@ -221,6 +169,7 @@ export default function UserProfile() {
                       name='email'
                       {...register('email')}
                     ></input>
+                    <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.email?.message}</div>
                   </div>
                   <div className='col-span-1 row-start-3'>住所 :</div>
                   <div className='col-start-2 col-span-2 py-1'>

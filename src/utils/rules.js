@@ -43,3 +43,22 @@ export const userSchema = yup.object({
     .min(5, 'Độ dài từ 5 - 160 ký tự')
     .max(160, 'Độ dài từ 5 - 160 ký tự')
 })
+
+export const schemaChangePass = yup.object({
+  password: yup
+    .string()
+    .required('Password là bắt buộc')
+    .min(6, 'Độ dài từ 6 - 160 ký tự')
+    .max(160, 'Độ dài từ 6 - 160 ký tự'),
+  newPassword: yup
+    .string()
+    .required('Password là bắt buộc')
+    .min(6, 'Độ dài từ 6 - 160 ký tự')
+    .max(160, 'Độ dài từ 6 - 160 ký tự'),
+  confirm_password: yup
+    .string()
+    .required('Nhập lại password là bắt buộc')
+    .min(6, 'Độ dài từ 6 - 160 ký tự')
+    .max(160, 'Độ dài từ 6 - 160 ký tự')
+    .oneOf([yup.ref('newPassword')], 'Nhập lại password không khớp')
+})
