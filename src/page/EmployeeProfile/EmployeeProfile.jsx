@@ -130,30 +130,6 @@ export default function EmployeeProfile() {
   //////////////////////
 
   const [modal, setModal] = React.useState(false)
-  // const [image, setImage] = React.useState('')
-
-  // const updateAvatarMutation = useMutation({
-  //   mutationFn: (body) => updateImage(body)
-  // })
-  // const handleImage = (e) => {
-  //   console.log(e.target.files)
-  //   setImage(e.target.files[0])
-  // }
-
-  // const handleApi = () => {
-  //   const formData = new FormData()
-  //   formData.append('imageUser', image)
-  //   updateAvatarMutation.mutate(formData, {
-  //     onSuccess: (data) => {
-  //       console.log(data)
-  //       toast(data.data?.message)
-  //       window.location.reload()
-  //     },
-  //     onError: (error) => {
-  //       console.log(error)
-  //     }
-  //   })
-  // }
 
   const toggleModal = () => {
     setModal(!modal)

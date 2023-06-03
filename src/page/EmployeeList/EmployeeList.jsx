@@ -2,11 +2,10 @@ import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
 import Employee from '../../components/Employee'
 import Searchbar from '../../components/Searchbar/Searchbar'
-import { useState } from 'react'
 import useQueryParams from '../../hooks/useQueryParam'
 import { getAllEmployee } from '../../api/employee.api'
 import { useQuery } from '@tanstack/react-query'
-import { isUndefined, omitBy } from 'lodash'
+import { isUndefined, omit, omitBy } from 'lodash'
 import { createSearchParams, useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
 export default function EmployeeList() {
@@ -34,7 +33,7 @@ export default function EmployeeList() {
   const employees = data?.data
   //console.log(employees)
 
-  const { housemaid = 'false' } = queryConfig
+  const { housemaid = 'false', sort } = queryConfig
   const navigate = useNavigate()
   const isActiveMaid = (housemaidValue) => {
     return housemaid === housemaidValue
@@ -50,13 +49,23 @@ export default function EmployeeList() {
     })
   }
   const handleSort = (sortValue) => {
-    navigate({
-      pathname: '/employeelist',
-      search: createSearchParams({
-        ...queryConfig,
-        sort: sortValue
-      }).toString()
-    })
+    if (sort === 'asc') {
+      const query = omit(queryConfig, 'sort')
+      navigate({
+        pathname: '/employeelist',
+        search: createSearchParams({
+          ...query
+        }).toString()
+      })
+    } else {
+      navigate({
+        pathname: '/employeelist',
+        search: createSearchParams({
+          ...queryConfig,
+          sort: sortValue
+        }).toString()
+      })
+    }
   }
 
   const checkHousemaidFalse = () => {
