@@ -58,6 +58,18 @@ export default function EmployeeList() {
       }).toString()
     })
   }
+
+  const checkHousemaidFalse = () => {
+    if (housemaid === 'false') {
+      return employees?.data?.length
+    } else return 0
+  }
+
+  const checkHousemaidTrue = () => {
+    if (housemaid === 'true') {
+      return employees?.data?.length
+    } else return 0
+  }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
       <div className='col-span-2 mx-16 mt-32'>
@@ -69,7 +81,7 @@ export default function EmployeeList() {
             })}
             onClick={() => handleRole('false')}
           >
-            ベビーシッター (219)
+            ベビーシッター ({checkHousemaidFalse()})
           </button>
           <button
             className={classNames('font-itim text-4xl col-start-6 col-span-4 py-5 rounded-full ', {
@@ -78,7 +90,7 @@ export default function EmployeeList() {
             })}
             onClick={() => handleRole('true')}
           >
-            料理人 (219)
+            料理人 ({checkHousemaidTrue()})
           </button>
         </div>
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>

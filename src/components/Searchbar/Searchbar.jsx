@@ -3,7 +3,6 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { searchSchema } from '../../utils/rules'
 import { createSearchParams, useNavigate } from 'react-router-dom'
-import { isEmpty, omitBy } from 'lodash'
 
 export default function Searchbar({ queryConfig }) {
   const navigate = useNavigate()
@@ -12,14 +11,6 @@ export default function Searchbar({ queryConfig }) {
   })
 
   const onSubmit = handleSubmit((data) => {
-    //console.log(data)
-    // const dataConfig = omitBy(
-    //   {
-    //     ...data
-    //   },
-    //   isEmpty
-    // )
-    // console.log(dataConfig)
     navigate({
       pathname: '/employeelist',
       search: createSearchParams({
