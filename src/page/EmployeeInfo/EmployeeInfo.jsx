@@ -26,7 +26,7 @@ export default function EmployeeInfo() {
             <div className='flex justify-between items-center'>
               <div className='flex flex-row items-center'>
                 <div className='text-[12rem]'>
-                  <img src={employee.data.userID.image} alt='imageuser' />
+                  <img src={employee.data.userID.image} alt='imageuser' className='w-[20rem] h-[20rem]' />
                 </div>
                 <div className='ml-20 font-bold'>
                   <div className='flex flex-row items-center'>

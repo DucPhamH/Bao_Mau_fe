@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { BiArrowBack } from 'react-icons/bi'
 import { FiClock } from 'react-icons/fi'
 import { BiCheckCircle } from 'react-icons/bi'
@@ -12,10 +13,17 @@ export default function CreateJob() {
     newButtonColors[index] = buttonColors[index] === 'black' ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'
     setButtonColors(newButtonColors)
   }
+
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+  })
+
   return (
     <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
       <div className='w-[90%] bg-[#FFF] mt-12 mb-24 rounded-3xl p-12'>
-        <div className='text-4xl leading-relaxed'>
+        <form className='text-4xl leading-relaxed' onSubmit={onSubmit} noValidate>
           <div className='text-6xl flex flex-row font-bold'>
             <div className='text-[#C226F9] cursor-pointer mr-16'>
               <BiArrowBack />
@@ -27,28 +35,36 @@ export default function CreateJob() {
               <div className='w-60 mr-20'>タイトル :</div>
               <input
                 type='text'
+                name='title'
+                {...register('title')}
                 className='p-10 border-2 border-black outline-none rounded-[20px] w-[100%] h-28 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
               />
             </div>
             <div className='flex flex-row items-center mt-20'>
               <div className='mr-56'>対象 :</div>
-              <div class='flex items-center'>
-                <label for='checkbox'>ベビーシッター</label>
-                <input
-                  id='checkbox'
-                  type='checkbox'
-                  value=''
-                  className='w-[35px] h-[35px] rounded-[5px] ml-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
-                />
+              <div className='flex items-center'>
+                <label htmlFor='radio1'>
+                  ベビーシッター
+                  <input
+                    id='radio1'
+                    type='radio'
+                    name='role'
+                    {...register('babysister')}
+                    className='w-[35px] h-[35px] rounded-[5px] ml-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
+                  />
+                </label>
               </div>
-              <div class='flex items-center ml-80'>
-                <label for='checkbox'>料理人</label>
-                <input
-                  id='checkbox'
-                  type='checkbox'
-                  value=''
-                  className='w-[35px] h-[35px] border-green rounded-[5px] ml-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
-                />
+              <div className='flex items-center ml-80'>
+                <label htmlFor='radio2'>
+                  料理人
+                  <input
+                    id='radio2'
+                    type='radio'
+                    name='role'
+                    {...register('housemaid')}
+                    className='w-[35px] h-[35px] border-green rounded-[5px] ml-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
+                  />
+                </label>
               </div>
             </div>
             <div className='border-2 border-black p-16 rounded-[20px] mt-16 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>
@@ -303,7 +319,7 @@ export default function CreateJob() {
               </button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   )
