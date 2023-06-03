@@ -295,7 +295,10 @@ export default function CreateJob() {
               </div>
             </div>
             <div className='flex items-center justify-center mt-32'>
-              <button type='submit' className='bg-[#7101ff] hover:bg-[#0036B1] p-6 w-[26rem] rounded-[20px] text-5xl text-white'>
+              <button
+                type='submit'
+                className='bg-[#7101ff] hover:bg-[#0036B1] p-6 w-[26rem] rounded-[20px] text-5xl text-white'
+              >
                 作成
               </button>
             </div>
