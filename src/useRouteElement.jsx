@@ -181,6 +181,30 @@ export default function useRouteElement() {
           <CreateJob />
         </MainLayout>
       )
+    },
+    {
+      path: 'userposts',
+      element: (
+        <MainLayout>
+          <UserPosts />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'employee-applying-list',
+      element: (
+        <MainLayout>
+          <EmployeeApplyingList />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'user-requests-list',
+      element: (
+        <MainLayout>
+          <UserRequestsList />
+        </MainLayout>
+      )
     }
   ])
   return routeElement
