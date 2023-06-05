@@ -80,10 +80,13 @@ export default function EmployeeInfo() {
               <div>総合案内</div>
               <ul className='list-disc marker:text-[#7101FF]'>
                 <div className='columns-xl'>
-                  <li>誕生日: {
-                  // employee.data.dateOB.substring(0, 10).replaceAll('-', '/')
-                  employee.data.dateOB
-                  }</li>
+                  <li>
+                    誕生日:{' '}
+                    {
+                      // employee.data.dateOB.substring(0, 10).replaceAll('-', '/')
+                      employee.data.dateOB
+                    }
+                  </li>
                   <li>性別: {employee.data.gender}</li>
                   <li>経験: {employee.data.experience}</li>
                   <li>言語: 日本語、英語</li>

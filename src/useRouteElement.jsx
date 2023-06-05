@@ -182,11 +182,12 @@ export default function useRouteElement() {
           <CreateJob />
         </MainLayout>
       )
-    }, {
+    },
+    {
       path: '*',
       element: (
         <MainLayout>
-          <Error404NotFound/>
+          <Error404NotFound />
         </MainLayout>
       )
     }

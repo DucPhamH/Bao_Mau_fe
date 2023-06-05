@@ -4,19 +4,11 @@ import { useForm } from 'react-hook-form'
 import { BiArrowBack } from 'react-icons/bi'
 import { FiClock } from 'react-icons/fi'
 import { BiCheckCircle } from 'react-icons/bi'
+import { useMutation } from '@tanstack/react-query'
+import { createPost } from '../../api/post.api'
+import { toast } from 'react-toastify'
 
 const initialFormState = {
-  dateStart: new Date().toISOString(),
-  address: '',
-  tittle: '',
-  age: 0,
-  language: '',
-  experience: '',
-  description: '',
-  degree: '',
-  salary: 0,
-  housemaid: false,
-  babysister: false,
   mo_morning: false,
   mo_afternoon: false,
   tu_morning: false,
@@ -35,20 +27,51 @@ const initialFormState = {
 
 export default function CreateJob() {
   const [buttonColors, setButtonColors] = useState(Array(14).fill('black'))
-  const [formState, setFormSate] = useState(initialFormState)
-  console.log(formState)
+  const [formState, setFormState] = useState(initialFormState)
 
-  console.log(buttonColors)
-  const handleClick = (index) => {
+  // console.log(buttonColors)
+  const handleClick = (index, nameState) => {
     const newButtonColors = [...buttonColors]
+    const newFormState = { ...formState }
+    newFormState[nameState] = formState[nameState] === false ? true : false
     newButtonColors[index] = buttonColors[index] === 'black' ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'
+    setFormState(newFormState)
     setButtonColors(newButtonColors)
   }
 
-  const { register, handleSubmit } = useForm()
+  //  console.log(formState)
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      dateStart: new Date().toISOString(),
+      address: '',
+      title: '',
+      age: '',
+      language: '',
+      experience: '',
+      description: '',
+      salary: 0,
+      housemaid: false,
+      babysister: false
+    }
+  })
+
+  const newPost = useMutation({
+    mutationFn: (body) => createPost(body)
+  })
 
   const onSubmit = handleSubmit((data) => {
-    // console.log(data)
+    const body = { ...data, ...formState }
+    console.log(body)
+    newPost.mutate(body, {
+      onSuccess: (data) => {
+        console.log(data)
+        toast(data.data?.message)
+      },
+      onError: (error) => {
+        console.log(error)
+      }
+    })
   })
 
   return (
@@ -78,8 +101,8 @@ export default function CreateJob() {
                   ベビーシッター
                   <input
                     id='radio1'
-                    type='radio'
-                    name='role'
+                    type='checkbox'
+                    name='babysister'
                     {...register('babysister')}
                     className='w-[35px] h-[35px] rounded-[5px] ml-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                   />
@@ -90,8 +113,8 @@ export default function CreateJob() {
                   料理人
                   <input
                     id='radio2'
-                    type='radio'
-                    name='role'
+                    type='checkbox'
+                    name='housemaid'
                     {...register('housemaid')}
                     className='w-[35px] h-[35px] border-green rounded-[5px] ml-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                   />
@@ -104,6 +127,8 @@ export default function CreateJob() {
                   <div className='mr-10'>場所 :</div>
                   <input
                     type='text'
+                    name='address'
+                    {...register('address')}
                     className='p-7 border-[1px] border-black outline-none rounded-[20px] w-[30rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                   />
                 </div>
@@ -111,6 +136,8 @@ export default function CreateJob() {
                   <div className='mr-10'>勤務開始日 :</div>
                   <input
                     type='date'
+                    name='dateStart'
+                    {...register('dateStart')}
                     className='p-7 border-[1px] border-black outline-none rounded-[20px] w-[30rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                   />
                 </div>
@@ -119,12 +146,18 @@ export default function CreateJob() {
                 <div className='mr-10'>給料 :</div>
                 <input
                   type='text'
+                  name='salary'
+                  {...register('salary')}
                   className='p-7 border-[1px] border-black outline-none rounded-[20px] w-[30rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
               </div>
               <div className='mt-12'>仕事の詳細情報:</div>
               <div className='flex items-center flex-col mb-12'>
-                <textarea className='border-2 border-black rounded-[20px] w-[95%] h-[20rem] mt-12 resize-none outline-none p-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'></textarea>
+                <textarea
+                  name='description'
+                  {...register('description')}
+                  className='border-2 border-black rounded-[20px] w-[95%] h-[20rem] mt-12 resize-none outline-none p-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
+                ></textarea>
               </div>
             </div>
             <div className='border-2 border-black p-16 rounded-[20px] mt-16 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>
@@ -133,6 +166,8 @@ export default function CreateJob() {
                 <div className='mr-10'>年齢 :</div>
                 <input
                   type='text'
+                  name='age'
+                  {...register('age')}
                   className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[10rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
               </div>
@@ -140,6 +175,8 @@ export default function CreateJob() {
                 <div className='mr-10'>実験 :</div>
                 <input
                   type='text'
+                  name='experience'
+                  {...register('experience')}
                   className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[90%] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
               </div>
@@ -147,6 +184,8 @@ export default function CreateJob() {
                 <div className='mr-10'>言語 :</div>
                 <input
                   type='text'
+                  name='language'
+                  {...register('language')}
                   className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[24rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
               </div>
@@ -162,8 +201,8 @@ export default function CreateJob() {
                 <div>月曜日</div>
                 <div className='flex flex-row select-none'>
                   <div
-                    style={{ color: buttonColors[1] }}
-                    onClick={() => handleClick(1)}
+                    style={{ color: buttonColors[0] }}
+                    onClick={() => handleClick(0, `mo_morning`)}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -172,8 +211,8 @@ export default function CreateJob() {
                     <div>午前</div>
                   </div>
                   <div
-                    style={{ color: buttonColors[2] }}
-                    onClick={() => handleClick(2)}
+                    style={{ color: buttonColors[1] }}
+                    onClick={() => handleClick(1, 'mo_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -187,8 +226,8 @@ export default function CreateJob() {
                 <div>火曜日</div>
                 <div className='flex flex-row select-none'>
                   <div
-                    style={{ color: buttonColors[3] }}
-                    onClick={() => handleClick(3)}
+                    style={{ color: buttonColors[2] }}
+                    onClick={() => handleClick(2, 'tu_morning')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -197,8 +236,8 @@ export default function CreateJob() {
                     <div>午前</div>
                   </div>
                   <div
-                    style={{ color: buttonColors[4] }}
-                    onClick={() => handleClick(4)}
+                    style={{ color: buttonColors[3] }}
+                    onClick={() => handleClick(3, 'tu_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -213,8 +252,8 @@ export default function CreateJob() {
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
-                    style={{ color: buttonColors[5] }}
-                    onClick={() => handleClick(5)}
+                    style={{ color: buttonColors[4] }}
+                    onClick={() => handleClick(4, 'we_morning')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -223,8 +262,8 @@ export default function CreateJob() {
                     <div>午前</div>
                   </div>
                   <div
-                    style={{ color: buttonColors[6] }}
-                    onClick={() => handleClick(6)}
+                    style={{ color: buttonColors[5] }}
+                    onClick={() => handleClick(5, 'we_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -238,8 +277,8 @@ export default function CreateJob() {
                 <div>木曜日</div>
                 <div className='flex flex-row select-none'>
                   <div
-                    style={{ color: buttonColors[7] }}
-                    onClick={() => handleClick(7)}
+                    style={{ color: buttonColors[6] }}
+                    onClick={() => handleClick(6, 'th_morning')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -248,8 +287,8 @@ export default function CreateJob() {
                     <div>午前</div>
                   </div>
                   <div
-                    style={{ color: buttonColors[8] }}
-                    onClick={() => handleClick(8)}
+                    style={{ color: buttonColors[7] }}
+                    onClick={() => handleClick(7, 'th_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -264,8 +303,8 @@ export default function CreateJob() {
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
-                    style={{ color: buttonColors[9] }}
-                    onClick={() => handleClick(9)}
+                    style={{ color: buttonColors[8] }}
+                    onClick={() => handleClick(8, 'fr_morning')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -275,8 +314,8 @@ export default function CreateJob() {
                   </div>
                   <div
                     key={2}
-                    style={{ color: buttonColors[10] }}
-                    onClick={() => handleClick(10)}
+                    style={{ color: buttonColors[9] }}
+                    onClick={() => handleClick(9, 'fr_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -291,8 +330,8 @@ export default function CreateJob() {
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
-                    style={{ color: buttonColors[11] }}
-                    onClick={() => handleClick(11)}
+                    style={{ color: buttonColors[10] }}
+                    onClick={() => handleClick(10, 'sa_morning')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -302,8 +341,8 @@ export default function CreateJob() {
                   </div>
                   <div
                     key={2}
-                    style={{ color: buttonColors[12] }}
-                    onClick={() => handleClick(12)}
+                    style={{ color: buttonColors[11] }}
+                    onClick={() => handleClick(11, 'sa_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -318,8 +357,8 @@ export default function CreateJob() {
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
-                    style={{ color: buttonColors[13] }}
-                    onClick={() => handleClick(13)}
+                    style={{ color: buttonColors[12] }}
+                    onClick={() => handleClick(12, 'su_morning')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
@@ -329,8 +368,8 @@ export default function CreateJob() {
                   </div>
                   <div
                     key={2}
-                    style={{ color: buttonColors[14] }}
-                    onClick={() => handleClick(14)}
+                    style={{ color: buttonColors[13] }}
+                    onClick={() => handleClick(13, 'su_afternoon')}
                     className='flex flex-row mr-36 cursor-pointer hover:!text-green-500'
                   >
                     <div className='mr-12'>
