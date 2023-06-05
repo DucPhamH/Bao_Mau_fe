@@ -6,7 +6,7 @@ import { BsCardText } from 'react-icons/bs'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getEmployee } from '../../api/employee.api'
-import { getAges } from '../../utils/utils'
+import { getAges, displayNum } from '../../utils/utils'
 export default function EmployeeInfo() {
   const { id } = useParams()
   // console.log(id)
@@ -50,7 +50,8 @@ export default function EmployeeInfo() {
                     <div>
                       年齢: {getAges(employee.data.dateOB)}歳&emsp;経験: {employee.data.experience}
                       <br />
-                      サービス価格: {employee.data.salary}円&emsp;登録日: {employee.data.createdAt}
+                      サービス価格: {displayNum(employee.data.salary)}円&emsp;登録日:{employee.data.createdAt}
+                      {/* {employee.data.createdAt.substring(0, 10).replaceAll('-', '/')} */}
                     </div>
                   </div>
                 </div>
@@ -79,7 +80,10 @@ export default function EmployeeInfo() {
               <div>総合案内</div>
               <ul className='list-disc marker:text-[#7101FF]'>
                 <div className='columns-xl'>
-                  <li>誕生日: {employee.data.dateOB}</li>
+                  <li>誕生日: {
+                  // employee.data.dateOB.substring(0, 10).replaceAll('-', '/')
+                  employee.data.dateOB
+                  }</li>
                   <li>性別: {employee.data.gender}</li>
                   <li>経験: {employee.data.experience}</li>
                   <li>言語: 日本語、英語</li>

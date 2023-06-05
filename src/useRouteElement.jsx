@@ -17,6 +17,7 @@ import ContractedJobsList from './page/ContractedJobsList'
 import EmployeeApplyingList from './page/EmployeeApplyingList'
 import UserPosts from './page/UserPosts'
 import UserRequestsList from './page/UserRequestsList'
+import Error404NotFound from './page/Error404NotFound/Error404NotFound'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -179,6 +180,13 @@ export default function useRouteElement() {
       element: (
         <MainLayout>
           <CreateJob />
+        </MainLayout>
+      )
+    }, {
+      path: '*',
+      element: (
+        <MainLayout>
+          <Error404NotFound/>
         </MainLayout>
       )
     }
