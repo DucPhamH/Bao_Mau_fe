@@ -5,9 +5,40 @@ import { BiArrowBack } from 'react-icons/bi'
 import { FiClock } from 'react-icons/fi'
 import { BiCheckCircle } from 'react-icons/bi'
 
+const initialFormState = {
+  dateStart: new Date().toISOString(),
+  address: '',
+  tittle: '',
+  age: 0,
+  language: '',
+  experience: '',
+  description: '',
+  degree: '',
+  salary: 0,
+  housemaid: false,
+  babysister: false,
+  mo_morning: false,
+  mo_afternoon: false,
+  tu_morning: false,
+  tu_afternoon: false,
+  we_morning: false,
+  we_afternoon: false,
+  th_morning: false,
+  th_afternoon: false,
+  fr_morning: false,
+  fr_afternoon: false,
+  sa_morning: false,
+  sa_afternoon: false,
+  su_morning: false,
+  su_afternoon: false
+}
+
 export default function CreateJob() {
   const [buttonColors, setButtonColors] = useState(Array(14).fill('black'))
+  const [formState, setFormSate] = useState(initialFormState)
+  console.log(formState)
 
+  console.log(buttonColors)
   const handleClick = (index) => {
     const newButtonColors = [...buttonColors]
     newButtonColors[index] = buttonColors[index] === 'black' ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'
@@ -17,7 +48,7 @@ export default function CreateJob() {
   const { register, handleSubmit } = useForm()
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    // console.log(data)
   })
 
   return (
@@ -79,7 +110,7 @@ export default function CreateJob() {
                 <div className='flex flex-row items-center mr-20'>
                   <div className='mr-10'>勤務開始日 :</div>
                   <input
-                    type='text'
+                    type='date'
                     className='p-7 border-[1px] border-black outline-none rounded-[20px] w-[30rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                   />
                 </div>
