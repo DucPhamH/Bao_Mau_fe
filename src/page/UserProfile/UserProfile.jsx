@@ -102,9 +102,13 @@ export default function UserProfile() {
   //////////////////////
   //////////////////////
   //////////////////////
-  const [formChanged, setFormChanged] = React.useState(false)
-  const makeFormChangedStatus = () => setFormChanged(true)
 
+  ///////////////////////
+  //form change
+  // const [formChanged, setFormChanged] = React.useState(false)
+  // const makeFormChangedStatus = () => setFormChanged(true)
+  ///////////////////////
+  //////////////////////////
   return (
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>
@@ -149,7 +153,10 @@ export default function UserProfile() {
                 Update
               </button>
             </div>
-            <form onSubmit={onSubmit} onChange={makeFormChangedStatus}>
+            <form
+              onSubmit={onSubmit}
+              //  onChange={makeFormChangedStatus}
+            >
               <div className='ml-24 mr-32'>
                 <div className='text-4xl'>プロフィールページ</div>
                 <div className='grid gap-y-28 mt-32 ml-16'>

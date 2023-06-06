@@ -18,6 +18,7 @@ import EmployeeApplyingList from './page/EmployeeApplyingList'
 import UserPosts from './page/UserPosts'
 import UserRequestsList from './page/UserRequestsList'
 import Error404NotFound from './page/Error404NotFound/Error404NotFound'
+import ListOfAvailableJobs from './page/ListOfAvailableJobs/ListOfAvailableJobs'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -86,6 +87,15 @@ export default function useRouteElement() {
         </Mainlayout>
       )
     },
+    {
+      path: 'listofavailablejobs',
+      element: (
+        <Mainlayout>
+          <ListOfAvailableJobs />
+        </Mainlayout>
+      )
+    },
+
     {
       path: '',
       element: <RejectedRoute />,

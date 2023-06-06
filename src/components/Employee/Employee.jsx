@@ -9,11 +9,9 @@ export default function Employee({ employee, pathName }) {
       onClick={() => navigate(pathName)}
       className='border-2 font-itim rounded-xl border-black mx-12 my-12 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'
     >
-      <div className='flex ml-3 mt-2 w-[70vw]'>
-        <div>
-          <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-[10vw] h-[10vw] flex justify-center items-center bg-white'>
-            <img src={employee.userID.image} alt='imageuser' />
-          </div>
+      <div className='flex ml-3 mt-2'>
+        <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-[10vw] h-[10vw] flex justify-center items-center bg-white'>
+          <img src={employee.userID.image} alt='imageuser' />
         </div>
 
         <div className='mx-[1vw] flex-col gap-6'>
