@@ -194,6 +194,30 @@ export default function useRouteElement() {
       )
     },
     {
+      path: 'userposts',
+      element: (
+        <MainLayout>
+          <UserPosts />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'employee-applying-list',
+      element: (
+        <MainLayout>
+          <EmployeeApplyingList />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'user-requests-list',
+      element: (
+        <MainLayout>
+          <UserRequestsList />
+        </MainLayout>
+      )
+    },
+    {
       path: '*',
       element: (
         // <MainLayout>
