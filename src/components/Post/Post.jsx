@@ -3,7 +3,7 @@ import React from 'react'
 const Post = ({ postProps, buttons }) => {
   return (
     <div
-      className='w-full border border-black rounded-2xl p-8 flex items-center justify-center gap-8'
+      className='w-full border border-black rounded-2xl p-8 flex items-center justify-center gap-8 post'
       style={{ boxShadow: '0px 4px 4px 0px #00000040' }}
     >
       <div className='basis-[14.2857143%]'>
@@ -29,7 +29,7 @@ const Post = ({ postProps, buttons }) => {
         {postProps.dateStart && <div>勤務開始日: {postProps.dateStart}</div>}
         <div className='text-[16px]'>{postProps.description}</div>
       </div>
-      <div className='flex-grow-[28.5714286%] flex flex-col justify-center items-center gap-4'>
+      <div className='buttons flex-grow-[28.5714286%] flex flex-col justify-center items-center gap-4'>
         {buttons.map((buttonProp, ind) => (
           <button
             key={ind}

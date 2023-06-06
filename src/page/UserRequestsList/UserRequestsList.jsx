@@ -13,8 +13,8 @@ const userRequest = {
 }
 
 const buttons = [
-  { content: 'アクセス', backgroundColor: 'bg-[green]', color: 'white' },
-  { content: 'キャンセル', backgroundColor: 'bg-[red]', color: 'white' }
+  { content: 'アクセス', backgroundColor: 'bg-[#41E309]', color: 'white' },
+  { content: 'キャンセル', backgroundColor: 'bg-[#E72253]', color: 'white' }
 ]
 
 export default function UserRequestsList() {

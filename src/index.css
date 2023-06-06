@@ -25,7 +25,6 @@ html {
   font-family: 'Itim', cursive;
 }
 
-
 select option {
   background: white;
   color: black;
@@ -80,4 +79,18 @@ body.active-modal {
   padding: 26px 16px;
   border-radius: 6px;
   min-width: 300px;
+}
+
+.buttons-below .buttons {
+  flex-direction: row;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+}
+
+.buttons-below .post {
+  position: relative;
+  padding-bottom: 100px;
 }

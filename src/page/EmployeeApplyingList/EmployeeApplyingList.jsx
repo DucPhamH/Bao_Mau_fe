@@ -25,7 +25,7 @@ export default function EmployeeApplyingList() {
           ベビーシッターアプリケーションのリスト
         </div>
       </div>
-      <div className='col-span-3 bg-white h-fit rounded-2xl mt-8 mb-16'>
+      <div className='buttons-below col-span-3 bg-white h-fit rounded-2xl mt-8 mb-16'>
         <div className='w-[25%] bg-gray-600 rounded-2xl ml-8 mt-8 p-4'>A - Z</div>
         <div className='flex flex-col gap-6 p-8'>
           <Post postProps={employeeApplying} buttons={buttons} />
