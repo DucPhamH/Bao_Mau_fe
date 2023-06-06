@@ -75,7 +75,7 @@ function UserAvatar({ handleLogout, info }) {
                 </div>
               </Link>
             ) : (
-              <Link to='/userprofile' onClick={toggleModal}>
+              <Link to='/userprofdile' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <FaUserAlt />

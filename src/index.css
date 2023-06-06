@@ -21,6 +21,9 @@ html {
 #homepage-animation2 {
   animation-delay: -15s;
 }
+.animation404 {
+  animation-fill-mode: backwards;
+}
 
 .font-alex {
   font-family: 'Alex Brush', cursive;

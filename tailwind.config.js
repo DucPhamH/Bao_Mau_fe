@@ -22,26 +22,40 @@ module.exports = {
           }
         },
         entrance404: {
-          '0%': {
+          from: {
             width: '0',
             height: '0'
           },
-          '100%': {
+          to: {
             width: 'full',
-            height: 'full'
+            height: 'full',
+            'box-shadow': '0 0 20rem rgba(255,255,255,1)'
           }
         },
-        fade1: {
-          to: {
-            width: '0',
-            height: '0'
-          }
+        fadeIn: {
+          '0%': { opacity: '0%' },
+          '10%': { opacity: '10%' },
+          '20%': { opacity: '20%' },
+          '30%': { opacity: '30%' },
+          '40%': { opacity: '40%' },
+          '50%': { opacity: '50%' },
+          '60%': { opacity: '60%' },
+          '70%': { opacity: '70%' },
+          '80%': { opacity: '80%' },
+          '90%': { opacity: '90%' },
+          '100%': { opacity: '100%' }
         }
       },
       animation: {
         move: 'move 30s linear infinite',
-        entrance404: 'entrance404 2s ease',
-        fade1: 'fade1 2s ease'
+        entrance404first: 'entrance404 3s ease-in-out',
+        entrance404second: 'entrance404 3s ease-in-out 3s',
+        entrance404third: 'entrance404 3s ease-in-out 6s',
+        fadeIn1: 'fadeIn 2.5s linear 9s',
+        fadeIn2: 'fadeIn 2.5s linear 11.5s',
+        fadeIn3: 'fadeIn 2.5s linear 14s',
+        fadeIn4: 'fadeIn 2.5s linear 16.5s',
+        fadeIn5: 'fadeIn 2.5s linear 19s'
       }
     }
   }
