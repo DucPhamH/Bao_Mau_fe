@@ -13,6 +13,10 @@ html {
     font-family: 'Unown';
     src: url(./asset/font/Unown.ttf) format('truetype');
   }
+  @font-face {
+    font-family: 'BloodDrip';
+    src: url(./asset/font/plasdrip.ttf) format('truetype');
+  }
 }
 #homepage-animation2 {
   animation-delay: -15s;
@@ -24,7 +28,6 @@ html {
 .font-itim {
   font-family: 'Itim', cursive;
 }
-
 
 select option {
   background: white;

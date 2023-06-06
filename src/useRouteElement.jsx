@@ -196,9 +196,9 @@ export default function useRouteElement() {
     {
       path: '*',
       element: (
-        <MainLayout>
-          <Error404NotFound />
-        </MainLayout>
+        // <MainLayout>
+        <Error404NotFound />
+        // </MainLayout>
       )
     }
   ])

@@ -11,7 +11,7 @@ module.exports = {
         xl: '1280px',
         '2xl': '1536px'
       },
-      fontFamily: { unown: ['Unown'] },
+      fontFamily: { unown: ['Unown'], blooddrip: ['BloodDrip'] },
       keyframes: {
         move: {
           '0%': {
@@ -20,10 +20,28 @@ module.exports = {
           '100%': {
             transform: 'translate(-100%)'
           }
+        },
+        entrance404: {
+          '0%': {
+            width: '0',
+            height: '0'
+          },
+          '100%': {
+            width: 'full',
+            height: 'full'
+          }
+        },
+        fade1: {
+          to: {
+            width: '0',
+            height: '0'
+          }
         }
       },
       animation: {
-        move: 'move 30s linear infinite'
+        move: 'move 30s linear infinite',
+        entrance404: 'entrance404 2s ease',
+        fade1: 'fade1 2s ease'
       }
     }
   }
