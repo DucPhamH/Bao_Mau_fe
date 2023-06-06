@@ -8,7 +8,7 @@ function Mainlayout({ children }) {
         <Header />
       </div>
 
-      <div className='pt-40 z-0 h-auto text-black'>{children}</div>
+      <div className='pt-40 z-0 h-auto text-black bg-[#DCEAFF]'>{children}</div>
       <div className=''>
         <Footer />
       </div>
