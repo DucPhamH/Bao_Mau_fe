@@ -43,7 +43,7 @@ export default function Error404NotFound() {
       randomPosImg.style.left = randomLeft + '%'
       randomPosImg.style.visibility = 'visible'
     })
-  }, 100)
+  }, 21500)
   setInterval(() => {
     document.querySelectorAll('.randomPosImg').forEach(function (randomPosImg) {
       timerandom = Math.floor(Math.random() * 100)
