@@ -15,7 +15,6 @@ import EmployeeInfo from './page/EmployeeInfo'
 import CreateJob from './page/CreateJob'
 import ContractedJobsList from './page/ContractedJobsList'
 import EmployeeApplyingList from './page/EmployeeApplyingList'
-import UserPosts from './page/UserPosts'
 import UserRequestsList from './page/UserRequestsList'
 import Error404NotFound from './page/Error404NotFound/Error404NotFound'
 import ListOfAvailableJobs from './page/ListOfAvailableJobs/ListOfAvailableJobs'
@@ -72,14 +71,7 @@ export default function useRouteElement() {
         </Mainlayout>
       )
     },
-    {
-      path: 'userposts',
-      element: (
-        <Mainlayout>
-          <UserPosts />
-        </Mainlayout>
-      )
-    },
+
     {
       path: 'userrequestslist',
       element: (
@@ -217,14 +209,6 @@ export default function useRouteElement() {
       element: (
         <MainLayout>
           <UserCreatedJobs />
-        </MainLayout>
-      )
-    },
-    {
-      path: 'userposts',
-      element: (
-        <MainLayout>
-          <UserPosts />
         </MainLayout>
       )
     },
