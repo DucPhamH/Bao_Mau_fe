@@ -1,5 +1,9 @@
 import React from 'react'
 import wallImg from '../../asset/img/darkwall.jpg'
+import Eyes from '../../asset/img/eyes.png'
+import Eyes2 from '../../asset/img/eyes2.png'
+import Eyes3 from '../../asset/img/eyes3.png'
+import Eyes4 from '../../asset/img/eyes4.png'
 import { PlayMusic } from '../../App'
 
 export default function Error404NotFound() {
@@ -30,9 +34,43 @@ export default function Error404NotFound() {
     { once: true }
   )
 
+  let randomTop, randomLeft, timerandom
+  setTimeout(() => {
+    document.querySelectorAll('.randomPosImg').forEach(function (randomPosImg) {
+      randomTop = Math.floor(Math.random() * 90)
+      randomLeft = Math.floor(Math.random() * 90)
+      randomPosImg.style.top = randomTop + '%'
+      randomPosImg.style.left = randomLeft + '%'
+      randomPosImg.style.visibility = 'visible'
+    })
+  }, 100)
+  setInterval(() => {
+    document.querySelectorAll('.randomPosImg').forEach(function (randomPosImg) {
+      timerandom = Math.floor(Math.random() * 100)
+      if (timerandom > 90) {
+        randomTop = Math.floor(Math.random() * 90)
+        randomLeft = Math.floor(Math.random() * 90)
+        randomPosImg.style.top = randomTop + '%'
+        randomPosImg.style.left = randomLeft + '%'
+      }
+    })
+  }, 1000)
+
   return (
     <>
-      <div className=' bg-black cursor-default overflow-hidden'>
+      <div className=' bg-black cursor-default overflow-x-hidden'>
+        <img src={Eyes} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes2} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes3} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes4} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes2} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes3} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes4} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes2} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes3} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <img src={Eyes4} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
         <div className='w-[100vw] h-[90vh] flex justify-center items-center gap-9'>
           <div className='rounded-[50%] w-[30vw] h-[30vw] overflow-hidden flex justify-center items-center'>
             <div className='animation404 shadow-[0_0_20rem_rgba(255,255,255,1)] rounded-[50%] w-[30vw] h-[30vw] overflow-hidden relative flex justify-center items-center animate-entrance404first'>
@@ -53,7 +91,7 @@ export default function Error404NotFound() {
             </div>
           </div>
         </div>
-        <div className='text-[#880808] text-[10vw] font-blooddrip mt-[-10vh]'>
+        <div className='text-[#880808] text-[10vw] font-blooddrip mt-[-10vh] z-10'>
           <span className='animation404 animate-fadeIn1'>E</span>
           <span className='animation404 animate-fadeIn2'>R</span>
           <span className='animation404 animate-fadeIn3'>R</span>

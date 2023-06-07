@@ -22,7 +22,7 @@ html {
   animation-delay: -15s;
 }
 .animation404 {
-  animation-fill-mode: backwards;
+  animation-fill-mode: both;
 }
 
 .font-alex {
