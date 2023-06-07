@@ -7,7 +7,7 @@ export default function JobPost() {
   const navigate = useNavigate()
   return (
     <div
-      //   onClick={() => navigate(pathName)}
+      onClick={() => alert('1')}
       className='border-2 font-itim rounded-xl border-black mx-12 my-12 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'
     >
       <div className='flex ml-3 mt-2'>
@@ -45,7 +45,13 @@ export default function JobPost() {
           </div>
         </div>
         <div className='flex mb-12 ml-[2vw]'>
-          <button className='bg-[#C226F9] text-white rounded-3xl self-end px-[2vw] py-2 hover:bg-green-600'>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              alert('2')
+            }}
+            className='bg-[#C226F9] text-white rounded-3xl self-end px-[2vw] py-2 hover:bg-green-600'
+          >
             詳細情報
           </button>
         </div>
