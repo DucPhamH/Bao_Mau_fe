@@ -2,19 +2,19 @@ import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import useQueryParams from '../../hooks/useQueryParam'
-import { getAllEmployee } from '../../api/employee.api'
 import { useQuery } from '@tanstack/react-query'
 import { isUndefined, omit, omitBy } from 'lodash'
 import { createSearchParams, useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
 import JobPost from '../../components/JobPost'
+import { getAllPost } from '../../api/post.api'
 export default function ListOfAvailableJobs() {
   const queryParams = useQueryParams()
 
   const queryConfig = omitBy(
     {
       querySearch: queryParams.querySearch,
-      age: queryParams.age,
+      queryDate: queryParams.queryDate,
       salary: queryParams.salary,
       housemaid: queryParams.housemaid,
       sort: queryParams.sort
@@ -23,15 +23,15 @@ export default function ListOfAvailableJobs() {
   )
   // console.log(queryConfig)
   const { data } = useQuery({
-    queryKey: ['employees', queryConfig],
+    queryKey: ['posts', queryConfig],
     queryFn: () => {
-      return getAllEmployee(queryConfig)
+      return getAllPost(queryConfig)
     },
     keepPreviousData: true
   })
 
-  const employees = data?.data
-  //console.log(employees)
+  const posts = data?.data
+  console.log(posts)
 
   const { housemaid = 'false', sort } = queryConfig
   const navigate = useNavigate()
@@ -70,13 +70,13 @@ export default function ListOfAvailableJobs() {
 
   const checkHousemaidFalse = () => {
     if (housemaid === 'false') {
-      return employees?.data?.length
+      return posts?.data?.length
     } else return 0
   }
 
   const checkHousemaidTrue = () => {
     if (housemaid === 'true') {
-      return employees?.data?.length
+      return posts?.data?.length
     } else return 0
   }
   return (
@@ -90,8 +90,7 @@ export default function ListOfAvailableJobs() {
             })}
             onClick={() => handleRole('false')}
           >
-            ベビーシッター
-            {/* ({checkHousemaidFalse()}) */}
+            ベビーシッター ({checkHousemaidFalse()})
           </button>
           <button
             className={classNames('font-itim text-4xl col-start-6 col-span-4 py-5 rounded-full ', {
@@ -100,8 +99,7 @@ export default function ListOfAvailableJobs() {
             })}
             onClick={() => handleRole('true')}
           >
-            料理人
-            {/* ({checkHousemaidTrue()}) */}
+            料理人 ({checkHousemaidTrue()})
           </button>
         </div>
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>
@@ -115,14 +113,12 @@ export default function ListOfAvailableJobs() {
             </button>
           </div>
           <div className='mt-12 h-[70rem] overflow-y-auto overflow-hidden'>
-            {/* {employees &&
-              employees.data.map((employee) => (
-                <div key={employee._id}>
-                  <Employee employee={employee} pathName={`${employee._id}`} />
+            {posts &&
+              posts.data.map((post) => (
+                <div key={post._id}>
+                  <JobPost post={post} pathName={`${post._id}`} />
                 </div>
-              ))} */}
-            <JobPost />
-            <JobPost />
+              ))}
           </div>
         </div>
       </div>

@@ -1,23 +1,17 @@
 import React from 'react'
 import { GiPositionMarker } from 'react-icons/gi'
-import { getAges, displayNum } from '../../utils/utils'
+import { displayNum } from '../../utils/utils'
 import { useNavigate } from 'react-router-dom'
-export default function JobPost() {
-  // { employee, pathName }
+export default function JobPost({ post, pathName }) {
   const navigate = useNavigate()
   return (
     <div
       // onClick={() => navigate(pathName)}
-      onClick={() => alert('post element clicked')}
       className='border-2 font-itim rounded-xl border-black mx-12 my-12 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'
     >
       <div className='flex ml-3 mt-2'>
         <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-[10vw] h-[10vw] flex justify-center items-center bg-white'>
-          <img
-            src=''
-            // {employee.userID.image}
-            alt='imageuser'
-          />
+          <img src={post.userID.image} alt='imageuser' />
         </div>
         <div className='ml-[1vw]'>
           <div className='flex-col gap-6'>
@@ -49,7 +43,6 @@ export default function JobPost() {
           <button
             onClick={(e) => {
               e.stopPropagation() /*bỏ cái onClick ở element post ở trên*/
-              alert('button element clicked')
             }}
             className='bg-[#C226F9] text-white rounded-3xl self-end px-[2vw] py-2 hover:bg-green-600'
           >
