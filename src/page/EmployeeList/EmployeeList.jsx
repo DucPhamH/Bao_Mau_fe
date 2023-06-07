@@ -48,24 +48,34 @@ export default function EmployeeList() {
       }).toString()
     })
   }
+  // const handleSort = (sortValue) => {
+  //   if (sort === 'asc') {
+  //     const query = omit(queryConfig, 'sort')
+  //     navigate({
+  //       pathname: '/employeelist',
+  //       search: createSearchParams({
+  //         ...query
+  //       }).toString()
+  //     })
+  //   } else {
+  //     navigate({
+  //       pathname: '/employeelist',
+  //       search: createSearchParams({
+  //         ...queryConfig,
+  //         sort: sortValue
+  //       }).toString()
+  //     })
+  //   }
+  // }
+
   const handleSort = (sortValue) => {
-    if (sort === 'asc') {
-      const query = omit(queryConfig, 'sort')
-      navigate({
-        pathname: '/employeelist',
-        search: createSearchParams({
-          ...query
-        }).toString()
-      })
-    } else {
-      navigate({
-        pathname: '/employeelist',
-        search: createSearchParams({
-          ...queryConfig,
-          sort: sortValue
-        }).toString()
-      })
-    }
+    navigate({
+      pathname: '/employeelist',
+      search: createSearchParams({
+        ...queryConfig,
+        sort: sortValue
+      }).toString()
+    })
   }
 
   const checkHousemaidFalse = () => {

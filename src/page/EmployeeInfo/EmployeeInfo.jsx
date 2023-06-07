@@ -50,7 +50,7 @@ export default function EmployeeInfo() {
                     <div>
                       年齢: {getAges(employee.data.dateOB)}歳&emsp;経験: {employee.data.experience}
                       <br />
-                      サービス価格: {displayNum(employee.data.salary)}円&emsp;登録日:{employee.data.createdAt}
+                      サービス価格: {employee.data.salary} 円&emsp;登録日:{employee.data.createdAt}
                       {/* {employee.data.createdAt.substring(0, 10).replaceAll('-', '/')} */}
                     </div>
                   </div>

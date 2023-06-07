@@ -28,7 +28,7 @@ export default function Employee({ employee, pathName }) {
               実験 : {employee.experience}
             </div>
             <div className='w-[15vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-              給料（円） : {displayNum(employee.salary)}
+              給料（円） : {employee.salary}
             </div>
           </div>
 

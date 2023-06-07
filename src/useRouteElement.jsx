@@ -146,24 +146,24 @@ export default function useRouteElement() {
           path: '',
           element: <RoleProtectedRouter />,
           children: [
-            {
-              path: 'employeelist',
-              index: true,
-              element: (
-                <Mainlayout>
-                  <EmployeeList />
-                </Mainlayout>
-              )
-            },
-            {
-              path: 'employeelist/:id',
-              index: true,
-              element: (
-                <MainLayout>
-                  <EmployeeInfo />
-                </MainLayout>
-              )
-            },
+            // {
+            //   path: 'employeelist',
+            //   index: true,
+            //   element: (
+            //     <Mainlayout>
+            //       <EmployeeList />
+            //     </Mainlayout>
+            //   )
+            // },
+            // {
+            //   path: 'employeelist/:id',
+            //   index: true,
+            //   element: (
+            //     <MainLayout>
+            //       <EmployeeInfo />
+            //     </MainLayout>
+            //   )
+            // },
             {
               path: 'userprofile',
               element: (
@@ -182,6 +182,24 @@ export default function useRouteElement() {
       element: (
         <MainLayout>
           <JobDetail />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'employeelist',
+      index: true,
+      element: (
+        <Mainlayout>
+          <EmployeeList />
+        </Mainlayout>
+      )
+    },
+    {
+      path: 'employeelist/:id',
+      index: true,
+      element: (
+        <MainLayout>
+          <EmployeeInfo />
         </MainLayout>
       )
     },
