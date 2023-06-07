@@ -59,18 +59,42 @@ export default function Error404NotFound() {
   return (
     <>
       <div className=' bg-black cursor-default overflow-x-hidden'>
-        <img src={Eyes} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes2} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes3} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes4} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes2} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes3} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes4} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes2} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes3} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
-        <img src={Eyes4} className='absolute w-[10vw] h-[10vw] randomPosImg invisible' alt=''></img>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes2} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes3} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes4} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes2} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes3} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes4} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes2} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes3} alt=''></img>
+        </div>
+        <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
+          <img src={Eyes4} alt=''></img>
+        </div>
         <div className='w-[100vw] h-[90vh] flex justify-center items-center gap-9'>
           <div className='rounded-[50%] w-[30vw] h-[30vw] overflow-hidden flex justify-center items-center'>
             <div className='animation404 shadow-[0_0_20rem_rgba(255,255,255,1)] rounded-[50%] w-[30vw] h-[30vw] overflow-hidden relative flex justify-center items-center animate-entrance404first'>
