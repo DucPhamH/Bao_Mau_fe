@@ -49,7 +49,7 @@ export default function JobPost() {
           <button
             onClick={(e) => {
               e.stopPropagation() /*bỏ cái onClick ở element post ở trên*/
-              // alert('button element clicked')
+              alert('button element clicked')
             }}
             className='bg-[#C226F9] text-white rounded-3xl self-end px-[2vw] py-2 hover:bg-green-600'
           >
