@@ -55,82 +55,82 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    // {
-    //   path: 'contractedjobslist',
-    //   element: (
-    //     <Mainlayout>
-    //       <ContractedJobsList />
-    //     </Mainlayout>
-    //   )
-    // },
-    // {
-    //   path: 'employeeapplyinglist',
-    //   element: (
-    //     <Mainlayout>
-    //       <EmployeeApplyingList />
-    //     </Mainlayout>
-    //   )
-    // },
+    {
+      path: 'contractedjobslist',
+      element: (
+        <Mainlayout>
+          <ContractedJobsList />
+        </Mainlayout>
+      )
+    },
+    {
+      path: 'employeeapplyinglist',
+      element: (
+        <Mainlayout>
+          <EmployeeApplyingList />
+        </Mainlayout>
+      )
+    },
 
-    // {
-    //   path: 'userrequestslist',
-    //   element: (
-    //     <Mainlayout>
-    //       <UserRequestsList />
-    //     </Mainlayout>
-    //   )
-    // },
-    // {
-    //   path: 'listofavailablejobs',
-    //   element: (
-    //     <Mainlayout>
-    //       <ListOfAvailableJobs />
-    //     </Mainlayout>
-    //   )
-    // },
+    {
+      path: 'userrequestslist',
+      element: (
+        <Mainlayout>
+          <UserRequestsList />
+        </Mainlayout>
+      )
+    },
+    {
+      path: 'listofavailablejobs',
+      element: (
+        <Mainlayout>
+          <ListOfAvailableJobs />
+        </Mainlayout>
+      )
+    },
 
-    // {
-    //   path: '',
-    //   element: <RejectedRoute />,
-    //   children: [
-    //     {
-    //       path: 'login',
-    //       element: (
-    //         <RegisterLayout>
-    //           <Login />
-    //         </RegisterLayout>
-    //       )
-    //     },
-    //     {
-    //       path: 'register',
-    //       element: (
-    //         <RegisterLayout>
-    //           <Register />
-    //         </RegisterLayout>
-    //       )
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: '',
-    //   element: <ProtectedRoute />,
-    //   children: [
-    //     {
-    //       path: '',
-    //       element: <RoleProtectedRouter2 />,
-    //       children: [
-    //         {
-    //           path: 'employeeprofile',
-    //           element: (
-    //             <MainLayout>
-    //               <EmployeeProfile />
-    //             </MainLayout>
-    //           )
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // },
+    {
+      path: '',
+      element: <RejectedRoute />,
+      children: [
+        {
+          path: 'login',
+          element: (
+            <RegisterLayout>
+              <Login />
+            </RegisterLayout>
+          )
+        },
+        {
+          path: 'register',
+          element: (
+            <RegisterLayout>
+              <Register />
+            </RegisterLayout>
+          )
+        }
+      ]
+    },
+    {
+      path: '',
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: '',
+          element: <RoleProtectedRouter2 />,
+          children: [
+            {
+              path: 'employeeprofile',
+              element: (
+                <MainLayout>
+                  <EmployeeProfile />
+                </MainLayout>
+              )
+            }
+          ]
+        }
+      ]
+    },
     {
       path: '',
       element: <ProtectedRoute />,
@@ -196,38 +196,38 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    // {
-    //   path: 'createjob',
-    //   element: (
-    //     <MainLayout>
-    //       <CreateJob />
-    //     </MainLayout>
-    //   )
-    // },
-    // {
-    //   path: 'usercreatedjobs',
-    //   element: (
-    //     <MainLayout>
-    //       <UserCreatedJobs />
-    //     </MainLayout>
-    //   )
-    // },
-    // {
-    //   path: 'employee-applying-list',
-    //   element: (
-    //     <MainLayout>
-    //       <EmployeeApplyingList />
-    //     </MainLayout>
-    //   )
-    // },
-    // {
-    //   path: 'user-requests-list',
-    //   element: (
-    //     <MainLayout>
-    //       <UserRequestsList />
-    //     </MainLayout>
-    //   )
-    // },
+    {
+      path: 'createjob',
+      element: (
+        <MainLayout>
+          <CreateJob />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'usercreatedjobs',
+      element: (
+        <MainLayout>
+          <UserCreatedJobs />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'employee-applying-list',
+      element: (
+        <MainLayout>
+          <EmployeeApplyingList />
+        </MainLayout>
+      )
+    },
+    {
+      path: 'user-requests-list',
+      element: (
+        <MainLayout>
+          <UserRequestsList />
+        </MainLayout>
+      )
+    },
     {
       path: '*',
       element: (
