@@ -48,46 +48,36 @@ export default function EmployeeList() {
       }).toString()
     })
   }
-  // const handleSort = (sortValue) => {
-  //   if (sort === 'asc') {
-  //     const query = omit(queryConfig, 'sort')
-  //     navigate({
-  //       pathname: '/employeelist',
-  //       search: createSearchParams({
-  //         ...query
-  //       }).toString()
-  //     })
-  //   } else {
-  //     navigate({
-  //       pathname: '/employeelist',
-  //       search: createSearchParams({
-  //         ...queryConfig,
-  //         sort: sortValue
-  //       }).toString()
-  //     })
-  //   }
-  // }
-
   const handleSort = (sortValue) => {
-    navigate({
-      pathname: '/employeelist',
-      search: createSearchParams({
-        ...queryConfig,
-        sort: sortValue
-      }).toString()
-    })
+    if (sort === 'asc') {
+      const query = omit(queryConfig, 'sort')
+      navigate({
+        pathname: '/employeelist',
+        search: createSearchParams({
+          ...query
+        }).toString()
+      })
+    } else {
+      navigate({
+        pathname: '/employeelist',
+        search: createSearchParams({
+          ...queryConfig,
+          sort: sortValue
+        }).toString()
+      })
+    }
   }
 
   const checkHousemaidFalse = () => {
     if (housemaid === 'false') {
-      return employees?.data?.length
-    } else return 0
+      return `(${employees?.data?.length})`
+    } else return ''
   }
 
   const checkHousemaidTrue = () => {
     if (housemaid === 'true') {
-      return employees?.data?.length
-    } else return 0
+      return `(${employees?.data?.length})`
+    } else return ''
   }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
@@ -100,7 +90,7 @@ export default function EmployeeList() {
             })}
             onClick={() => handleRole('false')}
           >
-            ベビーシッター ({checkHousemaidFalse()})
+            ベビーシッター {checkHousemaidFalse()}
           </button>
           <button
             className={classNames('font-itim text-4xl col-start-6 col-span-4 py-5 rounded-full ', {
@@ -109,7 +99,7 @@ export default function EmployeeList() {
             })}
             onClick={() => handleRole('true')}
           >
-            料理人 ({checkHousemaidTrue()})
+            料理人 {checkHousemaidTrue()}
           </button>
         </div>
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>
@@ -117,7 +107,7 @@ export default function EmployeeList() {
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
             <button
               onClick={() => handleSort('asc')}
-              className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'
+              className='text-center hover:bg-slate-300 bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'
             >
               給料&#32;&#8593;
             </button>

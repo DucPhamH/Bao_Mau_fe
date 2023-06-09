@@ -20,3 +20,7 @@ export function getAges(dateOB) {
 export function displayNum(num) {
   return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, '.')
 }
+
+export function convertDate(date) {
+  return date.substring(0, 10).replaceAll('-', '/')
+}
