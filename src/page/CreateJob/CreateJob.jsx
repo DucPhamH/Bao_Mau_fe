@@ -7,6 +7,7 @@ import { BiCheckCircle } from 'react-icons/bi'
 import { useMutation } from '@tanstack/react-query'
 import { createPost } from '../../api/post.api'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const initialFormState = {
   mo_morning: false,
@@ -60,6 +61,7 @@ export default function CreateJob() {
     mutationFn: (body) => createPost(body)
   })
 
+  const navigate = useNavigate()
   const onSubmit = handleSubmit((data) => {
     const body = { ...data, ...formState }
     console.log(body)
@@ -67,6 +69,7 @@ export default function CreateJob() {
       onSuccess: (data) => {
         console.log(data)
         toast(data.data?.message)
+        navigate('/usercreatedjobs')
       },
       onError: (error) => {
         console.log(error)
