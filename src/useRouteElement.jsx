@@ -80,14 +80,6 @@ export default function useRouteElement() {
         </Mainlayout>
       )
     },
-    {
-      path: 'listofavailablejobs',
-      element: (
-        <Mainlayout>
-          <ListOfAvailableJobs />
-        </Mainlayout>
-      )
-    },
 
     {
       path: '',
@@ -125,6 +117,22 @@ export default function useRouteElement() {
                 <MainLayout>
                   <EmployeeProfile />
                 </MainLayout>
+              )
+            },
+            {
+              path: 'listofavailablejobs',
+              element: (
+                <Mainlayout>
+                  <ListOfAvailableJobs />
+                </Mainlayout>
+              )
+            },
+            {
+              path: 'listofavailablejobs/:id',
+              element: (
+                <Mainlayout>
+                  <JobDetail />
+                </Mainlayout>
               )
             }
           ]
@@ -176,15 +184,6 @@ export default function useRouteElement() {
           ]
         }
       ]
-    },
-
-    {
-      path: 'jobdetail',
-      element: (
-        <MainLayout>
-          <JobDetail />
-        </MainLayout>
-      )
     },
 
     {

@@ -42,7 +42,7 @@ export default function Login() {
         if (data.data?.data.user.roles === 1) {
           navigate('/employeelist')
         } else {
-          navigate('/')
+          navigate('/listofavailablejobs')
         }
       },
       onError: (error) => {

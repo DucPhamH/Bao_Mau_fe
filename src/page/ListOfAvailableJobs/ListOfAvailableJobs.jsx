@@ -1,6 +1,5 @@
 import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
-import Searchbar from '../../components/Searchbar/Searchbar'
 import useQueryParams from '../../hooks/useQueryParam'
 import { useQuery } from '@tanstack/react-query'
 import { isUndefined, omit, omitBy } from 'lodash'
@@ -8,6 +7,7 @@ import { createSearchParams, useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
 import JobPost from '../../components/JobPost'
 import { getAllPost } from '../../api/post.api'
+import Searchbar2 from '../../components/Searchbar2'
 export default function ListOfAvailableJobs() {
   const queryParams = useQueryParams()
 
@@ -70,14 +70,14 @@ export default function ListOfAvailableJobs() {
 
   const checkHousemaidFalse = () => {
     if (housemaid === 'false') {
-      return posts?.data?.length
-    } else return 0
+      return `(${posts?.data?.length})`
+    } else return ''
   }
 
   const checkHousemaidTrue = () => {
     if (housemaid === 'true') {
-      return posts?.data?.length
-    } else return 0
+      return `(${posts?.data?.length})`
+    } else return ''
   }
   return (
     <div className='w-full grid grid-cols-3 bg-[#DCEAFF]'>
@@ -90,7 +90,7 @@ export default function ListOfAvailableJobs() {
             })}
             onClick={() => handleRole('false')}
           >
-            ベビーシッター ({checkHousemaidFalse()})
+            ベビーシッター {checkHousemaidFalse()}
           </button>
           <button
             className={classNames('font-itim text-4xl col-start-6 col-span-4 py-5 rounded-full ', {
@@ -99,7 +99,7 @@ export default function ListOfAvailableJobs() {
             })}
             onClick={() => handleRole('true')}
           >
-            料理人 ({checkHousemaidTrue()})
+            料理人 {checkHousemaidTrue()}
           </button>
         </div>
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>
@@ -107,7 +107,7 @@ export default function ListOfAvailableJobs() {
             <FaSortAmountDownAlt className='absolute mt-16 ml-[5rem]' />
             <button
               onClick={() => handleSort('asc')}
-              className='text-center bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'
+              className='text-center hover:bg-slate-300 bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'
             >
               給料&#32;&#8593;
             </button>
@@ -123,7 +123,7 @@ export default function ListOfAvailableJobs() {
         </div>
       </div>
       <div className='col-start-3 col-span-1 mx-20'>
-        <Searchbar queryConfig={queryConfig}></Searchbar>
+        <Searchbar2 queryConfig={queryConfig}></Searchbar2>
       </div>
     </div>
   )

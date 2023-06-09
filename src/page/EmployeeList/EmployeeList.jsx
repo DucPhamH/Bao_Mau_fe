@@ -1,13 +1,13 @@
 import React from 'react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
 import Employee from '../../components/Employee'
-import Searchbar from '../../components/Searchbar/Searchbar'
 import useQueryParams from '../../hooks/useQueryParam'
 import { getAllEmployee } from '../../api/employee.api'
 import { useQuery } from '@tanstack/react-query'
 import { isUndefined, omit, omitBy } from 'lodash'
 import { createSearchParams, useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
+import Searchbar from '../../components/Searchbar'
 export default function EmployeeList() {
   const queryParams = useQueryParams()
 

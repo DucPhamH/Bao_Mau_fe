@@ -57,7 +57,7 @@ function UserAvatar({ handleLogout, info }) {
             <hr className='my-6 mx-16 h-1 bg-gray-500' />
 
             {info.roles === 2 ? (
-              <Link to='/' onClick={toggleModal}>
+              <Link to='/listofavailablejobs' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <BiHomeAlt />
