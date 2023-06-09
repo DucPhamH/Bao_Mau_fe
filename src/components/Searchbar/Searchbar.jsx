@@ -50,7 +50,7 @@ export default function Searchbar({ queryConfig }) {
         />
 
         <div className='w-inherit flex justify-center items-center'>
-          <button className='bg-[#C226F9] my-10 text-white px-32 py-3 rounded-full'>検索</button>
+          <button className='bg-[#C226F9] my-10 text-white px-32 hover:bg-blue-400 py-3 rounded-full'>検索</button>
         </div>
       </form>
     </div>
