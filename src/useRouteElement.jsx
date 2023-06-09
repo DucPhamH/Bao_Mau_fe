@@ -164,6 +164,14 @@ export default function useRouteElement() {
                   <UserProfile />
                 </MainLayout>
               )
+            },
+            {
+              path: 'createjob',
+              element: (
+                <MainLayout>
+                  <CreateJob />
+                </MainLayout>
+              )
             }
           ]
         }
@@ -179,14 +187,6 @@ export default function useRouteElement() {
       )
     },
 
-    {
-      path: 'createjob',
-      element: (
-        <MainLayout>
-          <CreateJob />
-        </MainLayout>
-      )
-    },
     {
       path: 'usercreatedjobs',
       element: (
