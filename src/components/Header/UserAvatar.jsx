@@ -105,7 +105,7 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='text-4xl'>エントリー</div>
               </div>
             ) : (
-              <Link to='/employeelist' onClick={toggleModal}>
+              <Link to='/' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <AiOutlineCalendar />
@@ -129,12 +129,14 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='text-4xl'>採用される仕事</div>
               </div>
             ) : (
-              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
-                <div className='text-5xl pr-8'>
-                  <AiOutlinePlus />
+              <Link to='/createjob' onClick={toggleModal}>
+                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                  <div className='text-5xl pr-8'>
+                    <AiOutlinePlus />
+                  </div>
+                  <div className='text-4xl'>新しい仕事の作成</div>
                 </div>
-                <div className='text-4xl'>新しい仕事の作成</div>
-              </div>
+              </Link>
             )}
             <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
               <div className='text-5xl pr-8'>
