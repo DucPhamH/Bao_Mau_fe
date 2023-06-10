@@ -7,6 +7,9 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getEmployee } from '../../api/employee.api'
 import { getAges, displayNum, convertDate } from '../../utils/utils'
+import UserPopupJobPost from '../../components/UserPopupJobPost/UserPopupJobPost'
+import { useState, useRef, useEffect } from 'react'
+
 export default function EmployeeInfo() {
   const { id } = useParams()
   // console.log(id)
@@ -18,6 +21,36 @@ export default function EmployeeInfo() {
   })
   const employee = data?.data
   // console.log(employee)
+
+  ///////////////////////////////////
+  ///////////////////////////////////
+  //User posts popup
+  const [userPopupPostsList, setPopup] = useState(false)
+
+  const handleButtonClick = (e) => {
+    e.stopPropagation()
+    setPopup(!userPopupPostsList)
+  }
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setPopup(false)
+        }
+      }
+
+      document.addEventListener('click', handleClickOutside)
+      return () => {
+        document.removeEventListener('click', handleClickOutside)
+      }
+    }, [ref])
+  }
+  const wrapperRef = useRef(null)
+  useOutsideAlerter(wrapperRef)
+  ///////////////////////////////////
+  ///////////////////////////////////
+  ///////////////////////////////////
+  ///////////////////////////////////
   return (
     <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
       {employee && (
@@ -56,10 +89,34 @@ export default function EmployeeInfo() {
                   </div>
                 </div>
               </div>
-              <div>
-                <button className='w-[14rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#0036B1] text-4xl'>
+              <div className='relative'>
+                <button
+                  onClick={handleButtonClick}
+                  className='w-[14rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#0036B1] text-4xl'
+                >
                   採用
                 </button>
+                {userPopupPostsList ? (
+                  <div
+                    ref={wrapperRef}
+                    className='postbox absolute mt-16 -ml-[30vw] w-[40vw] rounded-lg border-2 border-black z-1000 bg-white'
+                  >
+                    <div className='mx-5 mt-5 mb-9'>
+                      <div className='overflow-auto h-[28vw]'>
+                        <UserPopupJobPost />
+                        <UserPopupJobPost />
+                        <UserPopupJobPost /> <UserPopupJobPost /> <UserPopupJobPost />
+                      </div>
+                      <div className='mt-12 flex justify-center items-center'>
+                        <button className='rounded-full bg-[#7101FF] text-white px-10 py-2 hover:bg-red-700'>
+                          キャンセル
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  ''
+                )}
               </div>
             </div>
             <div className='mt-12'>

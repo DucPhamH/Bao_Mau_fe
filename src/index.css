@@ -25,6 +25,33 @@ html {
   animation-fill-mode: both;
 }
 
+.postbox::before {
+  position: absolute;
+  content: '';
+  top: -32px;
+  left: 32.95vw;
+  height: 4.5vh;
+  width: 3.5vh;
+  border-bottom: inherit;
+  border-right: inherit;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform: rotate(180deg);
+  background-color: white;
+  z-index: 1;
+}
+.postbox::after {
+  position: absolute;
+  content: '';
+  top: -36px;
+  left: 32.9vw;
+  height: 5vh;
+  width: 4vh;
+  border-bottom: inherit;
+  border-right: inherit;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform: rotate(180deg);
+  background-color: black;
+}
 .font-alex {
   font-family: 'Alex Brush', cursive;
 }
