@@ -24,13 +24,15 @@ html {
 .animation404 {
   animation-fill-mode: both;
 }
-
+.postshadow {
+  filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.4));
+}
 .postbox {
   clip-path: polygon(
     0.5% 7%,
     85% 7%,
-    87.5% 0,
-    90% 7%,
+    86.8% 0,
+    88.6% 7%,
     99.5% 7%,
     100% 7.5%,
     100% 99.5%,
@@ -44,8 +46,8 @@ html {
   clip-path: polygon(
     0.5% 7%,
     85.2% 7%,
-    87.7% 0,
-    90.2% 7%,
+    87% 0,
+    88.8% 7%,
     99.5% 7%,
     100% 7.5%,
     100% 99.5%,
