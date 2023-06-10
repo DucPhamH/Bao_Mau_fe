@@ -99,7 +99,7 @@ export default function EmployeeInfo() {
                 {userPopupPostsList ? (
                   <div
                     ref={wrapperRef}
-                    className='postbox absolute mt-16 -ml-[30vw] w-[40vw] rounded-lg border-2 border-black z-1000 bg-white'
+                    className='postbox absolute mt-16 -ml-[30vw] w-[40vw] rounded-lg border-2 border-black z-1000 bg-white shadow-[0_3px_5px_-2px_#000]'
                   >
                     <div className='mx-5 mt-5 mb-9'>
                       <div className='overflow-auto h-[28vw]'>
