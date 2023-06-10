@@ -171,7 +171,7 @@ export default function CreateJob() {
                   type='text'
                   name='age'
                   {...register('age')}
-                  className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[10rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
+                  className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[15rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
               </div>
               <div className='flex flex-row items-center mt-10'>
