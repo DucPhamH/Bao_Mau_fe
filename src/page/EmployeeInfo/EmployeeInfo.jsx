@@ -4,11 +4,13 @@ import { GiPositionMarker } from 'react-icons/gi'
 import { BsPersonFill } from 'react-icons/bs'
 import { BsCardText } from 'react-icons/bs'
 import { useParams } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { getEmployee } from '../../api/employee.api'
 import { getAges, displayNum, convertDate } from '../../utils/utils'
 import UserPopupJobPost from '../../components/UserPopupJobPost/UserPopupJobPost'
 import { useState, useRef, useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { getAllPostSend } from '../../api/post.api'
 
 export default function EmployeeInfo() {
   const { id } = useParams()
@@ -22,6 +24,15 @@ export default function EmployeeInfo() {
   const employee = data?.data
   // console.log(employee)
 
+  const { data: postData } = useQuery({
+    queryKey: ['postdata', id],
+    queryFn: () => {
+      return getAllPostSend(id)
+    }
+  })
+  const postUsers = postData?.data.data
+  console.log(postUsers)
+
   ///////////////////////////////////
   ///////////////////////////////////
   //User posts popup
@@ -31,6 +42,7 @@ export default function EmployeeInfo() {
     e.stopPropagation()
     setPopup(!userPopupPostsList)
   }
+
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
@@ -51,6 +63,7 @@ export default function EmployeeInfo() {
   ///////////////////////////////////
   ///////////////////////////////////
   ///////////////////////////////////
+
   return (
     <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
       {employee && (
@@ -102,9 +115,12 @@ export default function EmployeeInfo() {
                       <div className='postbox2 mx-[2px] mb-1 bg-white'>
                         <div className='mx-5 mt-1 h-[28vw] py-5'>
                           <div className='overflow-auto h-[19vw] mt-16'>
-                            <UserPopupJobPost />
-                            <UserPopupJobPost />
-                            <UserPopupJobPost /> <UserPopupJobPost /> <UserPopupJobPost />
+                            {postUsers &&
+                              postUsers.map((postUser) => (
+                                <div key={postUser._id}>
+                                  <UserPopupJobPost postUser={postUser} />
+                                </div>
+                              ))}
                           </div>
                           <div className='mt-12 flex justify-center items-center'>
                             <button
