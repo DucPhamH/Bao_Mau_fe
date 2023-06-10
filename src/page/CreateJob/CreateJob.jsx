@@ -302,7 +302,7 @@ export default function CreateJob() {
                 </div>
               </div>
               <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                <div>土曜日</div>
+                <div>金曜日</div>
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
@@ -329,7 +329,7 @@ export default function CreateJob() {
                 </div>
               </div>
               <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                <div>日曜日</div>
+                <div>土曜日</div>
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
@@ -356,7 +356,7 @@ export default function CreateJob() {
                 </div>
               </div>
               <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                <div>月曜日</div>
+                <div>日曜日</div>
                 <div className='flex flex-row select-none'>
                   <div
                     key={1}
