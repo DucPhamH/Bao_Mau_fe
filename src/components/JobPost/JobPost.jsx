@@ -15,7 +15,7 @@ export default function JobPost({ post, pathName }) {
             <div className='mt-2'>{post.title}</div>
             <div className='flex -ml-1.5 mt-5'>
               <GiPositionMarker size={20} />
-              <div className='-mt-1 font-bold text-3xl'> {post.userID.address} </div>
+              <div className='-mt-1 font-bold text-3xl'> {post.address} </div>
             </div>
             <div className='mt-5 flex'>
               <div className='w-[7vw] text-ellipsis overflow-hidden whitespace-nowrap'>年齢 :{post.age}</div>
