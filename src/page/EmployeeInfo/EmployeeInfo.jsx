@@ -99,18 +99,20 @@ export default function EmployeeInfo() {
                 {userPopupPostsList ? (
                   <div
                     ref={wrapperRef}
-                    className='postbox absolute mt-16 -ml-[30vw] w-[40vw] rounded-lg border-2 border-black z-1000 bg-white shadow-[0_3px_5px_-2px_#000]'
+                    className='postbox absolute mt-3 -ml-[30vw] w-[40vw] bg-black shadow-[0_9px_5px_-2px_[#FF0000]]'
                   >
-                    <div className='mx-5 mt-5 mb-9'>
-                      <div className='overflow-auto h-[28vw]'>
-                        <UserPopupJobPost />
-                        <UserPopupJobPost />
-                        <UserPopupJobPost /> <UserPopupJobPost /> <UserPopupJobPost />
-                      </div>
-                      <div className='mt-12 flex justify-center items-center'>
-                        <button className='rounded-full bg-[#7101FF] text-white px-10 py-2 hover:bg-red-700'>
-                          キャンセル
-                        </button>
+                    <div className='postbox2 mx-[2px] mb-1 h-full bg-white'>
+                      <div className='mx-5 mt-1 py-5'>
+                        <div className='overflow-auto h-[28vw] mt-16'>
+                          <UserPopupJobPost />
+                          <UserPopupJobPost />
+                          <UserPopupJobPost /> <UserPopupJobPost /> <UserPopupJobPost />
+                        </div>
+                        <div className='mt-12 flex justify-center items-center'>
+                          <button className='rounded-full bg-[#7101FF] text-white px-10 py-2 hover:bg-red-700'>
+                            キャンセル
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
