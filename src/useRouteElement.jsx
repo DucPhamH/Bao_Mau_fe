@@ -180,20 +180,20 @@ export default function useRouteElement() {
                   <CreateJob />
                 </MainLayout>
               )
+            },
+            {
+              path: 'usercreatedjobs',
+              element: (
+                <MainLayout>
+                  <UserCreatedJobs />
+                </MainLayout>
+              )
             }
           ]
         }
       ]
     },
 
-    {
-      path: 'usercreatedjobs',
-      element: (
-        <MainLayout>
-          <UserCreatedJobs />
-        </MainLayout>
-      )
-    },
     {
       path: 'employee-applying-list',
       element: (
