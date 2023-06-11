@@ -32,6 +32,20 @@ export default function Header() {
     navigate('/register')
   }
 
+  let imgbg, timerandom, colorX
+  const hash = '#',
+    zeroString = '000000'
+  setTimeout(() => {
+    imgbg = document.querySelector('img')
+  }, 100)
+
+  setInterval(() => {
+    timerandom = Math.floor(Math.random() * 100)
+    if (timerandom > 70) {
+      colorX = Math.round(0xffffff * Math.random()).toString(16)
+      imgbg.style.backgroundColor = hash + zeroString.substring(0, 6 - colorX.length) + colorX
+    }
+  }, 1000)
   return (
     <header className='bg-white w-full h-full flex items-center justify-between border border-b-black  '>
       <Link to='/'>
