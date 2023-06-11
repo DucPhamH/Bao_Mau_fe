@@ -105,12 +105,12 @@ function UserAvatar({ handleLogout, info }) {
                 <div className='text-4xl'>エントリー</div>
               </div>
             ) : (
-              <Link to='/' onClick={toggleModal}>
+              <Link to='/usercreatedjobs' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <AiOutlineCalendar />
                   </div>
-                  <div className='text-4xl'>エントリー情報</div>
+                  <div className='text-4xl'>自分の作成した仕事</div>
                 </div>
               </Link>
             )}
