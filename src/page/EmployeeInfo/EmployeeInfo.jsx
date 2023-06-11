@@ -118,7 +118,11 @@ export default function EmployeeInfo() {
                             {postUsers &&
                               postUsers.map((postUser) => (
                                 <div key={postUser._id}>
-                                  <UserPopupJobPost postUser={postUser} pathName={`/usercreatedjobs/${postUser._id}`} />
+                                  <UserPopupJobPost
+                                    postUser={postUser}
+                                    pathName={`/usercreatedjobs/${postUser._id}`}
+                                    employeeID={id}
+                                  />
                                 </div>
                               ))}
                           </div>
