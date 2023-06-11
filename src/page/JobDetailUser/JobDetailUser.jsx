@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiClock } from 'react-icons/fi'
 import { BiCheckCircle } from 'react-icons/bi'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getPost } from '../../api/post.api'
 import { convertDate, displayNum } from '../../utils/utils'
@@ -20,6 +20,8 @@ export default function JobDetailUser() {
   const setDay = (day) => {
     return day === true ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'
   }
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -41,7 +43,10 @@ export default function JobDetailUser() {
                   言語: {post.data.language}
                 </div>
                 <div>
-                  <button className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'>
+                  <button
+                    onClick={() => navigate(`/EmployeeApplyingList/${id}`)}
+                    className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'
+                  >
                     候補者を見る
                   </button>
                 </div>

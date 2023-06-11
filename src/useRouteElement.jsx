@@ -64,14 +64,6 @@ export default function useRouteElement() {
         </Mainlayout>
       )
     },
-    {
-      path: 'employeeapplyinglist',
-      element: (
-        <Mainlayout>
-          <EmployeeApplyingList />
-        </Mainlayout>
-      )
-    },
 
     {
       path: 'userrequestslist',
@@ -196,6 +188,14 @@ export default function useRouteElement() {
                 <MainLayout>
                   <JobDetailUser />
                 </MainLayout>
+              )
+            },
+            {
+              path: 'employeeapplyinglist/:id',
+              element: (
+                <Mainlayout>
+                  <EmployeeApplyingList />
+                </Mainlayout>
               )
             }
           ]

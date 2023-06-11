@@ -126,7 +126,7 @@ body.active-modal {
   bottom: 20px;
   width: 100%;
   gap: 30px;
-  justify-content: center;
+  margin-left: 300px;
 }
 
 .buttons-below .post {
