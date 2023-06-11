@@ -25,9 +25,9 @@ export default function UserRequestsList() {
       </div>
       <div className='bg-white px-14 flex flex-col gap-8 py-16 justify-center items-center rounded-[20px]'>
         <div className='flex flex-col justify-center items-center gap-6'>
+          {/* <Post postProps={userRequest} buttons={buttons} />
           <Post postProps={userRequest} buttons={buttons} />
-          <Post postProps={userRequest} buttons={buttons} />
-          <Post postProps={userRequest} buttons={buttons} />
+          <Post postProps={userRequest} buttons={buttons} /> */}
         </div>
       </div>
     </div>
