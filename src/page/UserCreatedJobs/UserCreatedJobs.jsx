@@ -21,7 +21,7 @@ export default function UserCreatedJobs() {
           {postUsers &&
             postUsers.map((postUser) => (
               <div key={postUser._id}>
-                <CreatedJobsPost postUser={postUser} />
+                <CreatedJobsPost postUser={postUser} pathName={`${postUser._id}`} />
               </div>
             ))}
         </div>

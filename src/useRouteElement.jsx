@@ -19,6 +19,7 @@ import UserRequestsList from './page/UserRequestsList'
 import Error404NotFound from './page/Error404NotFound/Error404NotFound'
 import ListOfAvailableJobs from './page/ListOfAvailableJobs/ListOfAvailableJobs'
 import UserCreatedJobs from './page/UserCreatedJobs'
+import JobDetailUser from './page/JobDetailUser'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -186,6 +187,14 @@ export default function useRouteElement() {
               element: (
                 <MainLayout>
                   <UserCreatedJobs />
+                </MainLayout>
+              )
+            },
+            {
+              path: 'usercreatedjobs/:id',
+              element: (
+                <MainLayout>
+                  <JobDetailUser />
                 </MainLayout>
               )
             }

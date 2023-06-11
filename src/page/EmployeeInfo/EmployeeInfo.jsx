@@ -4,12 +4,12 @@ import { GiPositionMarker } from 'react-icons/gi'
 import { BsPersonFill } from 'react-icons/bs'
 import { BsCardText } from 'react-icons/bs'
 import { useParams } from 'react-router-dom'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getEmployee } from '../../api/employee.api'
 import { getAges, displayNum, convertDate } from '../../utils/utils'
 import UserPopupJobPost from '../../components/UserPopupJobPost/UserPopupJobPost'
 import { useState, useRef, useEffect } from 'react'
-import { toast } from 'react-toastify'
+
 import { getAllPostSend } from '../../api/post.api'
 
 export default function EmployeeInfo() {
@@ -118,7 +118,7 @@ export default function EmployeeInfo() {
                             {postUsers &&
                               postUsers.map((postUser) => (
                                 <div key={postUser._id}>
-                                  <UserPopupJobPost postUser={postUser} />
+                                  <UserPopupJobPost postUser={postUser} pathName={`/usercreatedjobs/${postUser._id}`} />
                                 </div>
                               ))}
                           </div>

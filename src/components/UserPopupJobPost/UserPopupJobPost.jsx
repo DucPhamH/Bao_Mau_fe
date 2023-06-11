@@ -1,8 +1,10 @@
 import { FaLocationArrow } from 'react-icons/fa'
-export default function UserPopupJobPost({ postUser }) {
+import { useNavigate } from 'react-router-dom'
+export default function UserPopupJobPost({ postUser, pathName }) {
+  const navigate = useNavigate()
   return (
     <div className='border-2 border-black flex rounded-lg mb-14 font-itim'>
-      <div className='ml-8 mt- w-[70%]'>
+      <div onClick={() => navigate(pathName)} className='ml-8 cursor-pointer mt- w-[70%]'>
         <div className='line-clamp-1'>{postUser.title}</div>
         <div className='line-clamp-2 mt-2 text-[#A1A1A1]'>{postUser.description}</div>
       </div>
