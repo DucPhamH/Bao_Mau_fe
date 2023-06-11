@@ -42,7 +42,7 @@ export default function JobDetailUser() {
                 </div>
                 <div>
                   <button className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'>
-                    応募する
+                    候補者を見る
                   </button>
                 </div>
               </div>

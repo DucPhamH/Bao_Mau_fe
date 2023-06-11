@@ -27,7 +27,7 @@ export default function CreatedJobsPost({ postUser, pathName }) {
             onClick={() => navigate(pathName)}
             className='bg-[#C226F9] text-white rounded-[20px] self-end px-[2vw] py-2 hover:bg-green-600 h-[48px]'
           >
-            xem thông tin
+            詳細情報
           </button>
         </div>
       </div>

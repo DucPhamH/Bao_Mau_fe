@@ -2,9 +2,11 @@ import React from 'react'
 import { FiClock } from 'react-icons/fi'
 import { BiCheckCircle } from 'react-icons/bi'
 import { useParams } from 'react-router-dom'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { getPost } from '../../api/post.api'
-import { convertDate, displayNum } from '../../utils/utils'
+import { convertDate, displayNum, isAxiosUnprocessableEntityError } from '../../utils/utils'
+import { createRequest2 } from '../../api/request.api'
+import { toast } from 'react-toastify'
 export default function JobDetail() {
   const { id } = useParams()
   // console.log(id)
@@ -19,6 +21,29 @@ export default function JobDetail() {
 
   const setDay = (day) => {
     return day === true ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'
+  }
+
+  const newRequest = useMutation({
+    mutationFn: (body) => createRequest2(body)
+  })
+
+  const onClick = () => {
+    const body = {
+      postID: id
+    }
+    newRequest.mutate(body, {
+      onSuccess: (data) => {
+        console.log(data)
+        toast(data.data?.message)
+      },
+      onError: (error) => {
+        console.log(error)
+        if (isAxiosUnprocessableEntityError(error)) {
+          const formError = error.response?.data
+          toast(formError.message)
+        }
+      }
+    })
   }
 
   return (
@@ -41,7 +66,10 @@ export default function JobDetail() {
                   言語: {post.data.language}
                 </div>
                 <div>
-                  <button className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'>
+                  <button
+                    onClick={onClick}
+                    className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'
+                  >
                     応募する
                   </button>
                 </div>
