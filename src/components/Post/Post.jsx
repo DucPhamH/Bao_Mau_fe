@@ -1,6 +1,5 @@
 import React from 'react'
 import { GiPositionMarker } from 'react-icons/gi'
-import { BsPersonFill } from 'react-icons/bs'
 import { displayNum, getAges } from '../../utils/utils'
 
 const Post = ({ request }) => {
@@ -9,8 +8,8 @@ const Post = ({ request }) => {
       className='w-full border border-black rounded-2xl p-8 flex  gap-8 post'
       style={{ boxShadow: '0px 4px 4px 0px #00000040' }}
     >
-      <div>
-        <BsPersonFill className='w-[10rem] h-[10rem]' />
+      <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-[10vw] h-[10vw] flex justify-center items-center '>
+        <img src={request.employeeID.userID.image} alt='imageuser' />
       </div>
       <div>
         <div className='text-[20px]'>{request.employeeID.userID.name}</div>
@@ -26,7 +25,7 @@ const Post = ({ request }) => {
 
         <div className='text-[16px] mt-4'>{request.employeeID.description}</div>
       </div>
-      <div className='buttons flex'>
+      <div className='buttons flex !ml-60'>
         <button className='bg-[green] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_6px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
           アクセス
         </button>
