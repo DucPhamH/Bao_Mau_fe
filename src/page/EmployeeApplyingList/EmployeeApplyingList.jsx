@@ -1,17 +1,20 @@
+import { useParams } from 'react-router-dom'
 import Post from '../../components/Post'
-
-const employeeApplying = {
-  title: '1歳の赤ちゃんの世話を探しています',
-  address: '東京',
-  age: 20,
-  experience: 2,
-  salary: 50,
-  description:
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni debitis adipisci nam vero, beatae cumque autem sequi officiis cum, est rem dolorum excepturi deserunt aliquam quia veritatis unde quo',
-  img: 'https://cdn.onlinewebfonts.com/svg/img_103565.png'
-}
+import { useQuery } from '@tanstack/react-query'
+import { getRequestEmployee } from '../../api/request.api'
 
 export default function EmployeeApplyingList() {
+  const { id } = useParams()
+  console.log(id)
+
+  const { data } = useQuery({
+    queryKey: ['employeeRequest', id],
+    queryFn: () => {
+      return getRequestEmployee(id)
+    }
+  })
+  const employeeRequest = data?.data.data
+  console.log(employeeRequest)
   return (
     <div className='xl:w-[80%] rounded-2xl grid grid-cols-3 w-[95%] mx-64 gap-4 mt-24'>
       <div className='col-span-3 flex justify-center'>
@@ -21,7 +24,12 @@ export default function EmployeeApplyingList() {
       </div>
       <div className='buttons-below col-span-3 mx-32  bg-white h-fit rounded-2xl mt-8 mb-16'>
         <div className='flex flex-col gap-20 p-8'>
-          <Post postProps={employeeApplying} />
+          {employeeRequest &&
+            employeeRequest.map((request) => (
+              <div key={request._id}>
+                <Post request={request} />
+              </div>
+            ))}
         </div>
       </div>
     </div>
