@@ -20,10 +20,10 @@ const buttons = [
 export default function UserRequestsList() {
   return (
     <div className='w-[70%] xl:w-[60%] mx-auto py-36'>
-      <div className='w-[80%] flex justify-center items-center mx-auto bg-white rounded-2xl p-6 mb-6'>
+      <div className='w-[80%] h-[7rem] text-[28px] font-bold flex justify-center items-center mx-auto bg-white rounded-[20px] p-6 mb-6'>
         採用された仕事リスト
       </div>
-      <div className='bg-white px-14 flex flex-col gap-8 py-16 justify-center items-center'>
+      <div className='bg-white px-14 flex flex-col gap-8 py-16 justify-center items-center rounded-[20px]'>
         <div className='flex flex-col justify-center items-center gap-6'>
           <Post postProps={userRequest} buttons={buttons} />
           <Post postProps={userRequest} buttons={buttons} />
