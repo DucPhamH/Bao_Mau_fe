@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom'
 export default function CreatedJobsPost({ postUser, pathName }) {
   const navigate = useNavigate()
   return (
-    <div className='pl-[40px] flex items-center justify-center border-2 rounded-[20px] border-black m-16 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'>
-      <div className='flex items-center justify-center font-Itim font-medium'>
-        <div className='flex-col items-center justify-center gap-6 p-8 max-w-[40rem]'>
+    <div className='flex items-center justify-center border-2 rounded-[20px] border-black m-16 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'>
+      <div className='-ml-10 flex items-center justify-center font-Itim font-medium'>
+        <div className='flex-col items-center justify-center gap-6 p-8 max-w-[50rem]'>
           <div className='text-[24px]'>{postUser.title}</div>
           <div className='flex text-[24px] items-center'>
             <GiPositionMarker size={20} />

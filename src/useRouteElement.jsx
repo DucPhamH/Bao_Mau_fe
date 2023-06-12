@@ -66,15 +66,6 @@ export default function useRouteElement() {
     },
 
     {
-      path: 'userrequestslist',
-      element: (
-        <Mainlayout>
-          <UserRequestsList />
-        </Mainlayout>
-      )
-    },
-
-    {
       path: '',
       element: <RejectedRoute />,
       children: [
@@ -125,6 +116,14 @@ export default function useRouteElement() {
               element: (
                 <Mainlayout>
                   <JobDetail />
+                </Mainlayout>
+              )
+            },
+            {
+              path: 'userrequestslist',
+              element: (
+                <Mainlayout>
+                  <UserRequestsList />
                 </Mainlayout>
               )
             }

@@ -98,12 +98,14 @@ function UserAvatar({ handleLogout, info }) {
               </Link>
             )}
             {info.roles === 2 ? (
-              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
-                <div className='text-5xl pr-8'>
-                  <AiOutlineCalendar />
+              <Link to='/UserRequestsList' onClick={toggleModal}>
+                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                  <div className='text-5xl pr-8'>
+                    <AiOutlineCalendar />
+                  </div>
+                  <div className='text-4xl'>エントリー</div>
                 </div>
-                <div className='text-4xl'>エントリー</div>
-              </div>
+              </Link>
             ) : (
               <Link to='/usercreatedjobs' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
