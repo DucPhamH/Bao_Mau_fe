@@ -15,7 +15,7 @@ export default function Employee({ employee, pathName }) {
         </div>
 
         <div className='mx-[1vw] flex-col gap-6'>
-          <div className='mt-2'>{employee.userID.name}</div>
+          <div className='mt-2 text-4xl'>{employee.userID.name}</div>
           <div className='flex -ml-1.5 mt-5'>
             <GiPositionMarker size={20} />
             <div className='-mt-1 font-bold text-3xl'>{employee.userID.address}</div>

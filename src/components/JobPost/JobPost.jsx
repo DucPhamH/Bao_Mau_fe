@@ -12,7 +12,7 @@ export default function JobPost({ post, pathName }) {
         </div>
         <div className='ml-[1vw]'>
           <div className='flex-col gap-6'>
-            <div className='mt-2'>{post.title}</div>
+            <div className='mt-2 text-4xl'>{post.title}</div>
             <div className='flex -ml-1.5 mt-5'>
               <GiPositionMarker size={20} />
               <div className='-mt-1 font-bold text-3xl'> {post.address} </div>
