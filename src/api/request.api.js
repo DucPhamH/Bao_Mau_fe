@@ -5,3 +5,4 @@ export const getRequestEmployee = (id) => http.get(`requests/getRequestEmployee/
 export const getRequestUser = () => http.get('requests/getRequestUser')
 export const deleteRequestUser = (body) => http.post('requests/deleteRequestUser', body)
 export const deleteRequestEmployee = (body) => http.post('requests/deleteRequestEmployee', body)
+export const acceptRequest = (body) => http.post('requests/acceptRequest', body)

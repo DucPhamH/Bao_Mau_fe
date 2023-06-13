@@ -4,11 +4,15 @@ import { displayNum, getAges, isAxiosUnprocessableEntityError } from '../../util
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-toastify'
 import { queryClient } from '../..'
-import { deleteRequestEmployee } from '../../api/request.api'
+import { acceptRequest, deleteRequestEmployee } from '../../api/request.api'
 
 const Post = ({ request }) => {
   const deleteRequestEmployees = useMutation({
     mutationFn: (body) => deleteRequestEmployee(body)
+  })
+
+  const acceptRequests = useMutation({
+    mutationFn: (body) => acceptRequest(body)
   })
 
   const onClickDelete = () => {
@@ -17,6 +21,27 @@ const Post = ({ request }) => {
       employeeID: request.employeeID
     }
     deleteRequestEmployees.mutate(body, {
+      onSuccess: (data) => {
+        console.log(data)
+        toast(data.data?.message)
+        queryClient.invalidateQueries({ queryKey: ['employeeRequest'] })
+      },
+      onError: (error) => {
+        console.log(error)
+        if (isAxiosUnprocessableEntityError(error)) {
+          const formError = error.response?.data
+          toast(formError.message)
+        }
+      }
+    })
+  }
+
+  const onClickAccept = () => {
+    const body = {
+      postID: request.postID,
+      employeeID: request.employeeID
+    }
+    acceptRequests.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
         toast(data.data?.message)
@@ -54,7 +79,10 @@ const Post = ({ request }) => {
         <div className='text-[16px] mt-4'>{request.employeeID.description}</div>
       </div>
       <div className='buttons flex !ml-60'>
-        <button className='bg-[#41E309] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
+        <button
+          onClick={onClickAccept}
+          className='bg-[#41E309] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
+        >
           アクセス
         </button>
         <button
