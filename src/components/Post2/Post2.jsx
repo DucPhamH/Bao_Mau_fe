@@ -1,8 +1,36 @@
 import React from 'react'
 import { GiPositionMarker } from 'react-icons/gi'
-import { convertDate, displayNum, getAges } from '../../utils/utils'
+import { convertDate, displayNum, isAxiosUnprocessableEntityError } from '../../utils/utils'
+import { useMutation } from '@tanstack/react-query'
+import { toast } from 'react-toastify'
+import { deleteRequestUser } from '../../api/request.api'
+import { queryClient } from '../..'
 
 const Post2 = ({ request }) => {
+  const deleteRequestUsers = useMutation({
+    mutationFn: (body) => deleteRequestUser(body)
+  })
+
+  const onClickDelete = () => {
+    const body = {
+      postID: request.postID
+    }
+    deleteRequestUsers.mutate(body, {
+      onSuccess: (data) => {
+        console.log(data)
+        toast(data.data?.message)
+        queryClient.invalidateQueries({ queryKey: ['userRequest'] })
+      },
+      onError: (error) => {
+        console.log(error)
+        if (isAxiosUnprocessableEntityError(error)) {
+          const formError = error.response?.data
+          toast(formError.message)
+        }
+      }
+    })
+  }
+
   return (
     <div
       className='flex flex-row items-center w-full border border-black rounded-2xl p-8 gap-8'
@@ -30,7 +58,10 @@ const Post2 = ({ request }) => {
         <button className='bg-[#41E309] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
           アクセス
         </button>
-        <button className='bg-[#E72253] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
+        <button
+          onClick={onClickDelete}
+          className='bg-[#E72253] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
+        >
           キャンセル
         </button>
       </div>
