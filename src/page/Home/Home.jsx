@@ -10,7 +10,7 @@ export default function Home() {
   console.log(check)
   return (
     <div className='relative overflow-x-hidden w-[100%]'>
-      <img src={bg} alt='not found' className='w-full object-cover' />
+      <img src={bg} alt='not found' className='w-full object-fit h-[calc(100vh_-_210px)]' />
       <div className='absolute w-full h-full top-0 left-0'>
         <div className='w-full flex justify-center items-center my-28'>
           <div className='bg-[#9EFFA8] text-[#FA1313] text-8xl font-alex flex justify-center items-center h-44 w-[500px] rounded-full'>
