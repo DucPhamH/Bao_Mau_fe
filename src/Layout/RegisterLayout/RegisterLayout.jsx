@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import bg from '../../asset/img/bg.png'
 
 export default function RegisterLayout({ children }) {
   const navigate = useNavigate()
@@ -23,6 +24,7 @@ export default function RegisterLayout({ children }) {
     // </section>
 
     <div className='modal'>
+      <img src={bg} alt='not found' className='h-full object-cover' />
       <div className='overlay'></div>
       <div className='modal-content bg-white w-[420px]'>
         <div className='flex w-full justify-end text-4xl font-extrabold cursor-pointer' onClick={toggleOpenHome}>
