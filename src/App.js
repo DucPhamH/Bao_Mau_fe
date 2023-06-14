@@ -5,7 +5,7 @@ export function PlayMusic() {
   let audio = document.querySelector('audio')
   audio.src = 'https://docs.google.com/uc?export=download&id=1pGwGPBtf66cmnzmfLLmr_6fEw8uxIsUe'
   audio.volume = 0.15
-  audio.play()
+  audio.play().catch((error) => {})
 }
 function App() {
   const routeElement = useRouteElement()
