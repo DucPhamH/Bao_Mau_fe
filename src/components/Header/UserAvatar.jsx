@@ -117,12 +117,25 @@ function UserAvatar({ handleLogout, info }) {
               </Link>
             )}
 
-            <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
-              <div className='text-5xl pr-8'>
-                <AiOutlineHeart />
-              </div>
-              <div className='text-4xl'>契約</div>
-            </div>
+            {info.roles === 2 ? (
+              <Link to='/EmployeeAcceptedJobs' onClick={toggleModal}>
+                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                  <div className='text-5xl pr-8'>
+                    <AiOutlineHeart />
+                  </div>
+                  <div className='text-4xl'>契約</div>
+                </div>
+              </Link>
+            ) : (
+              <Link to='/requestslist' onClick={toggleModal}>
+                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                  <div className='text-5xl pr-8'>
+                    <AiOutlineHeart />
+                  </div>
+                  <div className='text-4xl'>契約</div>
+                </div>
+              </Link>
+            )}
             {info.roles === 2 ? (
               <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                 <div className='text-5xl pr-8'>

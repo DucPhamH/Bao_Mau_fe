@@ -20,6 +20,8 @@ import Error404NotFound from './page/Error404NotFound/Error404NotFound'
 import ListOfAvailableJobs from './page/ListOfAvailableJobs/ListOfAvailableJobs'
 import UserCreatedJobs from './page/UserCreatedJobs'
 import JobDetailUser from './page/JobDetailUser'
+import RequestsList from './page/RequestsList'
+import EmployeeAcceptedJobs from './page/EmployeeAcceptedJobs'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -126,6 +128,14 @@ export default function useRouteElement() {
                   <UserRequestsList />
                 </Mainlayout>
               )
+            },
+            {
+              path: 'EmployeeAcceptedJobs',
+              element: (
+                <MainLayout>
+                  <EmployeeAcceptedJobs />
+                </MainLayout>
+              )
             }
           ]
         }
@@ -196,27 +206,18 @@ export default function useRouteElement() {
                   <EmployeeApplyingList />
                 </Mainlayout>
               )
+            },
+            {
+              path: 'requestslist',
+              element: (
+                <Mainlayout>
+                  <RequestsList />
+                </Mainlayout>
+              )
             }
           ]
         }
       ]
-    },
-
-    {
-      path: 'employee-applying-list',
-      element: (
-        <MainLayout>
-          <EmployeeApplyingList />
-        </MainLayout>
-      )
-    },
-    {
-      path: 'user-requests-list',
-      element: (
-        <MainLayout>
-          <UserRequestsList />
-        </MainLayout>
-      )
     },
     {
       path: '*',
