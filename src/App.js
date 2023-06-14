@@ -17,9 +17,11 @@ function App() {
   return (
     <div>
       <div className='absolute w-[100%] cursor-default select-none'>
-        <div className='fixed bottom-8 left-20 w-[11vw] z-50 flex'></div>
+        {/* <div className='fixed bottom-8 left-20 w-[11vw] z-50 flex'></div> */}
 
-        <i className='fixed right-0 bottom-8 z-50'>Đừng đánh dân &copy;2023-2023. All rights reserved.</i>
+        <i className='fixed right-0 bottom-8 z-50 backdrop-blur-[20px]'>
+          Đừng đánh dân &copy;2023-2023. All rights reserved.
+        </i>
       </div>
 
       <audio ref={refAudio} id='audio' loop>
