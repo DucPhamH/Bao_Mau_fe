@@ -7,7 +7,6 @@ import Eyes4 from '../../asset/img/eyes4.png'
 import { PlayMusic } from '../../App'
 
 export default function Error404NotFound() {
-  document.removeEventListener('click', PlayMusic, { once: true })
   document.addEventListener(
     'click',
     function () {

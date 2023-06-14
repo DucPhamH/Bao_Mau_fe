@@ -26,7 +26,7 @@ module.exports = {
             transform: 'translate(-100%)'
           },
           '100%': {
-            transform: 'translate(74vw)'
+            transform: 'translate(65vw)'
           }
         },
         entrance404: {

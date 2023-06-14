@@ -68,7 +68,7 @@ export default function Header() {
         <img src={animate} className='h-[100%] animate-move2' alt='' />
       </div>
 
-      <div className='flex mx-14'>
+      <div className='flex mx-14 w-[37vw] justify-end items-end'>
         {!isAuthenticated ? (
           <>
             <div>
