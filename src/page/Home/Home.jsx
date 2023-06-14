@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import bg from '../../asset/img/bg.png'
 import { AppContext } from '../../contexts/app.context'
 import { FaBabyCarriage } from 'react-icons/fa'

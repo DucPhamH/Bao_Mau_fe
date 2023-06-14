@@ -4,7 +4,6 @@ import Eyes from '../../asset/img/eyes.png'
 import Eyes2 from '../../asset/img/eyes2.png'
 import Eyes3 from '../../asset/img/eyes3.png'
 import Eyes4 from '../../asset/img/eyes4.png'
-import { PlayMusic } from '../../App'
 
 export default function Error404NotFound() {
   document.addEventListener(
@@ -55,7 +54,7 @@ export default function Error404NotFound() {
 
   return (
     <>
-      <div className=' bg-black cursor-default overflow-x-hidden'>
+      <div className=' bg-black cursor-default overflow-x-hidden select-none'>
         <div className='absolute w-[10vw] h-[10vw] randomPosImg invisible overflow-hidden'>
           <img src={Eyes} alt=''></img>
         </div>

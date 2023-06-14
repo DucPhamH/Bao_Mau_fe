@@ -6,9 +6,9 @@ import { useMutation } from '@tanstack/react-query'
 import { logoutAccount } from '../../api/auth.api'
 
 import logo from '../../asset/img/babysister.png'
-import logo2 from '../../asset/img/babysister2.png'
 import UserAvatar from './UserAvatar'
 import animate from '../../asset/animate/animate.gif'
+
 export default function Header() {
   const { isAuthenticated, setIsAuthenticated, info, setInfo } = useContext(AppContext)
 
