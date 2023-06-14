@@ -80,9 +80,13 @@ const Post4 = ({ request }) => {
         <div className='text-[16px] mt-4'>{request.postID.description}</div>
       </div>
       <div className='flex ml-30 flex-col gap-20 ml-auto'>
-        <button className='bg-[#FA1313] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
-          キャンセル
-        </button>
+        {request.status === 2 ? (
+          ''
+        ) : (
+          <button className='bg-[#7037d1] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
+            確認
+          </button>
+        )}
       </div>
     </div>
   )

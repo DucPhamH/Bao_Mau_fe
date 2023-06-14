@@ -7,3 +7,4 @@ export const deleteRequestUser = (body) => http.post('requests/deleteRequestUser
 export const deleteRequestEmployee = (body) => http.post('requests/deleteRequestEmployee', body)
 export const acceptRequest = (body) => http.post('requests/acceptRequest', body)
 export const getAcceptRequets = () => http.get('requests/getAcceptRequets')
+export const cancelRequest = (body) => http.post('requests/cancelRequest', body)
