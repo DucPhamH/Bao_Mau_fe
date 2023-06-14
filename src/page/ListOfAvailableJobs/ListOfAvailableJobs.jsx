@@ -26,8 +26,7 @@ export default function ListOfAvailableJobs() {
     queryKey: ['posts', queryConfig],
     queryFn: () => {
       return getAllPost(queryConfig)
-    },
-    keepPreviousData: true
+    }
   })
 
   const posts = data?.data
