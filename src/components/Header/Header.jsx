@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../../contexts/app.context'
@@ -32,25 +32,23 @@ export default function Header() {
     navigate('/register')
   }
 
-  let imgbg, timerandom, colorX
+  let timerandom, colorX
   const hash = '#',
     zeroString = '000000'
-  setTimeout(() => {
-    imgbg = document.querySelector('img')
-  }, 100)
+  const refimg = useRef(null)
 
   setInterval(() => {
     timerandom = Math.floor(Math.random() * 100)
-    if (timerandom > 70) {
+    if (timerandom > 70 && refimg.current) {
       colorX = Math.round(0xffffff * Math.random()).toString(16)
-      imgbg.style.backgroundColor = hash + zeroString.substring(0, 6 - colorX.length) + colorX
+      refimg.current.style.backgroundColor = hash + zeroString.substring(0, 6 - colorX.length) + colorX
     }
   }, 1000)
   return (
     <header className='bg-white w-full h-full flex items-center justify-between border border-b-black  '>
       <Link to='/'>
         <div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
-          <img className=' w-[60%] h-[80%]' src={logo} alt='' />
+          <img ref={refimg} className=' w-[60%] h-[80%]' src={logo} alt='' />
         </div>
       </Link>
 
