@@ -12,9 +12,7 @@ function App() {
   document.addEventListener('click', PlayMusic, { once: true })
   return (
     <div>
-      <audio id='audio' loop>
-        <source type='audio/mpeg' />
-      </audio>
+      <audio id='audio' loop></audio>
       {routeElement}
       <ToastContainer />
     </div>
