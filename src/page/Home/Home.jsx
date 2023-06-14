@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import bg from '../../asset/img/bg.png'
 import { AppContext } from '../../contexts/app.context'
 import { FaBabyCarriage } from 'react-icons/fa'
 import { TbChefHat } from 'react-icons/tb'
+
 export default function Home() {
   const { info } = useContext(AppContext)
   console.log(info?.roles)
   const check = Boolean(info?.roles === 1)
   console.log(check)
+
   return (
     <div className='relative overflow-x-hidden w-[100%]'>
       <img src={bg} alt='not found' className='w-full object-fit h-[calc(100vh_-_210px)]' />
@@ -17,6 +19,7 @@ export default function Home() {
             COOKCARE
           </div>
         </div>
+
         {/* <button className='bg-[#87FDE8] mx-5 font-ankokuzonji text-5xl py-12 w-full rounded-full'>
             お前はもう死んでいる
           </button> */}

@@ -21,6 +21,14 @@ module.exports = {
             transform: 'translate(-100%)'
           }
         },
+        move2: {
+          '0%': {
+            transform: 'translate(-100%)'
+          },
+          '100%': {
+            transform: 'translate(74vw)'
+          }
+        },
         entrance404: {
           from: {
             width: '0',
@@ -48,6 +56,7 @@ module.exports = {
       },
       animation: {
         move: 'move 30s linear infinite',
+        move2: 'move2 6s linear infinite',
         entrance404first: 'entrance404 3s ease-in-out',
         entrance404second: 'entrance404 3s ease-in-out 3s',
         entrance404third: 'entrance404 3s ease-in-out 6s',

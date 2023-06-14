@@ -27,6 +27,9 @@ html {
 .postshadow {
   filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.4));
 }
+.img2 {
+  clip-path: polygon(24.8% 60%, 58% 79.5%, 57.5% 85.8%, 43.8% 91%, 35% 90%, 2.7% 70.5%, 2.7% 64%, 13.3% 59.5%);
+}
 .postbox {
   clip-path: polygon(
     0.5% 7%,
