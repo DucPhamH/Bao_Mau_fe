@@ -3,37 +3,34 @@ import { GiPositionMarker } from 'react-icons/gi'
 import { convertDate, displayNum, isAxiosUnprocessableEntityError } from '../../utils/utils'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-toastify'
-import { acceptRequest, deleteRequestUser } from '../../api/request.api'
+import { acceptCancelRequest } from '../../api/request.api'
 import { queryClient } from '../..'
 
 const Post4 = ({ request }) => {
-  //   const deleteRequestUsers = useMutation({
-  //     mutationFn: (body) => deleteRequestUser(body)
-  //   })
+  const acceptRequestCancels = useMutation({
+    mutationFn: (body) => acceptCancelRequest(body)
+  })
 
-  //   const acceptRequests = useMutation({
-  //     mutationFn: (body) => acceptRequest(body)
-  //   })
-
-  //   const onClickDelete = () => {
-  //     const body = {
-  //       postID: request.postID
-  //     }
-  //     deleteRequestUsers.mutate(body, {
-  //       onSuccess: (data) => {
-  //         console.log(data)
-  //         toast(data.data?.message)
-  //         queryClient.invalidateQueries({ queryKey: ['userRequest'] })
-  //       },
-  //       onError: (error) => {
-  //         console.log(error)
-  //         if (isAxiosUnprocessableEntityError(error)) {
-  //           const formError = error.response?.data
-  //           toast(formError.message)
-  //         }
-  //       }
-  //     })
-  //   }
+  const onClickAccept = () => {
+    const body = {
+      postID: request.postID,
+      employeeID: request.employeeID
+    }
+    acceptRequestCancels.mutate(body, {
+      onSuccess: (data) => {
+        console.log(data)
+        toast(data.data?.message)
+        queryClient.invalidateQueries({ queryKey: ['getRequestAccept'] })
+      },
+      onError: (error) => {
+        console.log(error)
+        if (isAxiosUnprocessableEntityError(error)) {
+          const formError = error.response?.data
+          toast(formError.message)
+        }
+      }
+    })
+  }
 
   //   const onClickAccept = () => {
   //     const body = {
@@ -83,7 +80,10 @@ const Post4 = ({ request }) => {
         {request.status === 2 ? (
           ''
         ) : (
-          <button className='bg-[#7037d1] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'>
+          <button
+            onClick={onClickAccept}
+            className='bg-[#7037d1] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
+          >
             確認
           </button>
         )}

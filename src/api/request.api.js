@@ -8,3 +8,4 @@ export const deleteRequestEmployee = (body) => http.post('requests/deleteRequest
 export const acceptRequest = (body) => http.post('requests/acceptRequest', body)
 export const getAcceptRequets = () => http.get('requests/getAcceptRequets')
 export const cancelRequest = (body) => http.post('requests/cancelRequest', body)
+export const acceptCancelRequest = (body) => http.post('requests/acceptCancelRequest', body)
