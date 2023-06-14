@@ -65,7 +65,7 @@ const Post3 = ({ request }) => {
         ) : (
           <button
             disabled
-            className=' bg-[#252dbd] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
+            className=' bg-[#252dbd] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_1px_0_rgb(0,0,0)]'
           >
             確認待ち
           </button>
