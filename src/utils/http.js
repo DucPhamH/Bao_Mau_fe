@@ -16,8 +16,13 @@ import { clearAccessTokenFromLS, getAccessTokenFromLS, saveAccessTokenToLS, save
 //   }
 // }
 
+const URL = {
+  BASE_URL: 'http://localhost:4000/api/',
+  DEPLOY_URL: 'https://bao-mau-be-0v27.onrender.com/api/'
+}
+
 const instance = axios.create({
-  baseURL: 'https://bao-mau-be-0v27.onrender.com/api/',
+  baseURL: URL.DEPLOY_URL,
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json'

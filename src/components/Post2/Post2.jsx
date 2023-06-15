@@ -1,10 +1,11 @@
 import React from 'react'
 import { GiPositionMarker } from 'react-icons/gi'
-import { convertDate, displayNum, isAxiosUnprocessableEntityError } from '../../utils/utils'
+import { convertDate, count, displayNum, isAxiosUnprocessableEntityError } from '../../utils/utils'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-toastify'
 import { acceptRequest, deleteRequestUser } from '../../api/request.api'
 import { queryClient } from '../..'
+import { createPayment } from '../../api/payment.api'
 
 const Post2 = ({ request }) => {
   const deleteRequestUsers = useMutation({
@@ -14,6 +15,23 @@ const Post2 = ({ request }) => {
   const acceptRequests = useMutation({
     mutationFn: (body) => acceptRequest(body)
   })
+
+  const createPayments = useMutation({
+    mutationFn: (body) => createPayment(body)
+  })
+
+  // console.log(request._id)
+  // console.log(request.postID)
+
+  // console.log(count(request.postID))
+
+  const objectCount = {
+    count: count(request.postID),
+    totalPrice: count(request.postID) * 4 * request.postID.salary,
+    requestID: request._id
+  }
+
+  console.log(objectCount)
 
   const onClickDelete = () => {
     const body = {
@@ -52,6 +70,20 @@ const Post2 = ({ request }) => {
           const formError = error.response?.data
           toast(formError.message)
         }
+      }
+    })
+    createPayments.mutate(objectCount, {
+      onSuccess: (data) => {
+        console.log(data)
+        // toast(data.data?.message)
+        // queryClient.invalidateQueries({ queryKey: ['employeeRequest'] })
+      },
+      onError: (error) => {
+        console.log(error)
+        // if (isAxiosUnprocessableEntityError(error)) {
+        //   const formError = error.response?.data
+        //   toast(formError.message)
+        // }
       }
     })
   }

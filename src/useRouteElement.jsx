@@ -58,14 +58,6 @@ export default function useRouteElement() {
         </MainLayout>
       )
     },
-    {
-      path: 'contractedjobslist',
-      element: (
-        <Mainlayout>
-          <ContractedJobsList />
-        </Mainlayout>
-      )
-    },
 
     {
       path: '',
@@ -212,6 +204,14 @@ export default function useRouteElement() {
               element: (
                 <Mainlayout>
                   <RequestsList />
+                </Mainlayout>
+              )
+            },
+            {
+              path: 'contractedjobslist',
+              element: (
+                <Mainlayout>
+                  <ContractedJobsList />
                 </Mainlayout>
               )
             }

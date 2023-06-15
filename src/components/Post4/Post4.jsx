@@ -32,27 +32,6 @@ const Post4 = ({ request }) => {
     })
   }
 
-  //   const onClickAccept = () => {
-  //     const body = {
-  //       postID: request.postID,
-  //       employeeID: request.employeeID
-  //     }
-  //     acceptRequests.mutate(body, {
-  //       onSuccess: (data) => {
-  //         console.log(data)
-  //         toast(data.data?.message)
-  //         queryClient.invalidateQueries({ queryKey: ['userRequest'] })
-  //       },
-  //       onError: (error) => {
-  //         console.log(error)
-  //         if (isAxiosUnprocessableEntityError(error)) {
-  //           const formError = error.response?.data
-  //           toast(formError.message)
-  //         }
-  //       }
-  //     })
-  //   }
-
   return (
     <div
       className='flex flex-row items-center w-full border border-black rounded-2xl p-8 gap-8'

@@ -136,14 +136,7 @@ function UserAvatar({ handleLogout, info }) {
                 </div>
               </Link>
             )}
-            {info.roles === 2 ? (
-              <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
-                <div className='text-5xl pr-8'>
-                  <AiOutlineHeart />
-                </div>
-                <div className='text-4xl'>採用される仕事</div>
-              </div>
-            ) : (
+            {info.roles === 1 && (
               <Link to='/createjob' onClick={toggleModal}>
                 <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
@@ -153,12 +146,17 @@ function UserAvatar({ handleLogout, info }) {
                 </div>
               </Link>
             )}
-            <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
-              <div className='text-5xl pr-8'>
-                <AiOutlineCreditCard />
-              </div>
-              <div className='text-4xl'>ペイメント</div>
-            </div>
+
+            {info.roles === 1 && (
+              <Link to='/contractedjobslist' onClick={toggleModal}>
+                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                  <div className='text-5xl pr-8'>
+                    <AiOutlineCreditCard />
+                  </div>
+                  <div className='text-4xl'>ペイメント</div>
+                </div>
+              </Link>
+            )}
 
             <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600' onClick={handleLogout}>
               <div className='text-5xl pr-8 '>

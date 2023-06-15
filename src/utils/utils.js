@@ -24,3 +24,15 @@ export function displayNum(num) {
 export function convertDate(date) {
   return date.substring(0, 10).replaceAll('-', '/')
 }
+
+export function count(object) {
+  let count = 0
+  for (let key in object) {
+    if (object.hasOwnProperty(key) && key !== 'housemaid' && key !== 'babysister') {
+      if (object[key] === true) {
+        count++
+      }
+    }
+  }
+  return count
+}
