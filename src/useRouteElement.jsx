@@ -22,6 +22,7 @@ import UserCreatedJobs from './page/UserCreatedJobs'
 import JobDetailUser from './page/JobDetailUser'
 import RequestsList from './page/RequestsList'
 import EmployeeAcceptedJobs from './page/EmployeeAcceptedJobs'
+import Payment from './page/Payment'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -213,6 +214,14 @@ export default function useRouteElement() {
                 <Mainlayout>
                   <ContractedJobsList />
                 </Mainlayout>
+              )
+            },
+            {
+              path: 'payment/:id',
+              element: (
+                <MainLayout>
+                  <Payment />
+                </MainLayout>
               )
             }
           ]
