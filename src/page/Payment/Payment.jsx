@@ -29,7 +29,7 @@ export default function Payment() {
       {payment && (
         <div>
           <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
-            <div className='w-4/5 bg-[#FFF] text-center mt-40 rounded-3xl p-8 text-6xl font-bold'>Chi tiết hóa đơn</div>
+            <div className='w-4/5 bg-[#FFF] text-center mt-36 rounded-3xl p-8 text-6xl font-bold'>Chi tiết hóa đơn</div>
             <div className='flex w-[95vw] h-[150vh] m-auto gap-16 mt-12'>
               <div className='flex flex-auto w-[20vw]'>
                 <div className='flex-1 m-5 p-12 bg-[#FFF] rounded-[20px] border-[1px] border-black'>
