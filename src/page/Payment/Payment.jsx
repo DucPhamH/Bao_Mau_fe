@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { getPayment } from '../../api/payment.api'
+import PayPalButton from './PayPalButton'
 
 export default function Payment() {
   const { id } = useParams()
@@ -20,6 +21,9 @@ export default function Payment() {
         <div>
           <div>{payment.count}</div>
           <div>{payment.totalPrice}</div>
+          <div>
+            <PayPalButton payment={payment} />
+          </div>
         </div>
       )}
     </div>
