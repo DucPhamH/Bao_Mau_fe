@@ -11,7 +11,12 @@ module.exports = {
         xl: '1280px',
         '2xl': '1536px'
       },
-      fontFamily: { unown: ['Unown'], blooddrip: ['BloodDrip'] },
+      fontFamily: {
+        unown: ['Unown'],
+        blooddrip: ['BloodDrip'],
+        segmented7: ['"segmented7"'],
+        segmented14: ['segmented14']
+      },
       keyframes: {
         move: {
           '0%': {

@@ -3,7 +3,6 @@ import bg from '../../asset/img/bg.png'
 import { AppContext } from '../../contexts/app.context'
 import { FaBabyCarriage } from 'react-icons/fa'
 import { TbChefHat } from 'react-icons/tb'
-
 export default function Home() {
   const { info } = useContext(AppContext)
   console.log(info?.roles)

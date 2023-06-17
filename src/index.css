@@ -17,6 +17,15 @@ html {
     font-family: 'BloodDrip';
     src: url(./asset/font/plasdrip.ttf) format('truetype');
   }
+  @font-face {
+    font-family: 'segmented7';
+    src: url(./asset/font/DSEG7Classic-Bold.woff) format('woff');
+  }
+
+  @font-face {
+    font-family: 'segmented14';
+    src: url(./asset/font/DSEG14Modern-Italic.woff) format('woff');
+  }
 }
 #homepage-animation2 {
   animation-delay: -15s;
