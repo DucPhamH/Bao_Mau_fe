@@ -18,7 +18,8 @@ function App() {
   return (
     <PayPalScriptProvider
       options={{
-        clientId: 'AZ4lwqmqrbSbK2tF9nmLaKBu_9Y1HPw5Gf0k3rY-ApMRaaDPf4jghyuTk0KXl0DWQGBQ84I_7-shsuU6'
+        clientId: 'AZ4lwqmqrbSbK2tF9nmLaKBu_9Y1HPw5Gf0k3rY-ApMRaaDPf4jghyuTk0KXl0DWQGBQ84I_7-shsuU6',
+        currency: 'JPY'
       }}
     >
       <div>
