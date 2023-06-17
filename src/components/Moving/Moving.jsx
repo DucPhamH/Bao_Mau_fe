@@ -22,16 +22,16 @@ export default function Moving() {
       if (e.repeat) return
       if (e.key === 'ArrowLeft') {
         if (charElement.current) {
-          charElement.current.style.transform = 'scaleX(-1)'
           charElement.current.src = animate
+          charElement.current.style.transform = 'scaleX(-1)'
         }
         if (leftArrowEl.current) leftArrowEl.current.style.backgroundColor = 'cyan'
         movingLeft = true
         movingRight = false
       } else if (e.key === 'ArrowRight') {
         if (charElement.current) {
-          charElement.current.style.transform = 'scaleX(1)'
           charElement.current.src = animate
+          charElement.current.style.transform = 'scaleX(1)'
         }
         if (rightArrowEl.current) rightArrowEl.current.style.backgroundColor = 'cyan'
         movingLeft = false
