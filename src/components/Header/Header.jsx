@@ -7,7 +7,7 @@ import { logoutAccount } from '../../api/auth.api'
 
 import logo from '../../asset/img/babysister.png'
 import UserAvatar from './UserAvatar'
-import animate from '../../asset/animate/animate.gif'
+import Moving from '../Moving/Moving'
 
 export default function Header() {
   const { isAuthenticated, setIsAuthenticated, info, setInfo } = useContext(AppContext)
@@ -64,9 +64,7 @@ export default function Header() {
           </div>
         </div>
       </Link>
-      <div className='h-[40%] w-[100%] overflow-x-hidden'>
-        <img src={animate} className='h-[100%] animate-move2' alt='' />
-      </div>
+      <Moving />
 
       <div className='flex mx-14 w-[37vw] justify-end items-end'>
         {!isAuthenticated ? (

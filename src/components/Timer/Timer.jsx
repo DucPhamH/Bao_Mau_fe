@@ -1,14 +1,12 @@
 import moment from 'moment/moment'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 export default function Timer() {
   const div = useRef(null),
     seconds = useRef(null),
     session = useRef(null)
   const [showClock, toggleShowClock] = useState(true)
-  const [timeState, changeTimeState] = useState(false)
-  const useEffectOnce = useRef(0)
+
   function time() {
-    div.current.innerHTML = ''
     let d, s, m, h, sesn, splitStr, splitStr2
     d = moment().format('LTS')
     splitStr = d.split(':')
@@ -33,21 +31,14 @@ export default function Timer() {
     // if (mnth < 10) {
     //   mnth = '0' + 0
     // }
-    div.current.innerHTML = h + ':' + m
+    if (div.current) div.current.innerHTML = h + ':' + m
     // day.current.innerHTML = fa_day
-    seconds.current.innerHTML = s
-    session.current.innerHTML = sesn
+    if (seconds.current) seconds.current.innerHTML = s
+    if (session.current) session.current.innerHTML = sesn
     // dat.current.innerHTML = date + '-' + mnth + '-' + year
   }
-  useEffect(() => {
-    if (useEffectOnce.current === 0) {
-      setInterval(time, 1000)
-      useEffectOnce.current++
-    }
-  }, [timeState])
-  useEffect(() => {
-    if (div.current && seconds.current && session.current) changeTimeState(true)
-  }, [div, seconds, session])
+
+  setInterval(time, 1000)
 
   return (
     <>
