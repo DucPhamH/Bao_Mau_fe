@@ -24,6 +24,7 @@ import RequestsList from './page/RequestsList'
 import EmployeeAcceptedJobs from './page/EmployeeAcceptedJobs'
 import Payment from './page/Payment'
 import Bejeweled from './page/Bejeweled/Bejeweled'
+import PaymentSuccess from './page/PaymentSuccess/PaymentSuccess'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -230,6 +231,14 @@ export default function useRouteElement() {
       ]
     },
 
+    {
+      path: 'paymentsuccess',
+      element: (
+        <MainLayout>
+          <PaymentSuccess />
+        </MainLayout>
+      )
+    },
     {
       path: '*',
       element: (
