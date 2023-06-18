@@ -10,7 +10,7 @@ export default function PaymentSuccess() {
             <div className='mx-[8vw]'>
               <div className='font-comfort italic text-green-600 bg-white text-[6vw]'>Payment success!</div>
               <div className='flex justify-center items-center'>
-                <img className='hover:z-[1]' src={tick} alt='' />
+                <img src={tick} alt='' />
               </div>
               <div className='mt-[2vw] flex justify-center items-center font-playfair'>
                 <div className='text-[6vw]'>-</div>
