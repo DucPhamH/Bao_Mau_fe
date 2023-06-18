@@ -22,7 +22,7 @@ export default function BGM() {
             ),
             1: (
               <source
-                src='https://docs.google.com/uc?export=download&id=10zQd9jFFsJ_HEzJfzRPVYi198ybnQylQ'
+                src='https://docs.google.com/uc?export=download&id=1TmNrf3rATzn3f-ImeGJFZLscDbfn3SZ7'
                 type='audio/mpeg'
               />
             ),

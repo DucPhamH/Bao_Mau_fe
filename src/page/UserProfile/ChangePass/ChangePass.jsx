@@ -50,7 +50,7 @@ export default function ChangePass() {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className='changepassword grid gap-y-28 mt-32 mx-10 invisible'>
+      <div className='grid gap-y-28 mt-32 mx-10'>
         <div className='col-span-1'>古いパスワード :</div>
         <div className='col-start-2 col-span-2 py-1'>
           <input
@@ -86,10 +86,7 @@ export default function ChangePass() {
         </div>
       </div>
       <div className='my-24 flex justify-center'>
-        <button
-          type='submit'
-          className='changepassword bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
-        >
+        <button type='submit' className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black'>
           Confirm
         </button>
       </div>

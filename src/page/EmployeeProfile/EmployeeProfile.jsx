@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { currentAccount, updateUser } from '../../api/auth.api'
 import { useState } from 'react'
 import { profileEmployee, updateEmployee } from '../../api/employee.api'
@@ -115,20 +115,6 @@ export default function EmployeeProfile() {
     })
   })
 
-  //update button
-  //////////////////////
-  //////////////////////
-  const [hideButton, hideUpdateButton] = useState(false)
-  const updateFunction = (e) => {
-    hideUpdateButton(true)
-    document.querySelectorAll('.inputedit').forEach((e) => {
-      e.disabled = false
-    })
-  }
-  //////////////////////
-  //////////////////////
-  //////////////////////
-
   const [modal, setModal] = React.useState(false)
 
   const toggleModal = () => {
@@ -139,21 +125,57 @@ export default function EmployeeProfile() {
   } else {
     document.body.classList.remove('active-modal')
   }
+  let initialFormValue = useRef([])
+  //edit profile
+  const [stateForm, changeStateForm] = useState(0)
+  const backFunction = () => {
+    document.querySelector('form').reset()
+    let inputedit = document.querySelectorAll('.inputedit')
+    document.querySelectorAll('.checkbox')[0].checked = initialFormValue.current[0]
+    document.querySelectorAll('.checkbox')[1].checked = initialFormValue.current[1]
+    for (let i = 0; i < inputedit.length; ++i) inputedit[i].value = initialFormValue.current[i + 2]
+    changeStateForm(0)
+  }
 
+  //update button
+  //////////////////////
+  //////////////////////
+  const updateFunction = () => {
+    changeStateForm(1)
+    let inputedit = document.querySelectorAll('.inputedit')
+    initialFormValue.current[0] = document.querySelectorAll('.checkbox')[0].checked
+    initialFormValue.current[1] = document.querySelectorAll('.checkbox')[1].checked
+    for (let i = 0; i < inputedit.length; ++i) initialFormValue.current[i + 2] = inputedit[i].value
+  }
+  //////////////////////
+  //////////////////////
+  //////////////////////
+
+  ///wait for api load
+  const [apiLoaded, setApiLoaded] = useState(false)
+  let interval = setInterval(function () {
+    let waitForAPICall = document.querySelector('.waitForAPICall')
+    if (waitForAPICall.innerHTML !== '') {
+      setApiLoaded(true)
+      clearInterval(interval)
+    }
+  }, 100)
   return (
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>
-        <div className='flex justify-end'>
-          <button
-            className={
-              hideButton
-                ? 'bg-[#FED5D5] px-8 rounded-full py-1 border border-black invisible'
-                : 'bg-[#FED5D5] px-8 rounded-full py-1 border border-black'
-            }
-            onClick={updateFunction}
-          >
-            Update
+        <div className={stateForm === 0 ? 'invisible' : ''}>
+          <button onClick={backFunction} className='w-full rounded-full text-white bg-red-600 hover:bg-green-600 py-3'>
+            Back/Cancel
           </button>
+        </div>
+        <div className='flex justify-end'>
+          <div className={apiLoaded ? '' : 'invisible'}>
+            <div className={stateForm === 0 ? '' : 'invisible'}>
+              <button className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black' onClick={updateFunction}>
+                Update
+              </button>
+            </div>
+          </div>
         </div>
         <form onSubmit={onSubmit} noValidate>
           <div className='mt-10 grid gap-x-6 gap-y-8'>
@@ -173,7 +195,9 @@ export default function EmployeeProfile() {
                   </div>
                 </div>
 
-                <div className='bg-[#e8e7e74d] mx-36 px-5 border-2 rounded-full text-center'>{user?.data.name}</div>
+                <div className='waitForAPICall bg-[#e8e7e74d] mx-36 px-5 border-2 rounded-full text-center'>
+                  {user?.data.name}
+                </div>
 
                 <div className='px-6 mt-2 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
                   {user?.data.phone}
@@ -189,8 +213,8 @@ export default function EmployeeProfile() {
                       type='checkbox'
                       name='babysister'
                       {...register('babysister')}
-                      className='inputedit scale-[200%] ml-4 accent-cyan-500'
-                      disabled
+                      className='checkbox scale-[200%] ml-4 accent-cyan-500'
+                      disabled={stateForm === 0 ? true : false}
                     />
                   </div>
                   <div className='flex rounded-full items-center'>
@@ -202,8 +226,8 @@ export default function EmployeeProfile() {
                       type='checkbox'
                       name='housemaid'
                       {...register('housemaid')}
-                      className='inputedit scale-[200%] ml-4 accent-orange-500'
-                      disabled
+                      className='checkbox scale-[200%] ml-4 accent-orange-500'
+                      disabled={stateForm === 0 ? true : false}
                     />
                   </div>
                 </div>
@@ -214,7 +238,7 @@ export default function EmployeeProfile() {
                 <div className='ml-5'>メール</div>
                 <input
                   className='inputedit bg-[rgba(217,217,217,0.15)] rounded-xl w-full border py-1 border-black px-4'
-                  disabled
+                  disabled={stateForm === 0 ? true : false}
                   type='email'
                   placeholder='email'
                   name='email'
@@ -232,7 +256,7 @@ export default function EmployeeProfile() {
                     <div className='ml-2'>名前</div>
                     <input
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
-                      disabled
+                      disabled={stateForm === 0 ? true : false}
                       name='name'
                       {...register('name')}
                     ></input>
@@ -241,7 +265,7 @@ export default function EmployeeProfile() {
                     <div className='ml-2'>性別</div>
                     <select
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1 appearance-none'
-                      disabled
+                      disabled={stateForm === 0 ? true : false}
                       name='gender'
                       // defaultValue='female'
                       {...register('gender')}
@@ -264,7 +288,7 @@ export default function EmployeeProfile() {
                       className='inputedit border w-full rounded-xl text-center py-1'
                       name='dateOB'
                       {...register('dateOB')}
-                      disabled
+                      disabled={stateForm === 0 ? true : false}
                     ></input>
                   </div>
                   <div className='row-start-2 col-start-3 col-span-2'>
@@ -273,14 +297,14 @@ export default function EmployeeProfile() {
                       className='inputedit border rounded-xl w-full text-center py-1'
                       name='salary'
                       {...register('salary')}
-                      disabled
+                      disabled={stateForm === 0 ? true : false}
                     ></input>
                     <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.salary?.message}</div>
                   </div>
                 </div>
                 <div className='ml-2 mt-6'>Your Address</div>
                 <textarea
-                  disabled
+                  disabled={stateForm === 0 ? true : false}
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   // defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
                   name='address'
@@ -288,7 +312,7 @@ export default function EmployeeProfile() {
                 ></textarea>
                 <div className='ml-2 mt-12'>詳細情報</div>
                 <textarea
-                  disabled
+                  disabled={stateForm === 0 ? true : false}
                   className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
                   name='description'
                   {...register('description')}
@@ -301,14 +325,14 @@ export default function EmployeeProfile() {
               <div className='mx-12 my-8'>
                 <div>程度</div>
                 <textarea
-                  disabled
+                  disabled={stateForm === 0 ? true : false}
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   name='degree'
                   {...register('degree')}
                 ></textarea>
                 <div className='mt-6'>実験</div>
                 <textarea
-                  disabled
+                  disabled={stateForm === 0 ? true : false}
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   name='experience'
                   {...register('experience')}
@@ -319,7 +343,7 @@ export default function EmployeeProfile() {
               <div className='translate-y-1/2 mx-12'>
                 <div className=''>スキル</div>
                 <textarea
-                  disabled
+                  disabled={stateForm === 0 ? true : false}
                   className='inputedit bg-[rgba(217,217,217,0.15)] mt-4 border rounded-xl border-black h-36 px-4 py-2 w-full resize-none'
                   name='skill'
                   {...register('skill')}
@@ -328,15 +352,9 @@ export default function EmployeeProfile() {
             </div>
           </div>
           <div className='mt-10 flex justify-center'>
-            <button
-              className={
-                hideButton
-                  ? 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black'
-                  : 'bg-[#FED5D5] px-16 rounded-full py-1 border border-black invisible'
-              }
-            >
-              Save
-            </button>
+            <div className={stateForm === 0 ? 'invisible' : ''}>
+              <button className='bg-[#FED5D5] px-16 rounded-full py-1 border border-black'>Save</button>
+            </div>
           </div>
         </form>
       </div>
