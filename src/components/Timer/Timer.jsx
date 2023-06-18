@@ -4,7 +4,7 @@ export default function Timer() {
   const div = useRef(null),
     seconds = useRef(null),
     session = useRef(null)
-  const [showClock, toggleShowClock] = useState(true)
+  const [showClock, toggleShowClock] = useState(false)
 
   function time() {
     let d, s, m, h, sesn, splitStr, splitStr2

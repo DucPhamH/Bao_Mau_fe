@@ -23,6 +23,7 @@ import JobDetailUser from './page/JobDetailUser'
 import RequestsList from './page/RequestsList'
 import EmployeeAcceptedJobs from './page/EmployeeAcceptedJobs'
 import Payment from './page/Payment'
+import Bejeweled from './page/Bejeweled/Bejeweled'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
@@ -234,6 +235,15 @@ export default function useRouteElement() {
       element: (
         // <MainLayout>
         <Error404NotFound />
+        // </MainLayout>
+      )
+    },
+
+    {
+      path: 'bejeweled',
+      element: (
+        // <MainLayout>
+        <Bejeweled />
         // </MainLayout>
       )
     }

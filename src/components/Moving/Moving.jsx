@@ -52,8 +52,8 @@ export default function Moving() {
         else if (rightArrowEl.current) rightArrowEl.current.style.backgroundColor = 'black'
       }
     }
-  document.addEventListener('keydown', event1)
-  document.addEventListener('keyup', event2)
+  // document.addEventListener('keydown', event1)
+  // document.addEventListener('keyup', event2)
   function animation() {
     if (charElement.current) {
       let charEl = document.getElementById('charModel')
@@ -72,7 +72,8 @@ export default function Moving() {
       }
     }
   }
-  let interval = setInterval(animation, 30)
+  let interval
+  //interval = setInterval(animation, 30)
 
   let control = true
   const toggleControl = () => {
@@ -84,15 +85,19 @@ export default function Moving() {
       document.addEventListener('keydown', event1)
       document.addEventListener('keyup', event2)
       interval = setInterval(animation, 30)
+      if (leftArrowEl.current) leftArrowEl.current.style.visibility = 'visible'
+      if (rightArrowEl.current) rightArrowEl.current.style.visibility = 'visible'
     } else {
       document.removeEventListener('keydown', event1)
       document.removeEventListener('keyup', event2)
       clearInterval(interval)
+      if (leftArrowEl.current) leftArrowEl.current.style.visibility = 'hidden'
+      if (rightArrowEl.current) rightArrowEl.current.style.visibility = 'hidden'
     }
   }
   return (
     <div className='h-[40%] w-[100%] overflow-x-hidden flex justify-between'>
-      <img className='bg-black' ref={leftArrowEl} src={leftArrow} alt='' />
+      <img className='bg-black invisible' ref={leftArrowEl} src={leftArrow} alt='' />
       <div className='w-full'>
         <img
           id='charModel'
@@ -103,7 +108,7 @@ export default function Moving() {
           alt=''
         />
       </div>
-      <img className='bg-black' ref={rightArrowEl} src={rightArrow} alt='' />
+      <img className='bg-black invisible' ref={rightArrowEl} src={rightArrow} alt='' />
     </div>
   )
 }
