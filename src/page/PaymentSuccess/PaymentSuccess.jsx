@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import money from '../../asset/animate/money.png'
-import tick from '../../asset/img/tickcomplete.png'
+import tick from '../../asset/animate/tickcomplete.png'
 export default function PaymentSuccess() {
   return (
     <div className='relative'>
