@@ -33,7 +33,7 @@ export default function UserPopupJobPost({ postUser, pathName, employeeID }) {
   }
 
   return (
-    <div className='border-2 border-black flex rounded-lg mb-14 font-itim'>
+    <div className='border-2 border-black flex rounded-2xl mb-14 font-itim'>
       <div onClick={() => navigate(pathName)} className='ml-8 cursor-pointer mt- w-[70%]'>
         <div className='line-clamp-1'>{postUser.title}</div>
         <div className='line-clamp-2 mt-2 text-[#A1A1A1]'>{postUser.description}</div>
