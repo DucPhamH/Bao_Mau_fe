@@ -113,8 +113,8 @@ export default function EmployeeInfo() {
                   <div className='postshadow'>
                     <div ref={wrapperRef} className='postbox absolute mt-3 -ml-[20vw] w-[25vw] bg-black'>
                       <div className='postbox2 mx-[2px] mb-1 bg-white'>
-                        <div className='mx-5 mt-1 h-[28vw] py-5'>
-                          <div className='overflow-auto h-[19vw] mt-16'>
+                        <div className='mx-5 mt-1 py-5'>
+                          <div className='max-h-[20vw] overflow-auto mt-16'>
                             {postUsers &&
                               postUsers.map((postUser) => (
                                 <div key={postUser._id}>
