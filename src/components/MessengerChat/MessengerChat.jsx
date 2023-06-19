@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 export default function MessengerChat() {
-  const [messengerChatSee, setMessengerChatSee] = useState(false)
   const [didMount, setDidMount] = useState(false)
   useEffect(() => {
     setDidMount(true)
@@ -26,9 +25,8 @@ export default function MessengerChat() {
         fjs.parentNode.insertBefore(js, fjs)
       })(document, 'script', 'facebook-jssdk')
     }
-  }, [messengerChatSee])
+  }, [didMount])
 
-  setTimeout(() => setMessengerChatSee(true), 100)
   return (
     <div className='absolute'>
       <div id='fb-root'></div>
