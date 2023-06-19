@@ -45,7 +45,7 @@ export default function Timer() {
       <div className={showClock ? 'absolute w-[100%] cursor-default select-none z-[3]' : 'z-[1] absolute'}>
         <div className='fixed bottom-0 left-0'>
           <div className={showClock ? '' : 'invisible pointer-events-none'}>
-            <div className='bg-black h-[8vw] w-[20vw] rounded-[10px] border-[5px] border-solid border-[#FFC300]'>
+            <div className='bg-black h-[10vw] w-[20vw] rounded-[10px] border-[5px] border-solid border-[#FFC300]'>
               <div
                 onClick={() => toggleShowClock(false)}
                 className='absolute right-[0.1vw] top-[-1px] text-[2vw] font-bold cursor-pointer hover:text-[#FF0000] text-[#FFC300]'
