@@ -28,7 +28,7 @@ export default function MessengerChat() {
     }
   }, [messengerChatSee])
 
-  window.addEventListener('click', () => setMessengerChatSee(true), { once: true })
+  setTimeout(() => setMessengerChatSee(true), 100)
   return (
     <div className='absolute'>
       <div id='fb-root'></div>
