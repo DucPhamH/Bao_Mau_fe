@@ -3,16 +3,17 @@ import { useMutation } from '@tanstack/react-query'
 import React from 'react'
 import { useState } from 'react'
 import { updatePayment } from '../../api/payment.api'
-import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export default function PayPalButton({ payment }) {
-  const [paidFor, setPaidFor] = useState(false)
+  // const [paidFor, setPaidFor] = useState(false)
   const [error, setError] = useState(null)
 
   const update = useMutation({
     mutationFn: (body) => updatePayment(body)
   })
 
+  const navigate = useNavigate()
   const IDPayment = {
     _id: payment._id
   }
@@ -22,7 +23,8 @@ export default function PayPalButton({ payment }) {
     update.mutate(IDPayment, {
       onSuccess: (data) => {
         console.log(data)
-        setPaidFor(true)
+        // setPaidFor(true)
+        navigate('/paymentsuccess')
         // toast(data.data?.message)
       },
       onError: (error) => {
@@ -30,9 +32,9 @@ export default function PayPalButton({ payment }) {
       }
     })
   }
-  if (paidFor) {
-    alert('thanh toán thành công')
-  }
+  // if (paidFor) {
+  //   alert('thanh toán thành công')
+  // }
   if (error) {
     alert('thanh toán thất bại')
   }

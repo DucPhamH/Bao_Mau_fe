@@ -284,9 +284,18 @@ export default function Payment() {
                   <div className='text-5xl m-6'>Tổng tiền (¥)</div>
                   <div className='text-7xl m-6 mt-20'>{displayNum(payment.totalPrice)} ¥</div>
                   <div className='text-4xl m-6'>Thanh toán hóa đơn</div>
-                  <div className='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 h-[17rem] rounded-[20px] text-black text-[20px] p-10 mt-10'>
-                    <PayPalButton payment={payment} />
-                  </div>
+                  {payment.status === 1 ? (
+                    <div className='flex flex-col items-center gap-6 mt-20 mx-8 border-[1px] border-black rounded-[20px] p-10'>
+                      <div className='text-[#37b349] text-9xl'>
+                        <BiCheckCircle />
+                      </div>
+                      <div className=''>Đơn hàng của bạn đã thanh toán thành công</div>
+                    </div>
+                  ) : (
+                    <div className='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 h-[17rem] rounded-[20px] text-black text-[20px] p-10 mt-10'>
+                      <PayPalButton payment={payment} />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
