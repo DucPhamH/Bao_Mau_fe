@@ -5,7 +5,7 @@ import { getRequestEmployee } from '../../api/request.api'
 
 export default function EmployeeApplyingList() {
   const { id } = useParams()
-  console.log(id)
+  // console.log(id)
 
   const { data } = useQuery({
     queryKey: ['employeeRequest', id],
@@ -15,7 +15,7 @@ export default function EmployeeApplyingList() {
   })
   const employeeRequest = data?.data.data
 
-  console.log(employeeRequest)
+  // console.log(employeeRequest)
 
   return (
     <div className='xl:w-[80%] rounded-2xl grid grid-cols-3 w-[95%] mx-64 gap-4 mt-24'>

@@ -29,7 +29,7 @@ export default function Register() {
     registerAccontMutation.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast.success('サインアップの成功')
         navigate('/login')
       },
       onError: (error) => {

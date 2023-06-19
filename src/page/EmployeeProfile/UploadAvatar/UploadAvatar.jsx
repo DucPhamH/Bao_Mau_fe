@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import React from 'react'
 import { updateImage } from '../../../api/auth.api'
 import { toast } from 'react-toastify'
+//import { queryClient } from '../../..'
 
 export default function UploadAvatar({ toggleModal }) {
   const [image, setImage] = React.useState('')
@@ -9,7 +10,7 @@ export default function UploadAvatar({ toggleModal }) {
     mutationFn: (body) => updateImage(body)
   })
   const handleImage = (e) => {
-    console.log(e.target.files)
+    // console.log(e.target.files)
     setImage(e.target.files[0])
   }
 
@@ -18,8 +19,9 @@ export default function UploadAvatar({ toggleModal }) {
     formData.append('imageUser', image)
     updateAvatarMutation.mutate(formData, {
       onSuccess: (data) => {
+        //queryClient.invalidateQueries({ queryKey: ['profile'] })
         setTimeout(function () {
-          toast('Update thành công')
+          toast('更新に成功')
           window.location.reload()
         }, 2000)
       },

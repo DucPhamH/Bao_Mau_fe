@@ -36,7 +36,7 @@ export default function Login() {
     loginAccontMutation.mutate(data, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast.success('ログインの成功')
         setInfo(getInfoFromLS())
         setIsAuthenticated(true)
         if (data.data?.data.user.roles === 1) {

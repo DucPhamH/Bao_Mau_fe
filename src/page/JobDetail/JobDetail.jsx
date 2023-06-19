@@ -17,7 +17,7 @@ export default function JobDetail() {
     }
   })
   const post = data?.data
-  console.log(post)
+  // console.log(post)
 
   const setDay = (day) => {
     return day === true ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'

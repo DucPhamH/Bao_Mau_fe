@@ -11,7 +11,7 @@ export default function RequestsList() {
     }
   })
   const userRequest = data?.data.data
-  console.log(userRequest)
+  //console.log(userRequest)
   return (
     <div className='xl:w-[80%] rounded-2xl grid grid-cols-3 w-[95%] mx-64 gap-4 mt-24'>
       <div className='col-span-3 flex justify-center'>

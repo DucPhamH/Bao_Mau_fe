@@ -10,7 +10,7 @@ export default function ContractedJobsList() {
     }
   })
   const postPayments = data?.data.data
-  console.log(postPayments)
+  // console.log(postPayments)
   return (
     <div className='font-itim bg-[#DCEAFF] py-3'>
       <div className='mx-96'>

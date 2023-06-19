@@ -47,7 +47,7 @@ export default function UserProfile() {
     // console.log(users)
     updateUserMutation.mutate(data, {
       onSuccess: (data) => {
-        toast(data.data?.message)
+        toast.success('正常に更新されました')
         window.location.reload()
       },
       onError: (error) => {
