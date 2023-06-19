@@ -110,9 +110,14 @@ export default function UserProfile() {
     <div className='w-full bg-[#DCEAFF]'>
       <div className='mx-16 font-itim py-10'>
         <div className={stateForm === 0 ? 'invisible' : ''}>
-          <button onClick={backFunction} className='w-full rounded-full text-white bg-red-600 hover:bg-green-600 py-3'>
-            Back/Cancel
-          </button>
+          <div className='flex justify-center items-center'>
+            <button
+              onClick={backFunction}
+              className='px-[2vw] rounded-full text-white bg-red-600 hover:bg-green-600 py-3'
+            >
+              Back/Cancel
+            </button>
+          </div>
         </div>
         <div className='mt-10 grid gap-x-0 pb-24'>
           <div className='bg-[#FFFFFF] rounded-3xl col-span-2 border-2 border-[#B9BFC9]'>
