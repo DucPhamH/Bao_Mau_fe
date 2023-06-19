@@ -10,7 +10,7 @@ export default function UserCreatedJobs() {
     }
   })
   const postUsers = data?.data.data
-  console.log(postUsers)
+  // console.log(postUsers)
   return (
     <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
       <div className='w-[50%] bg-[#FFF] text-center mt-40 rounded-3xl p-8 text-5xl font-bold'>

@@ -4,6 +4,10 @@ import { convertDate, displayNum } from '../../utils/utils'
 import { useNavigate } from 'react-router-dom'
 export default function CreatedJobsPost({ postUser, pathName }) {
   const navigate = useNavigate()
+
+  const check = () => {
+    return postUser.status === 1 ? 'bg-red-400' : 'bg-[#C226F9]'
+  }
   return (
     <div className='flex items-center justify-center border-2 rounded-[20px] border-black m-16 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'>
       <div className='-ml-10 flex items-center justify-center font-Itim font-medium'>
@@ -23,7 +27,7 @@ export default function CreatedJobsPost({ postUser, pathName }) {
         <div className='ml-[8rem]'>
           <button
             onClick={() => navigate(pathName)}
-            className='bg-[#C226F9] text-white rounded-[20px] self-end px-[2vw] py-2 hover:bg-green-600 h-[48px]'
+            className={`${check()} text-white rounded-[20px] self-end px-[2vw] py-2 hover:bg-green-600 h-[48px]`}
           >
             詳細情報
           </button>

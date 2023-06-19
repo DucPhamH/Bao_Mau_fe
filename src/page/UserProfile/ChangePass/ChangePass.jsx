@@ -29,7 +29,7 @@ export default function ChangePass() {
     registerAccontMutation.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast.success('パスワードが正常に変更されました')
         window.location.reload()
       },
       onError: (error) => {

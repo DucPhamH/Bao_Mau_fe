@@ -64,10 +64,10 @@ export default function CreateJob() {
   const navigate = useNavigate()
   const onSubmit = handleSubmit((data) => {
     const body = { ...data, ...formState }
-    console.log(body)
+    // console.log(body)
     newPost.mutate(body, {
       onSuccess: (data) => {
-        console.log(data)
+        //console.log(data)
         toast(data.data?.message)
         navigate('/usercreatedjobs')
       },
