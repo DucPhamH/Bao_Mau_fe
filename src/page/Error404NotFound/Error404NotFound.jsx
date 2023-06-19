@@ -25,7 +25,7 @@ export default function Error404NotFound() {
       }
       audio.load()
       audio.volume = 0.6
-      audio.play().catch((error) => {})
+      audio.play()
     },
     { once: true }
   )
