@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import money from '../../asset/animate/money.png'
 import tick from '../../asset/img/tickcomplete.png'
 export default function PaymentSuccess() {
@@ -12,18 +13,18 @@ export default function PaymentSuccess() {
               <div className='flex justify-center items-center'>
                 <img src={tick} alt='' />
               </div>
-              <div className='mt-[1vw] flex justify-center items-center font-playfair'>
-                <div className='text-[6vw]'>-</div>
-                <div className='text-green-700 text-[6vw]'>$40.000</div>
-              </div>
             </div>
             <div className='mt-[2vw] flex justify-between font-itim'>
-              <button className='rounded-full px-[4vw] py-[1vw] text-white text-4xl bg-[#7101FF] hover:bg-yellow-500'>
-                View receipts
-              </button>
-              <button className='rounded-full px-[4vw] py-[1vw] text-white text-4xl bg-red-700 hover:bg-blue-700'>
-                Back to Homepage
-              </button>
+              <Link to='/contractedjobslist'>
+                <button className='rounded-full px-[4vw] py-[1vw] text-white text-4xl bg-[#7101FF] hover:bg-yellow-500'>
+                  View receipts
+                </button>
+              </Link>
+              <Link to='/'>
+                <button className='rounded-full px-[4vw] py-[1vw] text-white text-4xl bg-red-700 hover:bg-blue-700'>
+                  Back to Homepage
+                </button>
+              </Link>
             </div>
           </div>
         </div>

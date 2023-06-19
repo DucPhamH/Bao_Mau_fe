@@ -17,7 +17,7 @@ export default function UserCreatedJobs() {
         あなたが作成した仕事リスト
       </div>
       <div className='w-[60%] bg-[#FFF] mt-12 mb-24 rounded-3xl flex items-center justify-center'>
-        <div className='w-[100%] h-[70rem] overflow-y-auto overflow-hidden'>
+        <div className='w-[100%] max-h-[70rem] overflow-y-auto overflow-hidden'>
           {postUsers &&
             postUsers.map((postUser) => (
               <div key={postUser._id}>

@@ -16,7 +16,7 @@ export default function ContractedJobsList() {
       <div className='mx-96'>
         <div className='bg-white rounded-xl text-center py-4 text-4xl'> Danh sách hoá đơn của tôi</div>
         <div className='mt-16 bg-white rounded-xl overflow-y-auto'>
-          <div className='mx-9 py-8 h-[80rem]'>
+          <div className='mx-9 py-8 max-h-[80rem]'>
             {postPayments &&
               postPayments.map((postPayment) => (
                 <div key={postPayment._id}>

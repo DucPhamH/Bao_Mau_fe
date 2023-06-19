@@ -112,7 +112,7 @@ export default function EmployeeList() {
               給料&#32;&#8593;
             </button>
           </div>
-          <div className='mt-12 h-[70rem] overflow-y-auto overflow-hidden'>
+          <div className='mt-12 max-h-[70rem] overflow-y-auto overflow-hidden'>
             {employees &&
               employees.data.map((employee) => (
                 <div key={employee._id}>

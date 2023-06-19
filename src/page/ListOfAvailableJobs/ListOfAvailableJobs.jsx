@@ -111,7 +111,7 @@ export default function ListOfAvailableJobs() {
               給料&#32;&#8593;
             </button>
           </div>
-          <div className='mt-12 h-[70rem] overflow-y-auto overflow-hidden'>
+          <div className='mt-12 max-h-[70rem] overflow-y-auto overflow-hidden'>
             {posts &&
               posts.data.map((post) => (
                 <div key={post._id}>
