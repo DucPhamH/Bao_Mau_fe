@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BsMessenger } from 'react-icons/bs'
-const MessengerChat = () => {
+export default function MessengerChat() {
   const [messengerChatSee, setMessengerChatSee] = useState(false)
   const [didMount, setDidMount] = useState(false)
   useEffect(() => {
@@ -29,24 +28,11 @@ const MessengerChat = () => {
     }
   }, [messengerChatSee])
 
+  window.addEventListener('click', () => setMessengerChatSee(true), { once: true })
   return (
-    <>
-      <div className='absolute'>
-        <div id='fb-root'></div>
-        <div id='fb-customer-chat' className='fb-customerchat'></div>
-
-        {messengerChatSee ? (
-          ''
-        ) : (
-          <button
-            onClick={() => setMessengerChatSee(true)}
-            className='bg-black text-white z-50 fixed left-20 bottom-20'
-          >
-            <BsMessenger />
-          </button>
-        )}
-      </div>
-    </>
+    <div className='absolute'>
+      <div id='fb-root'></div>
+      <div id='fb-customer-chat' className='fb-customerchat'></div>
+    </div>
   )
 }
-export default MessengerChat

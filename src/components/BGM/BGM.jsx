@@ -2,10 +2,7 @@ import { useRef } from 'react'
 export default function BGM() {
   let refAudio = useRef(null)
   function PlayMusic() {
-    if (refAudio.current) {
-      refAudio.current.play()
-      document.removeEventListener('click', PlayMusic, { once: true })
-    }
+    if (refAudio.current) refAudio.current.play()
   }
   let randomNum = Math.floor(Math.random() * 7)
   document.addEventListener('click', PlayMusic, { once: true })
