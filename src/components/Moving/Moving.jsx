@@ -97,17 +97,20 @@ export default function Moving() {
     }
   }
   const [isLoading, setIsLoading] = useState(true)
-
+  const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
   const cacheImages = async () => {
-    const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
-    const promises = await preloadImg.map((src) => {
-      return new Promise(function () {
-        new Image().src = src
-        console.log('images')
+    const promises = preloadImg.map((src) => {
+      return new Promise(function (accept) {
+        const imgtemp = new Image()
+        imgtemp.src = src
+        imgtemp.onload = accept()
       })
     })
+
     await Promise.all(promises)
-    setIsLoading(false)
+    await new Promise(function () {
+      setTimeout(setIsLoading(false), 300)
+    })
   }
   cacheImages()
   return (
