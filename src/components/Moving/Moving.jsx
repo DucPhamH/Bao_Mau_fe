@@ -6,6 +6,7 @@ import idle3 from '../../asset/animate/idle3.png'
 import idle4 from '../../asset/animate/idle4.png'
 import leftArrow from '../../asset/animate/leftArrowKey.png'
 import rightArrow from '../../asset/animate/rightArrowKey.png'
+import whiteModel from '../../asset/animate/white.png'
 export default function Moving() {
   let movingLeft = false,
     movingRight = false,
@@ -85,12 +86,14 @@ export default function Moving() {
       document.addEventListener('keydown', event1)
       document.addEventListener('keyup', event2)
       interval = setInterval(animation, 30)
+      if (charElement.current) charElement.current.src = idle1
       if (leftArrowEl.current) leftArrowEl.current.style.visibility = 'visible'
       if (rightArrowEl.current) rightArrowEl.current.style.visibility = 'visible'
     } else {
       document.removeEventListener('keydown', event1)
       document.removeEventListener('keyup', event2)
       clearInterval(interval)
+      if (charElement.current) charElement.current.src = whiteModel
       if (leftArrowEl.current) leftArrowEl.current.style.visibility = 'hidden'
       if (rightArrowEl.current) rightArrowEl.current.style.visibility = 'hidden'
     }
@@ -103,7 +106,7 @@ export default function Moving() {
           id='charModel'
           onClick={toggleControl}
           ref={charElement}
-          src={idle1}
+          src={whiteModel}
           className='h-[100%] ml-[10px]'
           alt=''
         />

@@ -1,11 +1,11 @@
 import React from 'react'
 import Timer from '../Timer/Timer'
-import MessengerChat from '../MessengerChat'
+// import MessengerChat from '../MessengerChat'
 
 export default function Footer() {
   return (
     <div className='w-full h-[110px] flex items-center justify-between z-0 bg-[#CBDEE4] '>
-      <MessengerChat />
+      {/* <MessengerChat /> */}
       <Timer />
 
       <div className='mx-24 text-4xl font-medium z-[2]'>著作権はSUKUNAに帰属します</div>
