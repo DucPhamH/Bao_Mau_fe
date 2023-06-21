@@ -103,8 +103,8 @@ export default function Moving() {
       return new Promise(function (loadSuccess, loadFail) {
         const imgtemp = new Image()
         imgtemp.src = src
-        imgtemp.onload = loadSuccess
-        imgtemp.onerror = loadFail
+        imgtemp.onload = loadSuccess()
+        imgtemp.onerror = loadFail()
       })
     })
 
