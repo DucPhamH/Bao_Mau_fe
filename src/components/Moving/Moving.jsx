@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useRef, useState } from 'react'
 import animate from '../../asset/animate/animate.gif'
 import idle1 from '../../asset/animate/idle1.png'
 import idle2 from '../../asset/animate/idle2.png'
@@ -12,15 +12,11 @@ export default function Moving() {
     movingRight = false,
     randomIdle,
     value
-
+  const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
   const idle = [idle1, idle2, idle3, idle4],
     charElement = useRef(null),
     leftArrowEl = useRef(null),
     rightArrowEl = useRef(null)
-  useLayoutEffect(() => {
-    const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
-    preloadImg.forEach((e) => (new Image().src = e))
-  }, [])
   const event1 = (e) => {
       //   console.log(getComputedStyle(charEl).getPropertyValue('margin-left'))
       if (e.repeat) return
@@ -101,20 +97,37 @@ export default function Moving() {
       if (rightArrowEl.current) rightArrowEl.current.style.visibility = 'hidden'
     }
   }
+  const [isLoading, setIsLoading] = useState(true)
+  const cacheImages = async (preloadImg) => {
+    const promises = await preloadImg.map((src) => {
+      return new Promise(function () {
+        new Image().src = src
+      })
+    })
+    await Promise.all(promises)
+    setIsLoading(false)
+  }
+  cacheImages(preloadImg)
   return (
-    <div className='h-[40%] w-[100%] overflow-x-hidden flex justify-between'>
-      <img className='bg-black invisible' ref={leftArrowEl} src={leftArrow} alt='' />
-      <div className='w-full'>
-        <img
-          id='charModel'
-          onClick={toggleControl}
-          ref={charElement}
-          src={whiteModel}
-          className='h-[100%] ml-[10px]'
-          alt=''
-        />
-      </div>
-      <img className='bg-black invisible' ref={rightArrowEl} src={rightArrow} alt='' />
-    </div>
+    <>
+      {isLoading ? (
+        ''
+      ) : (
+        <div className='h-[40%] w-[100%] overflow-x-hidden flex justify-between'>
+          <img className='bg-black invisible' ref={leftArrowEl} src={leftArrow} alt='' />
+          <div className='w-full'>
+            <img
+              id='charModel'
+              onClick={toggleControl}
+              ref={charElement}
+              src={whiteModel}
+              className='h-[100%] ml-[10px]'
+              alt=''
+            />
+          </div>
+          <img className='bg-black invisible' ref={rightArrowEl} src={rightArrow} alt='' />
+        </div>
+      )}
+    </>
   )
 }
