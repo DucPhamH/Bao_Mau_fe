@@ -12,7 +12,6 @@ export default function Moving() {
     movingRight = false,
     randomIdle,
     value
-  const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
   const idle = [idle1, idle2, idle3, idle4],
     charElement = useRef(null),
     leftArrowEl = useRef(null),
@@ -98,16 +97,19 @@ export default function Moving() {
     }
   }
   const [isLoading, setIsLoading] = useState(true)
-  const cacheImages = async (preloadImg) => {
+
+  const cacheImages = async () => {
+    const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
     const promises = await preloadImg.map((src) => {
       return new Promise(function () {
         new Image().src = src
+        console.log('images')
       })
     })
     await Promise.all(promises)
     setIsLoading(false)
   }
-  cacheImages(preloadImg)
+  cacheImages()
   return (
     <>
       {isLoading ? (
