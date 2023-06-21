@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import animate from '../../asset/animate/animate.gif'
 import idle1 from '../../asset/animate/idle1.png'
 import idle2 from '../../asset/animate/idle2.png'
@@ -97,22 +97,25 @@ export default function Moving() {
     }
   }
   const [isLoading, setIsLoading] = useState(true)
-  const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
-  const cacheImages = async () => {
-    const promises = preloadImg.map((src) => {
-      return new Promise(function (accept) {
+
+  const cacheImages = async (preloadImg) => {
+    const promises = await preloadImg.map((src) => {
+      return new Promise(function (loadSuccess, loadFail) {
         const imgtemp = new Image()
         imgtemp.src = src
-        imgtemp.onload = accept()
+        imgtemp.onload = loadSuccess
+        imgtemp.onerror = loadFail
       })
     })
 
     await Promise.all(promises)
-    await new Promise(function () {
-      setTimeout(setIsLoading(false), 300)
-    })
+    setIsLoading(false)
   }
-  cacheImages()
+  useEffect(() => {
+    const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
+    cacheImages(preloadImg)
+  })
+
   return (
     <>
       {isLoading ? (
