@@ -289,7 +289,7 @@ export default function Payment() {
                       <div className='text-[#37b349] text-9xl'>
                         <BiCheckCircle />
                       </div>
-                      <div className=''>Đơn hàng của bạn đã thanh toán thành công</div>
+                      <div className=''>Bạn đã thanh toán thành công</div>
                     </div>
                   ) : (
                     <div className='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 h-[17rem] rounded-[20px] text-black text-[20px] p-10 mt-10'>

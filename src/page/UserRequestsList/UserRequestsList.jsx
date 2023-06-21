@@ -18,16 +18,21 @@ export default function UserRequestsList() {
           採用された仕事リスト
         </div>
       </div>
-      <div className='buttons-below col-span-3 mx-32  bg-white h-fit rounded-2xl mt-8 mb-16'>
-        <div className='flex flex-col gap-20 p-8'>
-          {userRequest &&
-            userRequest.map((request) => (
-              <div key={request._id}>
-                <Post2 request={request} />
-              </div>
-            ))}
+      {userRequest && (
+        <div className='buttons-below col-span-3 mx-32  bg-white h-fit rounded-2xl mt-8 mb-16'>
+          <div className='flex flex-col gap-20 p-8'>
+            {userRequest.length === 0 ? (
+              <div className='text-black text-[24px] text-center'>ポストがありません</div>
+            ) : (
+              userRequest.map((request) => (
+                <div key={request._id}>
+                  <Post2 request={request} />
+                </div>
+              ))
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

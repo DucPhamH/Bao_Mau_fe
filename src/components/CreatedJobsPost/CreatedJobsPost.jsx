@@ -27,7 +27,7 @@ export default function CreatedJobsPost({ postUser, pathName }) {
         <div className='ml-[8rem]'>
           <button
             onClick={() => navigate(pathName)}
-            className={`${check()} text-white rounded-[20px] self-end px-[2vw] py-2 hover:bg-green-600 h-[48px]`}
+            className={`${check()}  text-white rounded-[20px] self-end px-[2vw] py-2 hover:bg-green-600 h-[48px]`}
           >
             詳細情報
           </button>

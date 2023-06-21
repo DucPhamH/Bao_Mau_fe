@@ -6,6 +6,7 @@ import { AiOutlineCalendar, AiOutlineHeart, AiOutlinePlus, AiOutlineCreditCard }
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { currentAccount } from '../../api/auth.api'
+import { getRequestUser } from '../../api/request.api'
 
 function UserAvatar({ handleLogout, info }) {
   const [modal, setModal] = React.useState(false)
@@ -24,6 +25,20 @@ function UserAvatar({ handleLogout, info }) {
     }
   })
   const user = userData?.data
+  const check = () => {
+    return info.roles === 2 ? true : false
+  }
+
+  const { data } = useQuery({
+    queryKey: ['userRequest'],
+    queryFn: () => {
+      return getRequestUser()
+    },
+    enabled: check()
+  })
+
+  const userRequest = data?.data.data
+  console.log(userRequest)
 
   return (
     <div className='group relative inline-block'>
@@ -99,11 +114,18 @@ function UserAvatar({ handleLogout, info }) {
             )}
             {info.roles === 2 ? (
               <Link to='/UserRequestsList' onClick={toggleModal}>
-                <div className='mx-20 mb-6 cursor-pointer flex items-center hover:text-red-600'>
+                <div className='mx-20 relative mb-6 cursor-pointer flex items-center hover:text-red-600'>
                   <div className='text-5xl pr-8'>
                     <AiOutlineCalendar />
                   </div>
                   <div className='text-4xl'>エントリー</div>
+                  {userRequest.length === 0 ? (
+                    ''
+                  ) : (
+                    <div className='absolute  right-0 h-10 w-10 font-semibold text-white bg-red-600 rounded-full flex justify-center items-center border-2 border-red-600'>
+                      {userRequest.length}
+                    </div>
+                  )}
                 </div>
               </Link>
             ) : (

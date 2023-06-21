@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getPost } from '../../api/post.api'
 import { convertDate, displayNum } from '../../utils/utils'
+import { getRequestEmployee } from '../../api/request.api'
 export default function JobDetailUser() {
   const { id } = useParams()
   // console.log(id)
@@ -15,7 +16,15 @@ export default function JobDetailUser() {
     }
   })
   const post = data?.data
-  console.log(post)
+  //console.log(post)
+  const { data: dataEmployee } = useQuery({
+    queryKey: ['employeeRequest', id],
+    queryFn: () => {
+      return getRequestEmployee(id)
+    }
+  })
+  const employeeRequest = dataEmployee?.data.data
+  console.log(employeeRequest)
 
   const setDay = (day) => {
     return day === true ? 'rgb(34 197 94 / var(--tw-text-opacity))' : 'black'
@@ -42,13 +51,20 @@ export default function JobDetailUser() {
                   <br />
                   言語: {post.data.language}
                 </div>
-                <div>
+                <div className='relative'>
                   <button
                     onClick={() => navigate(`/EmployeeApplyingList/${id}`)}
                     className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'
                   >
                     候補者を見る
                   </button>
+                  {employeeRequest.length === 0 ? (
+                    ''
+                  ) : (
+                    <div className='absolute top-[-10px] right-0 h-14 w-14 font-semibold text-red-500 bg-yellow-50 rounded-full flex justify-center items-center border-2 border-red-600'>
+                      {employeeRequest.length}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className='mt-12'>仕事の詳細情報:</div>
