@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import animate from '../../asset/animate/animate.gif'
 import idle1 from '../../asset/animate/idle1.png'
 import idle2 from '../../asset/animate/idle2.png'
