@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import animate from '../../asset/animate/animate.gif'
 import idle1 from '../../asset/animate/idle1.png'
 import idle2 from '../../asset/animate/idle2.png'
@@ -17,7 +17,10 @@ export default function Moving() {
     charElement = useRef(null),
     leftArrowEl = useRef(null),
     rightArrowEl = useRef(null)
-
+  useLayoutEffect(() => {
+    const preloadImg = [idle1, idle2, idle3, idle4, leftArrow, rightArrow]
+    preloadImg.forEach((e) => (new Image().src = e))
+  }, [])
   const event1 = (e) => {
       //   console.log(getComputedStyle(charEl).getPropertyValue('margin-left'))
       if (e.repeat) return
