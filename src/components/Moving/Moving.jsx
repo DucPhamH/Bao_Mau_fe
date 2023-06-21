@@ -118,7 +118,7 @@ export default function Moving() {
   return (
     <>
       {isLoading ? (
-        <div>abcd</div>
+        ''
       ) : (
         <div className='h-[40%] w-[100%] overflow-x-hidden flex justify-between'>
           <img className='bg-black invisible' ref={leftArrowEl} src={preloadImg[5]} alt='' />
