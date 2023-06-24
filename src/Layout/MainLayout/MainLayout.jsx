@@ -5,7 +5,7 @@ function Mainlayout({ children }) {
   return (
     <>
       <div className='flex flex-col min-h-[100vh]'>
-        <div className='top-0 z-10 backdrop-filter shadow-lg bg-white/95 fixed w-full border-b-2 bg-white h-[100px]'>
+        <div className='top-0 z-10 backdrop-filter bg-transparent fixed w-full h-[100px]'>
           <Header />
         </div>
 
