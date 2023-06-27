@@ -19,14 +19,14 @@ const Post4 = ({ request }) => {
     acceptRequestCancels.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast('リクエストを受け入れちゃった。(11)') //data.data?.message
         queryClient.invalidateQueries({ queryKey: ['getRequestAccept'] })
       },
       onError: (error) => {
         console.log(error)
         if (isAxiosUnprocessableEntityError(error)) {
-          const formError = error.response?.data
-          toast(formError.message)
+          // const formError = error.response?.data
+          toast('リクエストが受け入れられなかった。(12)') //formError.message
         }
       }
     })

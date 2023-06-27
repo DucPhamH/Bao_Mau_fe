@@ -34,13 +34,13 @@ export default function JobDetail() {
     newRequest.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast('リクエストを追加しちゃった。(18)') //data.data?.message
       },
       onError: (error) => {
         console.log(error)
         if (isAxiosUnprocessableEntityError(error)) {
-          const formError = error.response?.data
-          toast(formError.message)
+          // const formError = error.response?.data
+          toast('リクエストを追加できなかった。(19)') //formError.message
         }
       }
     })

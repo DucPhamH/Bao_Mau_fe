@@ -37,14 +37,14 @@ const Post = ({ request }) => {
     deleteRequestEmployees.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast('リクエストを断っちゃった。(1)') //data.data?.message
         queryClient.invalidateQueries({ queryKey: ['employeeRequest'] })
       },
       onError: (error) => {
         console.log(error)
         if (isAxiosUnprocessableEntityError(error)) {
-          const formError = error.response?.data
-          toast(formError.message)
+          // const formError = error.response?.data
+          toast('リクエストが断れなかった。(2)') //formError.message
         }
       }
     })
@@ -58,14 +58,14 @@ const Post = ({ request }) => {
     acceptRequests.mutate(body, {
       onSuccess: (data) => {
         console.log(data)
-        toast(data.data?.message)
+        toast('リクエストを受け入れちゃった。(3)') //data.data?.message
         queryClient.invalidateQueries({ queryKey: ['employeeRequest'] })
       },
       onError: (error) => {
         console.log(error)
         if (isAxiosUnprocessableEntityError(error)) {
-          const formError = error.response?.data
-          toast(formError.message)
+          // const formError = error.response?.data
+          toast('リクエストが受け入れられなかった。(4)') //formError.message
         }
       }
     })
