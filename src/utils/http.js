@@ -23,7 +23,7 @@ const URL = {
 
 const instance = axios.create({
   baseURL: URL.DEPLOY_URL,
-  timeout: 5000,
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
   }

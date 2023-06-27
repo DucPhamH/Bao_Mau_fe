@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../../contexts/app.context'
 import { useMutation } from '@tanstack/react-query'
 import { logoutAccount } from '../../api/auth.api'
-
+import classNames from 'classnames'
 import logo from '../../asset/img/babysister.png'
 import UserAvatar from './UserAvatar'
 import Moving from '../Moving/Moving'
@@ -54,8 +55,35 @@ export default function Header() {
     }
   }, 1000)
 
+  const [isShrunk, setShrunk] = useState(false)
+  useEffect(() => {
+    const onScroll = () => {
+      setShrunk((isShrunk) => {
+        if (!isShrunk && (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)) {
+          return true
+        }
+
+        if (isShrunk && document.body.scrollTop < 4 && document.documentElement.scrollTop < 4) {
+          return false
+        }
+
+        return isShrunk
+      })
+    }
+
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className='bg-white w-full h-full flex items-center justify-between border border-b-black  '>
+    <header
+      className={classNames(
+        'bg-white w-full h-full flex items-center justify-between sticky transition duration-500 border border-b-black',
+        {
+          '-translate-y-[100px]': isShrunk
+        }
+      )}
+    >
       <Link to='/'>
         <div className='w-[70px] h-[90px] mx-20 flex justify-center items-center bg-[#42FCCF] border border-black'>
           <div className='relative w-[60%] h-[80%]'>

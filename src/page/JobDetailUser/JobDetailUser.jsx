@@ -58,11 +58,11 @@ export default function JobDetailUser() {
                   >
                     候補者を見る
                   </button>
-                  {employeeRequest.length === 0 ? (
+                  {employeeRequest?.length === 0 ? (
                     ''
                   ) : (
                     <div className='absolute top-[-10px] right-0 h-14 w-14 font-semibold text-red-500 bg-yellow-50 rounded-full flex justify-center items-center border-2 border-red-600'>
-                      {employeeRequest.length}
+                      {employeeRequest?.length}
                     </div>
                   )}
                 </div>

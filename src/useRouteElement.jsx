@@ -225,19 +225,18 @@ export default function useRouteElement() {
                   <Payment />
                 </MainLayout>
               )
+            },
+            {
+              path: 'paymentsuccess',
+              element: (
+                <MainLayout>
+                  <PaymentSuccess />
+                </MainLayout>
+              )
             }
           ]
         }
       ]
-    },
-
-    {
-      path: 'paymentsuccess',
-      element: (
-        <MainLayout>
-          <PaymentSuccess />
-        </MainLayout>
-      )
     },
     {
       path: '*',
