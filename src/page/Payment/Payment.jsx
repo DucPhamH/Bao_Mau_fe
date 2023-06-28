@@ -28,7 +28,7 @@ export default function Payment() {
       {payment && (
         <div>
           <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
-            <div className='w-4/5 bg-[#FFF] text-center mt-36 rounded-3xl p-8 text-6xl font-bold'>Chi tiết hóa đơn</div>
+            <div className='w-4/5 bg-[#FFF] text-center mt-36 rounded-3xl p-8 text-6xl font-bold'>契約の詳細</div>
             <div className='flex w-[95vw] h-[150vh] m-auto gap-16 mt-12'>
               <div className='flex flex-auto w-[20vw]'>
                 <div className='flex-1 m-5 p-12 bg-[#FFF] rounded-[20px] border-[1px] border-black'>
@@ -44,12 +44,12 @@ export default function Payment() {
                   </div>
                   <div className='flex items-center bg-gradient-to-b from-[#6937AAEB]/[.92] to-[#130722EB]/[.92] h-[20rem] rounded-[20px] text-white text-[20px] p-10 mt-10'>
                     <div className='flex flex-col gap-4'>
-                      <div>Mã hóa đơn</div>
+                      <div>契約のコード</div>
                       <div>{payment._id}</div>
-                      <div>Ngày bắt đầu: {convertDate(payment.requestID.postID.dateStart)}</div>
+                      <div>勤務開始日: {convertDate(payment.requestID.postID.dateStart)}</div>
                     </div>
                     <div className='ml-auto flex flex-col gap-6 w-[16rem]'>
-                      <div>Người nhận:</div>
+                      <div>受信機:</div>
                       <div>{payment.requestID.employeeID.userID.name}</div>
                       <div>{payment.requestID.employeeID.userID.address}</div>
                     </div>
@@ -232,9 +232,9 @@ export default function Payment() {
                   </div>
                   <div className='mt-16 mx-6'>
                     <div className='flex flex-row p-2 border-y-[1px] border-black gap-20 text-center'>
-                      <div className='ml-12 w-32'>Số buổi</div>
-                      <div className='w-52'>Tiền/buổi</div>
-                      <div className='ml-auto mr-20 w-52'>Tổng tiền</div>
+                      <div className='ml-12 w-32'>ワークシフト数</div>
+                      <div className='w-52'>価額/ワークシフト数</div>
+                      <div className='ml-auto mr-20 w-52'>総費用</div>
                     </div>
                     <div className='flex flex-row p-2 gap-20 mt-2 text-center items-center'>
                       <div className='ml-12 w-32 flex items-center justify-center'>
@@ -254,42 +254,42 @@ export default function Payment() {
               </div>
               <div className='flex flex-1 flex-col gap-16'>
                 <div className='flex-1 m-5 bg-[#FFF] rounded-[20px] border-[1px] border-black p-10'>
-                  <div className='text-center text-4xl'>Thông tin thêm</div>
+                  <div className='text-center text-4xl'>他の情報</div>
                   <div className='flex flex-col gap-2 text-[18px] mt-12'>
                     <div className='flex flex-row'>
-                      <div>Công việc:</div>
+                      <div>仕事:</div>
                       <div className='ml-auto'>{payment.requestID.postID.title}</div>
                     </div>
                     <div className='flex flex-row'>
-                      <div>Người nhận việc:</div>
+                      <div>仕事を受ける人:</div>
                       <div className='ml-auto'>{payment.requestID.employeeID.userID.name}</div>
                     </div>
                     <div className='flex flex-row'>
-                      <div>Địa chỉ:</div>
+                      <div>アドレス:</div>
                       <div className='ml-auto'>{payment.requestID.employeeID.userID.address}</div>
                     </div>
                     <div className='flex flex-row'>
-                      <div>Số buổi làm/ tuần:</div>
-                      <div className='ml-auto'>{payment.count} buổi</div>
+                      <div>毎週の仕事のワークシフト数:</div>
+                      <div className='ml-auto'>{payment.count} ワークシフト数</div>
                     </div>
                     <div className='flex flex-row'>
-                      <div>Phí/ buổi:</div>
+                      <div>価額:</div>
                       <div className='ml-auto'>{displayNum(payment.requestID.postID.salary)} ¥</div>
                     </div>
-                    <div>Mô tả công việc:</div>
+                    <div>仕事の詳細:</div>
                     <div>{payment.requestID.postID.description}</div>
                   </div>
                 </div>
                 <div className='flex-1 m-5 bg-[#FFF] rounded-[20px] border-[1px] border-black p-10'>
-                  <div className='text-5xl m-6'>Tổng tiền (¥)</div>
+                  <div className='text-5xl m-6'>総費用 (¥)</div>
                   <div className='text-7xl m-6 mt-20'>{displayNum(payment.totalPrice)} ¥</div>
-                  <div className='text-4xl m-6'>Thanh toán hóa đơn</div>
+                  <div className='text-4xl m-6'>支払い</div>
                   {payment.status === 1 ? (
                     <div className='flex flex-col items-center gap-6 mt-20 mx-8 border-[1px] border-black rounded-[20px] p-10'>
                       <div className='text-[#37b349] text-9xl'>
                         <BiCheckCircle />
                       </div>
-                      <div className=''>Bạn đã thanh toán thành công</div>
+                      <div className=''>支払っちゃった。</div>
                     </div>
                   ) : (
                     <div className='bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-gray-900 via-gray-100 to-gray-900 h-[17rem] rounded-[20px] text-black text-[20px] p-10 mt-10'>

@@ -9,7 +9,7 @@ export default function PaymentSuccess() {
         <div className='rounded-[10rem] bg-white z-[1]'>
           <div className='mx-[2vw] mb-[1.5vw] mt-[1vw]'>
             <div className='mx-[8vw]'>
-              <div className='font-comfort italic text-green-600 bg-white text-[6vw]'>Payment success!</div>
+              <div className='font-comfort italic text-green-600 bg-white text-[6vw]'>支払い成功!</div>
               <div className='flex justify-center items-center'>
                 <img src={tick} alt='' />
               </div>
@@ -17,12 +17,12 @@ export default function PaymentSuccess() {
             <div className='mt-[2vw] flex justify-between font-itim'>
               <Link to='/contractedjobslist'>
                 <button className='rounded-full px-[4vw] py-[1vw] text-white text-4xl bg-[#7101FF] hover:bg-yellow-500'>
-                  View receipts
+                  ペイメント一覧を見る
                 </button>
               </Link>
               <Link to='/'>
                 <button className='rounded-full px-[4vw] py-[1vw] text-white text-4xl bg-red-700 hover:bg-blue-700'>
-                  Back to Homepage
+                  ホームページ
                 </button>
               </Link>
             </div>

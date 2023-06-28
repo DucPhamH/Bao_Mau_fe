@@ -32,7 +32,7 @@ export default function ContractedJob({ postPayment, pathName }) {
           }}
           className='ml-20 mr-10 self-end py-3 rounded-full w-[100%] text-white bg-[#C226F9] hover:bg-green-500'
         >
-          Xem chi tiết
+          詳細
         </button>
       </div>
     </div>
