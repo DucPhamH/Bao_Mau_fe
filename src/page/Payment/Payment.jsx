@@ -232,15 +232,15 @@ export default function Payment() {
                   </div>
                   <div className='mt-16 mx-6'>
                     <div className='flex flex-row p-2 border-y-[1px] border-black gap-20 text-center'>
-                      <div className='ml-12 w-36'>ワークシフト数</div>
-                      <div className='w-56'>価額/ワークシフト数</div>
+                      <div className='ml-12 w-48'>ワークシフト数</div>
+                      <div className='w-64'>価額/ワークシフト数</div>
                       <div className='ml-auto mr-20 w-52'>総費用</div>
                     </div>
                     <div className='flex flex-row p-2 gap-20 mt-2 text-center items-center'>
                       <div className='ml-12 w-32 flex items-center justify-center'>
                         <div className='w-20 bg-[#D9D9D9] rounded-[10px] p-3'>{payment.count}</div>
                       </div>
-                      <div className='w-52 flex items-center justify-center'>
+                      <div className='w-52 ml-20 flex items-center justify-center'>
                         <div className='w-48 bg-[#D9D9D9] rounded-[10px] p-3'>
                           {displayNum(payment.requestID.postID.salary)} ¥
                         </div>
