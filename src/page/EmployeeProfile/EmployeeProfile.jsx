@@ -200,7 +200,7 @@ export default function EmployeeProfile() {
                   </div>
                 </div>
 
-                <div className='waitForAPICall bg-[#e8e7e74d] mx-36 px-5 border-2 rounded-full text-center'>
+                <div className='waitForAPICall shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)] mx-36 px-5 border-2 rounded-full text-center mt-10'>
                   {user?.data.name}
                 </div>
 
