@@ -101,7 +101,7 @@ export default function UserProfile() {
   const [apiLoaded, setApiLoaded] = useState(false)
   let interval = setInterval(function () {
     let waitForAPICall = document.querySelector('.waitForAPICall')
-    if (waitForAPICall.value !== '') {
+    if (waitForAPICall?.value !== '') {
       setApiLoaded(true)
       clearInterval(interval)
     }
