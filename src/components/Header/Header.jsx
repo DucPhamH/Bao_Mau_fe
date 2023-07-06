@@ -78,9 +78,9 @@ export default function Header() {
   return (
     <header
       className={classNames(
-        'bg-white w-full h-full flex items-center justify-between sticky transition duration-500 border border-b-black',
+        'bg-white w-full flex items-center justify-between sticky transition duration-500 border border-b-black top-0 z-10 h-[100px]',
         {
-          '-translate-y-[100px]': isShrunk
+          '-translate-y-[100px] pointer-events-none': isShrunk
         }
       )}
     >
