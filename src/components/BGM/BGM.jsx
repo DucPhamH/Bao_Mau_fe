@@ -4,7 +4,7 @@ export default function BGM() {
   function PlayMusic() {
     if (refAudio.current) refAudio.current.play()
   }
-  let randomNum = Math.floor(Math.random() * 7)
+  let randomNum = Math.floor(Math.random() * 10)
   document.addEventListener('click', PlayMusic, { once: true })
   return (
     <div>
@@ -51,6 +51,24 @@ export default function BGM() {
               <source
                 src='https://docs.google.com/uc?export=download&id=1sRdeRlGCnxE2KsfY5U0l7NnuTDj3T0WL'
                 type='audio/mpeg'
+              />
+            ),
+            7: (
+              <source
+                src='https://docs.google.com/uc?export=download&id=1tdrvZjoWIiYdXeGSrRFsdUl19OSgpYVD'
+                type='audio/mpeg'
+              />
+            ),
+            8: (
+              <source
+                src='https://docs.google.com/uc?export=download&id=1nUmlp1zIJgDHlDMOrU17iuFyytX1vsFC'
+                type='audio/mpeg'
+              />
+            ),
+            9: (
+              <source
+                src='https://docs.google.com/uc?export=download&id=142zhhzfe-ZnlIi2hMQiukMUziHiyCfTB'
+                type='audio/wav'
               />
             )
           }[randomNum]
