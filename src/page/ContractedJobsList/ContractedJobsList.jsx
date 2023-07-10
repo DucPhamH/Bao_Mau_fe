@@ -14,7 +14,7 @@ export default function ContractedJobsList() {
   return (
     <div className='font-itim bg-[#DCEAFF] py-3'>
       <div className='mx-96'>
-        <div className='bg-white rounded-xl text-center py-4 text-4xl'> Danh sách hoá đơn của tôi</div>
+        <div className='bg-white rounded-xl text-center py-4 text-6xl mt-24'> Danh sách hoá đơn của tôi</div>
         <div className='mt-16 bg-white rounded-xl overflow-y-auto'>
           <div className='mx-9 py-8 max-h-[80rem]'>
             {postPayments &&

@@ -117,7 +117,7 @@ export default function UserProfile() {
                   onClick={backFunction}
                   className='px-[2vw] rounded-full text-white bg-red-600 hover:bg-green-600 py-3'
                 >
-                  Back/Cancel
+                  キャンセル
                 </button>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function UserProfile() {
                       className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black mt-10'
                       onClick={() => changeStateForm(2)}
                     >
-                      Change password
+                      パスワードの変更
                     </button>
                   </div>
                   <div className={stateForm === 2 ? '' : 'invisible'}>
@@ -165,7 +165,7 @@ export default function UserProfile() {
                       className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black'
                       onClick={updateInfo}
                     >
-                      Update
+                      編集
                     </button>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export default function UserProfile() {
                   //  onChange={makeFormChangedStatus}
                 >
                   <div className='ml-24 mr-32'>
-                    <div className='text-4xl'>プロフィールページ</div>
+                    <div className='text-6xl font-semibold'>プロフィールページ</div>
                     <div className='grid gap-y-28 mt-32 ml-16'>
                       <div className='col-span-1'>名前 :</div>
                       <div className='col-start-2 col-span-2 py-1'>
@@ -212,7 +212,7 @@ export default function UserProfile() {
                   <div className='my-24 flex justify-center'>
                     <div className={stateForm === 1 ? '' : 'invisible'}>
                       <button type='submit' className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black'>
-                        Save
+                        保存
                       </button>
                     </div>
                   </div>
