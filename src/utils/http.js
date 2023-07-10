@@ -62,7 +62,8 @@ instance.interceptors.response.use(
       console.log(response.data)
       accessToken = ''
       clearAccessTokenFromLS()
-      toast(response.data.message)
+      // toast(response.data.message)
+      toast('ログアウト成功')
 
       // window.location.reload()
     }
