@@ -21,7 +21,7 @@ export default function UploadAvatar({ toggleModal }) {
       onSuccess: (data) => {
         //queryClient.invalidateQueries({ queryKey: ['profile'] })
         setTimeout(function () {
-          toast('更新に成功。(17)')
+          toast('更新に成功 !') // 。(17)
           window.location.reload()
         }, 2000)
       },

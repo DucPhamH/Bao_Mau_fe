@@ -106,7 +106,7 @@ export default function EmployeeProfile() {
     })
     updateEmployeeMutation.mutate(employees, {
       onSuccess: (data) => {
-        toast('情報を編集しちゃった。(16)') //data.data?.message
+        toast('情報を編集しちゃった !') // 。(16)data.data?.message
         window.location.reload()
       },
       onError: (error) => {

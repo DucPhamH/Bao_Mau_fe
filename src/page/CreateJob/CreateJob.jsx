@@ -68,7 +68,7 @@ export default function CreateJob() {
     newPost.mutate(body, {
       onSuccess: (data) => {
         //console.log(data)
-        toast('ポストを追加しちゃった。(15)') //data.data?.message
+        toast('ポストを追加しちゃった !') // 。(15)data.data?.message
         navigate('/usercreatedjobs')
       },
       onError: (error) => {
