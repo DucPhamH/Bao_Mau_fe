@@ -18,12 +18,21 @@ export default function UserCreatedJobs() {
       </div>
       <div className='w-[60%] bg-[#FFF] mt-12 mb-24 rounded-3xl flex items-center justify-center'>
         <div className='w-[100%] max-h-[70rem] overflow-y-auto overflow-hidden'>
-          {postUsers &&
-            postUsers.map((postUser) => (
-              <div key={postUser._id}>
-                <CreatedJobsPost postUser={postUser} pathName={`${postUser._id}`} />
+          {postUsers && (
+            <div className='buttons-below col-span-3 mx-32  bg-white h-fit rounded-2xl mt-8 mb-16'>
+              <div className='flex flex-col gap-20 p-8'>
+                {postUsers.length === 0 ? (
+                  <div className='text-black text-[24px] text-center'>ありません</div>
+                ) : (
+                  postUsers.map((postUser) => (
+                    <div key={postUser._id}>
+                      <CreatedJobsPost postUser={postUser} pathName={`${postUser._id}`} />
+                    </div>
+                  ))
+                )}
               </div>
-            ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
