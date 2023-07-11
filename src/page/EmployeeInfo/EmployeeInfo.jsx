@@ -74,7 +74,7 @@ export default function EmployeeInfo() {
                 <div className='text-[12rem]'>
                   <img src={employee.data.userID.image} alt='imageuser' className='w-[20rem] h-[20rem]' />
                 </div>
-                <div className='ml-20 font-bold'>
+                <div className='ml-20 font-bold text-5xl'>
                   <div className='flex flex-row items-center'>
                     <div>
                       <div>{employee.data.userID.name}</div>
@@ -148,7 +148,7 @@ export default function EmployeeInfo() {
                 <div>
                   <BsPersonFill />
                 </div>
-                <div className='ml-12'>自分の紹介</div>
+                <div className='ml-12 font-semibold'>自分の紹介</div>
               </div>
               <div className='flex flex-row leading-10 mt-6'>
                 <div>

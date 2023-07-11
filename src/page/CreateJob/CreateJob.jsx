@@ -91,6 +91,7 @@ export default function CreateJob() {
             <div className='flex flex-row items-center'>
               <div className='w-60 mr-20'>タイトル :</div>
               <input
+              required
                 type='text'
                 name='title'
                 {...register('title')}
@@ -103,6 +104,7 @@ export default function CreateJob() {
                 <label htmlFor='radio1'>
                   ベビーシッター
                   <input
+                  
                     id='radio1'
                     type='checkbox'
                     name='babysister'
@@ -129,6 +131,7 @@ export default function CreateJob() {
                 <div className='flex flex-row items-center'>
                   <div className='mr-10'>場所 :</div>
                   <input
+                  required
                     type='text'
                     name='address'
                     {...register('address')}
@@ -139,6 +142,7 @@ export default function CreateJob() {
                   <div className='mr-10'>勤務開始日 :</div>
                   <input
                     type='date'
+                    required
                     name='dateStart'
                     {...register('dateStart')}
                     className='p-7 border-[1px] border-black outline-none rounded-[20px] w-[30rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
@@ -149,6 +153,7 @@ export default function CreateJob() {
                 <div className='mr-10'>給料 :</div>
                 <input
                   type='text'
+                  required
                   name='salary'
                   {...register('salary')}
                   className='p-7 border-[1px] border-black outline-none rounded-[20px] w-[30rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
@@ -164,19 +169,23 @@ export default function CreateJob() {
               </div>
             </div>
             <div className='border-2 border-black p-16 rounded-[20px] mt-16 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>
-              <div className='text-5xl'>要求</div>
+              <div className='text-5xl font-semibold'>要求</div>
               <div className='flex flex-row items-center mt-10'>
                 <div className='mr-10'>年齢 :</div>
                 <input
                   type='text'
+                  required
                   name='age'
                   {...register('age')}
                   className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[15rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
+                <div className='ml-4'>(以下)</div>
+
               </div>
               <div className='flex flex-row items-center mt-10'>
                 <div className='mr-10'>実験 :</div>
                 <input
+                required
                   type='text'
                   name='experience'
                   {...register('experience')}

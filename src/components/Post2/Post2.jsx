@@ -6,8 +6,11 @@ import { toast } from 'react-toastify'
 import { acceptRequest, deleteRequestUser } from '../../api/request.api'
 import { queryClient } from '../..'
 import { createPayment } from '../../api/payment.api'
+import { useNavigate } from 'react-router-dom'
 
 const Post2 = ({ request }) => {
+  const navigate = useNavigate()
+
   const deleteRequestUsers = useMutation({
     mutationFn: (body) => deleteRequestUser(body)
   })
@@ -90,14 +93,14 @@ const Post2 = ({ request }) => {
 
   return (
     <div
-      className='flex flex-row items-center w-full border border-black rounded-2xl p-8 gap-8'
+      className='flex flex-row items-center w-full border border-black rounded-2xl p-8 gap-8 hover:bg-[#ACFFFC]'
       style={{ boxShadow: '0px 4px 4px 0px #00000040' }}
     >
       <div className='rounded-[50%] border-2 cursor-pointer overflow-hidden w-[10vw] h-[10vw] flex justify-center items-center mb-20 ml-3'>
         <img src={request.postID.userID.image} alt='imageuser' />
       </div>
       <div className='max-w-[60rem] ml-5'>
-        <div className='text-[20px]'>{request.postID.title}</div>
+        <div className='text-[30px] font-semibold mb-4 cursor-pointer' onClick={() => {navigate(`/listofavailablejobs/${request.postID._id}`)}}>{request.postID.title}</div>
         <div className='flex text-[20px] items-center'>
           <GiPositionMarker size={20} />
           <div className='ml-1'>{request.postID.address}</div>

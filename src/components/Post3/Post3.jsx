@@ -40,19 +40,19 @@ const Post3 = ({ request }) => {
         <img src={request.userID.image} alt='imageuser' />
       </div>
       <div className='max-w-[60rem] ml-5'>
-        <div className='text-[20px]'>{request.title}</div>
+        <div className='text-[28px]'>{request.title}</div>
         <div className='flex text-[20px] items-center'>
           <GiPositionMarker size={20} />
           <div className='ml-1'>{request.address}</div>
         </div>
-        <div className='flex gap-8 text-[16px] mt-4'>
+        <div className='flex gap-8 text-[20px] mt-4'>
           <div>年齢: {request.age}</div>
           <div>実験: {request.experience}</div>
           <div>給料: {displayNum(request.salary)}</div>
         </div>
 
-        <div className='text-[16px] mt-4'>勤務開始日: {convertDate(request.dateStart)}</div>
-        <div className='text-[16px] mt-4'>{request.description}</div>
+        <div className='text-[20px] mt-4'>勤務開始日: {convertDate(request.dateStart)}</div>
+        <div className='text-[20px] mt-4'>{request.description}</div>
       </div>
       <div className='flex ml-30 flex-col gap-20 ml-auto'>
         {request.status === 1 ? (

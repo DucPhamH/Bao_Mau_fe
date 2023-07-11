@@ -9,9 +9,9 @@ export default function CreatedJobsPost({ postUser, pathName }) {
     return postUser.status === 1 ? 'bg-red-400' : 'bg-[#C226F9]'
   }
   return (
-    <div className='flex items-center justify-center border-2 rounded-[20px] border-black m-16 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'>
+    <div className='flex items-center justify-center border-2 h-96 w-11/12 rounded-[20px] border-black m-16 hover:shadow-2xl cursor-pointer hover:bg-[#ACFFFC]'>
       <div className='-ml-10 flex items-center justify-center font-Itim font-medium'>
-        <div className='flex-col items-center justify-center gap-6 p-8 max-w-[50rem]'>
+        <div className='flex-col items-center justify-center gap-6 p-8 max-w-[60rem]'>
           <div className='text-[24px]'>{postUser.title}</div>
           <div className='flex text-[24px] items-center'>
             <GiPositionMarker size={20} />
@@ -24,7 +24,7 @@ export default function CreatedJobsPost({ postUser, pathName }) {
 
           <div className='w-[30vw] mt-5 line-clamp-2'>{postUser.description}</div>
         </div>
-        <div className='ml-[8rem]'>
+        <div className='ml-[3rem]'>
           <button
             onClick={() => navigate(pathName)}
             className={`${check()}  text-white rounded-[20px] self-end px-[2vw] py-2 hover:bg-green-600 h-[48px]`}
