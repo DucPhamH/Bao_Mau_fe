@@ -102,7 +102,7 @@ const Post2 = ({ request }) => {
       <div className='max-w-[60rem] ml-5'>
         <div className='text-[30px] font-semibold mb-4 cursor-pointer' onClick={() => {navigate(`/listofavailablejobs/${request.postID._id}`)}}>{request.postID.title}</div>
         <div className='flex text-[20px] items-center'>
-          <GiPositionMarker size={20} />
+          <GiPositionMarker size={24} />
           <div className='ml-1'>{request.postID.address}</div>
         </div>
         <div className='flex gap-8 text-[16px] mt-4'>

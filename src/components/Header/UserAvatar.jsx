@@ -43,7 +43,7 @@ function UserAvatar({ handleLogout, info }) {
   return (
     <div className='group relative inline-block'>
       <button
-        className='flex mr-3 items-center text-4xl font-bold text-gray-900 rounded-full '
+        className='flex mr-3 items-center text-5xl font-bold text-gray-900 rounded-full '
         onClick={toggleModal}
         type='button'
       >

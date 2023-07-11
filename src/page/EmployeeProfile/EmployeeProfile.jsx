@@ -167,7 +167,7 @@ export default function EmployeeProfile() {
           <div className='flex justify-center items-center'>
             <button
               onClick={backFunction}
-              className='px-[2vw] rounded-full text-white bg-red-600 hover:bg-green-600 py-3'
+              className='px-[2vw] text-4xl pt-4 pb-4 rounded-full text-white bg-red-600 hover:bg-green-600 py-3'
             >
               Back/Cancel
             </button>
@@ -176,7 +176,7 @@ export default function EmployeeProfile() {
         <div className='flex justify-end'>
           <div className={apiLoaded ? '' : 'invisible'}>
             <div className={stateForm === 0 ? '' : 'invisible'}>
-              <button className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black' onClick={updateFunction}>
+              <button className='bg-[#FED5D5] text-4xl pt-4 pb-4 p-8 rounded-full py-1 border border-black' onClick={updateFunction}>
                 Update
               </button>
             </div>
@@ -200,17 +200,17 @@ export default function EmployeeProfile() {
                   </div>
                 </div>
 
-                <div className='waitForAPICall shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)] mx-36 px-5 border-2 rounded-full text-center mt-10'>
+                <div className='text-4xl waitForAPICall shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)] mx-36 px-5 border-2 rounded-full text-center mt-10'>
                   {user?.data.name}
                 </div>
 
-                <div className='px-6 mt-2 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
+                <div className='text-4xl px-6 mt-2 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
                   {user?.data.phone}
                 </div>
 
-                <div className='flex mx-16 justify-between mt-16'>
-                  <div className='flex  rounded-full items-center'>
-                    <label htmlFor='default-checkbox-1' className='mr-2 text-2xl text-black'>
+                <div className='flex mx-16 justify-between mt-16' >
+                  <div className='flex  rounded-full items-center '>
+                    <label htmlFor='default-checkbox-1' className='mr-2 text-4xl text-black'>
                       ベビーシッター
                     </label>
                     <input
@@ -223,7 +223,7 @@ export default function EmployeeProfile() {
                     />
                   </div>
                   <div className='flex rounded-full items-center'>
-                    <label htmlFor='default-checkbox-2' className='mr-2 text-2xl'>
+                    <label htmlFor='default-checkbox-2' className='mr-2 text-4xl'>
                       料理人
                     </label>
                     <input
@@ -239,8 +239,8 @@ export default function EmployeeProfile() {
               </div>
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl row-start-4 col-span-2 row-span-2 border-2 border-[#B9BFC9]'>
-              <div className='mx-9 my-4'>
-                <div className='ml-5'>メール</div>
+              <div className='mx-9 my-4 text-4xl'>
+                <div className='ml-5 text-4xl'>メール</div>
                 <input
                   className='inputedit bg-[rgba(217,217,217,0.15)] rounded-xl w-full border py-1 border-black px-4'
                   disabled={stateForm === 0 ? true : false}
@@ -255,8 +255,8 @@ export default function EmployeeProfile() {
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl col-start-3 row-start-1 col-span-6 row-span-5 border-2 border-[#B9BFC9]'>
               <div className='mx-12 mt-5 mb-6'>
-                <div className='text-center text-4xl'>自分情報</div>
-                <div className='grid gap-x-32 gap-y-14 mt-8 grid-cols-4'>
+                <div className='text-center text-6xl font-semibold mt-12'>自分情報</div>
+                <div className='grid gap-x-32 gap-y-14 mt-8 grid-cols-4 text-4xl'>
                   <div className='col-span-2'>
                     <div className='ml-2'>名前</div>
                     <input
@@ -296,7 +296,7 @@ export default function EmployeeProfile() {
                       disabled={stateForm === 0 ? true : false}
                     ></input>
                   </div>
-                  <div className='row-start-2 col-start-3 col-span-2'>
+                  <div className='row-start-2 col-start-3 col-span-2 text-4xl'>
                     <div className='ml-2'>給料（円）</div>
                     <input
                       className='inputedit border rounded-xl w-full text-center py-1'
@@ -307,18 +307,18 @@ export default function EmployeeProfile() {
                     <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.salary?.message}</div>
                   </div>
                 </div>
-                <div className='ml-2 mt-6'>Your Address</div>
+                <div className='ml-2 mt-6 text-4xl'>Your Address</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
-                  className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
+                  className='inputedit text-4xl bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   // defaultValue='みなさん、こんにちは。 これは来週の 09_Webアプリ - スプリントバックログ の事前課題提出用スレッドです。'
                   name='address'
                   {...register('address')}
                 ></textarea>
-                <div className='ml-2 mt-12'>詳細情報</div>
+                <div className='ml-2 mt-12 text-4xl'>詳細情報</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
-                  className='inputedit bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
+                  className='inputedit text-4xl bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
                   name='description'
                   {...register('description')}
                 ></textarea>
@@ -327,7 +327,7 @@ export default function EmployeeProfile() {
           </div>
           <div className='mt-16 grid gap-x-12 auto-cols-fr grid-flow-col'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-1 border-2 border-[#B9BFC9]'>
-              <div className='mx-12 my-8'>
+              <div className='mx-12 my-8 text-4xl'>
                 <div>程度</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
@@ -345,7 +345,7 @@ export default function EmployeeProfile() {
               </div>
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl col-start-2 col-span-1 border-2 border-[#B9BFC9]'>
-              <div className='translate-y-1/2 mx-12'>
+              <div className='translate-y-1/2 mx-12 text-4xl'>
                 <div className=''>スキル</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
@@ -358,7 +358,7 @@ export default function EmployeeProfile() {
           </div>
           <div className='mt-10 flex justify-center'>
             <div className={stateForm === 0 ? 'invisible' : ''}>
-              <button className='bg-[#FED5D5] px-16 rounded-full py-1 border border-black'>Save</button>
+              <button className='bg-[#FED5D5] text-4xl pt-4 pb-4 px-16 rounded-full py-1 border border-black'>Save</button>
             </div>
           </div>
         </form>

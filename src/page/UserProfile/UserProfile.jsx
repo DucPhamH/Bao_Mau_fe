@@ -115,7 +115,7 @@ export default function UserProfile() {
               <div className='flex justify-center items-center'>
                 <button
                   onClick={backFunction}
-                  className='px-[2vw] rounded-full text-white bg-red-600 hover:bg-green-600 py-3'
+                  className='px-[2vw] rounded-full text-4xl pt-4 pb-4 text-white bg-red-600 hover:bg-green-600 py-3'
                 >
                   キャンセル
                 </button>
@@ -123,8 +123,8 @@ export default function UserProfile() {
             </div>
             <div className='mt-10 grid gap-x-0 pb-24'>
               <div className='bg-[#FFFFFF] rounded-3xl col-span-2 border-2 border-[#B9BFC9]'>
-                <div className='mb-8 mt-40 text-center'>
-                  <div className='flex justify-center items-center'>
+                <div className='mb-8 mt-40 text-center text-4xl' >
+                  <div className='flex justify-center items-center text-4xl'>
                     <div className='relative'>
                       <div
                         onClick={toggleModal}
@@ -137,15 +137,15 @@ export default function UserProfile() {
                       </div>
                     </div>
                   </div>
-                  <div className='bg-[#e8e7e74d] mx-36 mt-16 border-2 rounded-full text-center'>{user?.data.name}</div>
-                  <div className='mt-5 mx-36 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
+                  <div className='text-5xl bg-[#e8e7e74d] pt-2 pb-2 mx-28 mt-16 border-2 rounded-full text-center'>{user?.data.name}</div>
+                  <div className='text-5xl mt-5 mx-28 pt-2 pb-2 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
                     {user?.data.phone}
                   </div>
 
                   <div className={stateForm === 0 ? '' : 'invisible'}>
                     <button
                       type='button'
-                      className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black mt-10'
+                      className='bg-[#FED5D5] text-4xl pt-4 pb-4 p-8 rounded-full py-1 border border-black mt-10'
                       onClick={() => changeStateForm(2)}
                     >
                       パスワードの変更
@@ -162,7 +162,7 @@ export default function UserProfile() {
                   <div className={stateForm === 0 ? '' : 'invisible'}>
                     <button
                       type='button'
-                      className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black'
+                      className='bg-[#FED5D5] text-4xl pt-4 pb-4 p-8 rounded-full py-1 border border-black'
                       onClick={updateInfo}
                     >
                       編集
@@ -173,9 +173,9 @@ export default function UserProfile() {
                   onSubmit={onSubmit}
                   //  onChange={makeFormChangedStatus}
                 >
-                  <div className='ml-24 mr-32'>
-                    <div className='text-6xl font-semibold'>プロフィールページ</div>
-                    <div className='grid gap-y-28 mt-32 ml-16'>
+                  <div className='mx-20'>
+                    <div className='text-7xl font-semibold'>プロフィールページ</div>
+                    <div className='grid gap-y-28 mt-32 pl-8 text-5xl'>
                       <div className='col-span-1'>名前 :</div>
                       <div className='col-start-2 col-span-2 py-1'>
                         <input
@@ -211,7 +211,7 @@ export default function UserProfile() {
                   </div>
                   <div className='my-24 flex justify-center'>
                     <div className={stateForm === 1 ? '' : 'invisible'}>
-                      <button type='submit' className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black'>
+                      <button type='submit' className='bg-[#FED5D5] pt-4 pb-4 p-8 text-4xl rounded-full py-1 border border-black'>
                         保存
                       </button>
                     </div>

@@ -89,7 +89,7 @@ export default function EmployeeInfo() {
                   <div className='text-3xl/relaxed'>
                     <div className='flex flex-row items-center'>
                       <div>
-                        <GiPositionMarker size={20} />
+                        <GiPositionMarker size={24} />
                       </div>
                       <div className='ml-2'>{employee.data.userID.address}</div>
                     </div>

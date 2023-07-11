@@ -6,6 +6,8 @@ import { useQuery } from '@tanstack/react-query'
 import { getPost } from '../../api/post.api'
 import { convertDate, displayNum } from '../../utils/utils'
 import { getRequestEmployee } from '../../api/request.api'
+import { GiPositionMarker } from 'react-icons/gi'
+
 export default function JobDetailUser() {
   const { id } = useParams()
   // console.log(id)
@@ -43,7 +45,9 @@ export default function JobDetailUser() {
             <div className='text-4xl'>
               <div className='flex justify-between mt-12 leading-relaxed'>
                 <div>
-                  {post.data.address}
+                <div className='flex flex-row items-center'>
+                  <GiPositionMarker size={24} className='mr-4'/>  {post.data.address}
+                  </div>
                   <br />
                   年齢: {post.data.age}&emsp;経験: {post.data.experience}&emsp;給料: {displayNum(post.data.salary)}
                   <br />

@@ -7,6 +7,7 @@ import { getPost } from '../../api/post.api'
 import { convertDate, displayNum, isAxiosUnprocessableEntityError } from '../../utils/utils'
 import { createRequest2 } from '../../api/request.api'
 import { toast } from 'react-toastify'
+import { GiPositionMarker } from 'react-icons/gi'
 export default function JobDetail() {
   const { id } = useParams()
   // console.log(id)
@@ -53,11 +54,14 @@ export default function JobDetail() {
           <div className='w-4/5 bg-[#FFF] text-center mt-40 rounded-3xl p-8 text-6xl font-bold'>仕事の詳細</div>
           <div className='w-[90%] bg-[#FFF] mt-12 mb-24 rounded-3xl p-32'>
             <div className='text-6xl font-bold text-center'>...</div>
-            <div className='text-6xl mt-12 text-center'>{post.data.title}</div>
+            <div className='text-6xl mt-12 mb-8 text-center'>{post.data.title}</div>
             <div className='text-4xl'>
               <div className='flex justify-between mt-12 leading-relaxed'>
                 <div>
-                  {post.data.address}
+                  <div className='flex flex-row items-center'>
+                  <GiPositionMarker size={24} cl/>  {post.data.address}
+                  </div>
+               
                   <br />
                   年齢: {post.data.age}&emsp;経験: {post.data.experience}&emsp;給料: {displayNum(post.data.salary)}
                   <br />

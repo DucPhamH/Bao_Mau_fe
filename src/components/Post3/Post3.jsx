@@ -42,7 +42,7 @@ const Post3 = ({ request }) => {
       <div className='max-w-[60rem] ml-5'>
         <div className='text-[28px]'>{request.title}</div>
         <div className='flex text-[20px] items-center'>
-          <GiPositionMarker size={20} />
+          <GiPositionMarker size={24} />
           <div className='ml-1'>{request.address}</div>
         </div>
         <div className='flex gap-8 text-[20px] mt-4'>

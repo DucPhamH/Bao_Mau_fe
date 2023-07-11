@@ -20,7 +20,7 @@ export default function EmployeeApplyingList() {
   return (
     <div className='xl:w-[80%] rounded-2xl grid grid-cols-3 w-[95%] mx-64 gap-4 mt-24'>
       <div className='col-span-3 flex justify-center'>
-        <div className='w-[80%] flex font-extrabold justify-center p-8 bg-white mx-64 text-4xl  rounded-2xl'>
+        <div className='w-[80%] flex font-extrabold justify-center p-8 bg-white mx-64 text-6xl  rounded-2xl'>
           ベビーシッターアプリケーションのリスト
         </div>
       </div>

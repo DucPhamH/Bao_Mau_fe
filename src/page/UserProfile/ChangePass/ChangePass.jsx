@@ -86,7 +86,7 @@ export default function ChangePass() {
         </div>
       </div>
       <div className='my-24 flex justify-center'>
-        <button type='submit' className='bg-[#FED5D5] px-8 rounded-full py-1 border border-black'>
+        <button type='submit' className='bg-[#FED5D5] text-4xl pt-4 pb-4 px-8 rounded-full py-1 border border-black'>
           Confirm
         </button>
       </div>
