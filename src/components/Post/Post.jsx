@@ -9,7 +9,7 @@ import { createPayment } from '../../api/payment.api'
 import { useNavigate } from 'react-router-dom'
 
 const Post = ({ request }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const deleteRequestEmployees = useMutation({
     mutationFn: (body) => deleteRequestEmployee(body)
   })
@@ -96,17 +96,22 @@ const Post = ({ request }) => {
         <img src={request.employeeID.userID.image} alt='imageuser' />
       </div>
       <div className='flex justify-center flex-col cursor-pointer '>
-        <div className='text-5xl font-semibold' onClick={() => {
-          navigate(`/employeelist/${request.employeeID._id}`)
-        }}>{request.employeeID.userID.name}</div>
+        <div
+          className='text-5xl font-semibold'
+          onClick={() => {
+            navigate(`/employeelist/${request.employeeID._id}`)
+          }}
+        >
+          {request.employeeID.userID.name}
+        </div>
         <div className='flex text-[20px] items-center'>
           <GiPositionMarker size={24} />
           <div className='ml-1'>{request.employeeID.userID.address}</div>
         </div>
         <div className='flex gap-8 text-[16px] mt-4'>
-          <div>年齢: {getAges(request.employeeID.dateOB)}</div>
-          <div>実験: {request.employeeID.experience}</div>
-          <div>給料: {displayNum(request.employeeID.salary)}</div>
+          <div>年齢 : {getAges(request.employeeID.dateOB)}</div>
+          <div>実験 : {request.employeeID.experience} 年</div>
+          <div>給料 : {displayNum(request.employeeID.salary)}</div>
         </div>
 
         <div className='text-[16px] mt-4'>{request.employeeID.description}</div>

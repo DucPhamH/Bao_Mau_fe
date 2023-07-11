@@ -169,15 +169,18 @@ export default function EmployeeProfile() {
               onClick={backFunction}
               className='px-[2vw] text-4xl pt-4 pb-4 rounded-full text-white bg-red-600 hover:bg-green-600 py-3'
             >
-              Back/Cancel
+              Hủy
             </button>
           </div>
         </div>
         <div className='flex justify-end'>
           <div className={apiLoaded ? '' : 'invisible'}>
             <div className={stateForm === 0 ? '' : 'invisible'}>
-              <button className='bg-[#FED5D5] text-4xl pt-4 pb-4 p-8 rounded-full py-1 border border-black' onClick={updateFunction}>
-                Update
+              <button
+                className='bg-[#FED5D5] text-4xl pt-4 pb-4 p-8 rounded-full py-1 border border-black'
+                onClick={updateFunction}
+              >
+                Cập nhật
               </button>
             </div>
           </div>
@@ -208,10 +211,10 @@ export default function EmployeeProfile() {
                   {user?.data.phone}
                 </div>
 
-                <div className='flex mx-16 justify-between mt-16' >
+                <div className='flex mx-16 justify-between mt-16'>
                   <div className='flex  rounded-full items-center '>
                     <label htmlFor='default-checkbox-1' className='mr-2 text-4xl text-black'>
-                      ベビーシッター
+                      Chăm trẻ (ベビーシッター)
                     </label>
                     <input
                       id='default-checkbox-1'
@@ -224,7 +227,7 @@ export default function EmployeeProfile() {
                   </div>
                   <div className='flex rounded-full items-center'>
                     <label htmlFor='default-checkbox-2' className='mr-2 text-4xl'>
-                      料理人
+                      Nấu ăn (料理人)
                     </label>
                     <input
                       id='default-checkbox-2'
@@ -240,7 +243,7 @@ export default function EmployeeProfile() {
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl row-start-4 col-span-2 row-span-2 border-2 border-[#B9BFC9]'>
               <div className='mx-9 my-4 text-4xl'>
-                <div className='ml-5 text-4xl'>メール</div>
+                <div className='ml-5 text-4xl'>Mail</div>
                 <input
                   className='inputedit bg-[rgba(217,217,217,0.15)] rounded-xl w-full border py-1 border-black px-4'
                   disabled={stateForm === 0 ? true : false}
@@ -255,10 +258,10 @@ export default function EmployeeProfile() {
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl col-start-3 row-start-1 col-span-6 row-span-5 border-2 border-[#B9BFC9]'>
               <div className='mx-12 mt-5 mb-6'>
-                <div className='text-center text-6xl font-semibold mt-12'>自分情報</div>
+                <div className='text-center text-6xl font-semibold mt-12'>Thông tin cá nhân</div>
                 <div className='grid gap-x-32 gap-y-14 mt-8 grid-cols-4 text-4xl'>
                   <div className='col-span-2'>
-                    <div className='ml-2'>名前</div>
+                    <div className='ml-2'>Họ tên</div>
                     <input
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
                       disabled={stateForm === 0 ? true : false}
@@ -267,7 +270,7 @@ export default function EmployeeProfile() {
                     ></input>
                   </div>
                   <div className='col-start-3 col-span-2'>
-                    <div className='ml-2'>性別</div>
+                    <div className='ml-2'>Giới tính</div>
                     <select
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1 appearance-none'
                       disabled={stateForm === 0 ? true : false}
@@ -276,30 +279,30 @@ export default function EmployeeProfile() {
                       {...register('gender')}
                     >
                       <option className='text-center' value='male'>
-                        male
+                        Nam
                       </option>
                       <option className='text-center' value='female'>
-                        female
+                        Nữ
                       </option>
                       <option className='text-center' value='other'>
-                        other/unknown
+                        Không xác định
                       </option>
                     </select>
                   </div>
                   <div className='row-start-2 col-start-1 col-span-2'>
-                    <div className='ml-2'>誕生日</div>
+                    <div className='ml-2'>Ngày sinh</div>
                     <input
                       type='date'
-                      className='inputedit border w-full rounded-xl text-center py-1'
+                      className='inputedit border w-full rounded-xl text-center py-1 border-black'
                       name='dateOB'
                       {...register('dateOB')}
                       disabled={stateForm === 0 ? true : false}
                     ></input>
                   </div>
                   <div className='row-start-2 col-start-3 col-span-2 text-4xl'>
-                    <div className='ml-2'>給料（円）</div>
+                    <div className='ml-2'>Lương（Yên）</div>
                     <input
-                      className='inputedit border rounded-xl w-full text-center py-1'
+                      className='inputedit border rounded-xl w-full text-center py-1 border-black'
                       name='salary'
                       {...register('salary')}
                       disabled={stateForm === 0 ? true : false}
@@ -307,7 +310,7 @@ export default function EmployeeProfile() {
                     <div className='mt-1 flex min-h-[1.75rem] text-lg text-red-600'>{errors.salary?.message}</div>
                   </div>
                 </div>
-                <div className='ml-2 mt-6 text-4xl'>Your Address</div>
+                <div className='ml-2 mt-6 text-4xl'>Địa chỉ</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
                   className='inputedit text-4xl bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
@@ -315,7 +318,7 @@ export default function EmployeeProfile() {
                   name='address'
                   {...register('address')}
                 ></textarea>
-                <div className='ml-2 mt-12 text-4xl'>詳細情報</div>
+                <div className='ml-2 mt-12 text-4xl'>Thông tin cơ bản</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
                   className='inputedit text-4xl bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
@@ -328,14 +331,15 @@ export default function EmployeeProfile() {
           <div className='mt-16 grid gap-x-12 auto-cols-fr grid-flow-col'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-1 border-2 border-[#B9BFC9]'>
               <div className='mx-12 my-8 text-4xl'>
-                <div>程度</div>
+                <div>Trình độ học vấn</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
+                  required
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   name='degree'
                   {...register('degree')}
                 ></textarea>
-                <div className='mt-6'>実験</div>
+                <div className='mt-6'>Kinh nghiệm (Năm)</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
@@ -346,7 +350,7 @@ export default function EmployeeProfile() {
             </div>
             <div className='bg-[#FFFFFF] rounded-3xl col-start-2 col-span-1 border-2 border-[#B9BFC9]'>
               <div className='translate-y-1/2 mx-12 text-4xl'>
-                <div className=''>スキル</div>
+                <div className=''>Kỹ năng</div>
                 <textarea
                   disabled={stateForm === 0 ? true : false}
                   className='inputedit bg-[rgba(217,217,217,0.15)] mt-4 border rounded-xl border-black h-36 px-4 py-2 w-full resize-none'
@@ -358,7 +362,9 @@ export default function EmployeeProfile() {
           </div>
           <div className='mt-10 flex justify-center'>
             <div className={stateForm === 0 ? 'invisible' : ''}>
-              <button className='bg-[#FED5D5] text-4xl pt-4 pb-4 px-16 rounded-full py-1 border border-black'>Save</button>
+              <button className='bg-[#FED5D5] text-4xl pt-4 pb-4 px-16 rounded-full py-1 border border-black'>
+                Lưu thay đổi
+              </button>
             </div>
           </div>
         </form>

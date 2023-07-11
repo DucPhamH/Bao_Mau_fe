@@ -21,7 +21,7 @@ export default function RequestsList() {
         <div className='buttons-below col-span-3 mx-32  bg-white h-fit rounded-2xl mt-8 mb-16'>
           <div className='flex flex-col gap-20 p-8'>
             {userRequest.length === 0 ? (
-              <div className='text-black text-[24px] text-center'>契約がありません</div>
+              <div className='text-black text-[24px] text-center'>契約はありません</div>
             ) : (
               userRequest.map((request) => (
                 <div key={request._id}>

@@ -25,10 +25,10 @@ export default function Employee({ employee, pathName }) {
               年齢 : {getAges(employee.dateOB)}
             </div>
             <div className='w-[12vw] mr-[2vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-              実験 : {employee.experience}
+              実験 : {employee.experience} 年
             </div>
             <div className='w-[15vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-              給料（円） : {displayNum(employee.salary)}
+              給料（円）: {displayNum(employee.salary)}
             </div>
           </div>
 

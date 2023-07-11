@@ -46,7 +46,7 @@ export default function Payment() {
                     <div className='flex flex-col gap-4'>
                       <div>契約のコード</div>
                       <div>{payment._id}</div>
-                      <div>勤務開始日: {convertDate(payment.requestID.postID.dateStart)}</div>
+                      <div>勤務開始日 : {convertDate(payment.requestID.postID.dateStart)}</div>
                     </div>
                     <div className='ml-auto flex flex-col gap-6 w-[16rem]'>
                       <div>受信機:</div>

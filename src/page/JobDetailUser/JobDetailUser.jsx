@@ -45,13 +45,13 @@ export default function JobDetailUser() {
             <div className='text-4xl'>
               <div className='flex justify-between mt-12 leading-relaxed'>
                 <div>
-                <div className='flex flex-row items-center'>
-                  <GiPositionMarker size={24} className='mr-4'/>  {post.data.address}
+                  <div className='flex flex-row items-center'>
+                    <GiPositionMarker size={24} className='mr-4' /> {post.data.address}
                   </div>
                   <br />
-                  年齢: {post.data.age}&emsp;経験: {post.data.experience}&emsp;給料: {displayNum(post.data.salary)}
+                  年齢 : {post.data.age}&emsp;経験: {post.data.experience}&emsp;給料 : {displayNum(post.data.salary)}
                   <br />
-                  作成日: {convertDate(post.data.createdAt)}&emsp;勤務開始日: {convertDate(post.data.dateStart)}
+                  作成日: {convertDate(post.data.createdAt)}&emsp;勤務開始日 : {convertDate(post.data.dateStart)}
                   <br />
                   言語: {post.data.language}
                 </div>

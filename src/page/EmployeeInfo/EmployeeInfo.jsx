@@ -94,7 +94,7 @@ export default function EmployeeInfo() {
                       <div className='ml-2'>{employee.data.userID.address}</div>
                     </div>
                     <div>
-                      年齢: {getAges(employee.data.dateOB)}歳&emsp;経験: {employee.data.experience}
+                      年齢 : {getAges(employee.data.dateOB)}歳&emsp;経験: {employee.data.experience}
                       <br />
                       サービス価格: {displayNum(employee.data.salary)} 円&emsp;登録日: {''}
                       {convertDate(employee.data.createdAt)}

@@ -17,9 +17,9 @@ export default function ContractedJob({ postPayment, pathName }) {
           <div className='-mt-1 text-3xl'>{postPayment.address}</div>
         </div>
         <div className='flex mt-4'>
-          <div className='line-clamp-1 w-[11vw]'>年齢: {postPayment.age}</div>
-          <div className='line-clamp-1 w-[19vw]'>実験 : {postPayment.experience}</div>
-          <div className='line-clamp-1'>給料: {displayNum(postPayment.salary)}</div>
+          <div className='line-clamp-1 w-[11vw]'>年齢 : {postPayment.age}</div>
+          <div className='line-clamp-1 w-[19vw]'>実験 : {postPayment.experience} 年</div>
+          <div className='line-clamp-1'>給料 : {displayNum(postPayment.salary)}</div>
         </div>
         <div className='mt-4'>勤務開始日 : {convertDate(postPayment.dateStart)}</div>
         <div className='mt-4 line-clamp-3'>{postPayment.description}</div>

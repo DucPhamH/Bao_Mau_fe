@@ -100,18 +100,25 @@ const Post2 = ({ request }) => {
         <img src={request.postID.userID.image} alt='imageuser' />
       </div>
       <div className='max-w-[60rem] ml-5'>
-        <div className='text-[30px] font-semibold mb-4 cursor-pointer' onClick={() => {navigate(`/listofavailablejobs/${request.postID._id}`)}}>{request.postID.title}</div>
+        <div
+          className='text-[30px] font-semibold mb-4 cursor-pointer'
+          onClick={() => {
+            navigate(`/listofavailablejobs/${request.postID._id}`)
+          }}
+        >
+          {request.postID.title}
+        </div>
         <div className='flex text-[20px] items-center'>
           <GiPositionMarker size={24} />
           <div className='ml-1'>{request.postID.address}</div>
         </div>
         <div className='flex gap-8 text-[16px] mt-4'>
-          <div>年齢: {request.postID.age}</div>
-          <div>実験: {request.postID.experience}</div>
-          <div>給料: {displayNum(request.postID.salary)}</div>
+          <div>年齢 : {request.postID.age}</div>
+          <div>実験 : {request.postID.experience} 年</div>
+          <div>給料 : {displayNum(request.postID.salary)}</div>
         </div>
 
-        <div className='text-[16px] mt-4'>勤務開始日: {convertDate(request.postID.dateStart)}</div>
+        <div className='text-[16px] mt-4'>勤務開始日 : {convertDate(request.postID.dateStart)}</div>
         <div className='text-[16px] mt-4'>{request.postID.description}</div>
       </div>
       <div className='flex ml-30 flex-col gap-20 ml-auto'>

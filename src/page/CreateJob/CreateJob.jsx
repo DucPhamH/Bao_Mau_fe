@@ -91,7 +91,7 @@ export default function CreateJob() {
             <div className='flex flex-row items-center'>
               <div className='w-60 mr-20'>タイトル :</div>
               <input
-              required
+                required
                 type='text'
                 name='title'
                 {...register('title')}
@@ -104,7 +104,6 @@ export default function CreateJob() {
                 <label htmlFor='radio1'>
                   ベビーシッター
                   <input
-                  
                     id='radio1'
                     type='checkbox'
                     name='babysister'
@@ -131,7 +130,7 @@ export default function CreateJob() {
                 <div className='flex flex-row items-center'>
                   <div className='mr-10'>場所 :</div>
                   <input
-                  required
+                    required
                     type='text'
                     name='address'
                     {...register('address')}
@@ -162,6 +161,7 @@ export default function CreateJob() {
               <div className='mt-12'>仕事の詳細情報:</div>
               <div className='flex items-center flex-col mb-12'>
                 <textarea
+                  required
                   name='description'
                   {...register('description')}
                   className='border-2 border-black rounded-[20px] w-[95%] h-[20rem] mt-12 resize-none outline-none p-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
@@ -180,12 +180,11 @@ export default function CreateJob() {
                   className='p-9 border-[1px] border-black outline-none rounded-[20px] w-[15rem] h-6 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'
                 />
                 <div className='ml-4'>(以下)</div>
-
               </div>
               <div className='flex flex-row items-center mt-10'>
                 <div className='mr-10'>実験 :</div>
                 <input
-                required
+                  required
                   type='text'
                   name='experience'
                   {...register('experience')}

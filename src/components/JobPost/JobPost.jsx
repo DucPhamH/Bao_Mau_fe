@@ -18,12 +18,12 @@ export default function JobPost({ post, pathName }) {
               <div className='-mt-1 font-bold text-3xl'> {post.address} </div>
             </div>
             <div className='mt-5 flex'>
-              <div className='w-[7vw] text-ellipsis overflow-hidden whitespace-nowrap'>年齢 :{post.age}</div>
+              <div className='w-[7vw] text-ellipsis overflow-hidden whitespace-nowrap'>年齢 : {post.age}</div>
               <div className='w-[12vw] mr-[2vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-                実験 : {post.experience}
+                実験 : {post.experience} 年
               </div>
               <div className='w-[12vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-                給料（円） :{displayNum(post.salary)}
+                給料（円）: {displayNum(post.salary)}
               </div>
             </div>
             <div className='mt-5'>勤務開始日 : {convertDate(post.dateStart)}</div>

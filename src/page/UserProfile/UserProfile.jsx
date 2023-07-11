@@ -47,7 +47,7 @@ export default function UserProfile() {
     // console.log(users)
     updateUserMutation.mutate(data, {
       onSuccess: (data) => {
-        toast.success('正常に更新されました !') //。(22)
+        toast.success('編集しました !') //。(22)
         window.location.reload()
       },
       onError: (error) => {
@@ -123,7 +123,7 @@ export default function UserProfile() {
             </div>
             <div className='mt-10 grid gap-x-0 pb-24'>
               <div className='bg-[#FFFFFF] rounded-3xl col-span-2 border-2 border-[#B9BFC9]'>
-                <div className='mb-8 mt-40 text-center text-4xl' >
+                <div className='mb-8 mt-40 text-center text-4xl'>
                   <div className='flex justify-center items-center text-4xl'>
                     <div className='relative'>
                       <div
@@ -137,7 +137,9 @@ export default function UserProfile() {
                       </div>
                     </div>
                   </div>
-                  <div className='text-5xl bg-[#e8e7e74d] pt-2 pb-2 mx-28 mt-16 border-2 rounded-full text-center'>{user?.data.name}</div>
+                  <div className='text-5xl bg-[#e8e7e74d] pt-2 pb-2 mx-28 mt-16 border-2 rounded-full text-center'>
+                    {user?.data.name}
+                  </div>
                   <div className='text-5xl mt-5 mx-28 pt-2 pb-2 border rounded-full text-center shadow-[inset_0px_4px_4px_0_rgb(0_0_0_/_0.1)] bg-[rgba(232,231,231,0.3)]'>
                     {user?.data.phone}
                   </div>
@@ -211,7 +213,10 @@ export default function UserProfile() {
                   </div>
                   <div className='my-24 flex justify-center'>
                     <div className={stateForm === 1 ? '' : 'invisible'}>
-                      <button type='submit' className='bg-[#FED5D5] pt-4 pb-4 p-8 text-4xl rounded-full py-1 border border-black'>
+                      <button
+                        type='submit'
+                        className='bg-[#FED5D5] pt-4 pb-4 p-8 text-4xl rounded-full py-1 border border-black'
+                      >
                         保存
                       </button>
                     </div>

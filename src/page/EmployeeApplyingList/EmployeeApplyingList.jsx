@@ -28,7 +28,7 @@ export default function EmployeeApplyingList() {
         <div className='buttons-below col-span-3 mx-32  bg-white h-fit rounded-2xl mt-8 mb-16'>
           <div className='flex flex-col gap-20 p-8'>
             {employeeRequest.length === 0 ? (
-              <div className='text-black text-[24px] text-center'>ポストがありません</div>
+              <div className='text-black text-[24px] text-center'>誰もいません !</div>
             ) : (
               employeeRequest.map((request) => (
                 <div key={request._id}>
