@@ -2,7 +2,7 @@ import useRouteElement from './useRouteElement'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
-import BGM from './components/BGM'
+// import BGM from './components/BGM'
 function App() {
   const routeElement = useRouteElement()
 
@@ -14,7 +14,7 @@ function App() {
       }}
     >
       <div>
-        <BGM />
+        {/* <BGM /> */}
         {routeElement}
         <ToastContainer />
       </div>
