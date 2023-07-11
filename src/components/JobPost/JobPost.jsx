@@ -18,15 +18,15 @@ export default function JobPost({ post, pathName }) {
               <div className='-mt-1 font-bold text-3xl'> {post.address} </div>
             </div>
             <div className='mt-5 flex'>
-              <div className='w-[7vw] text-ellipsis overflow-hidden whitespace-nowrap'>年齢 : {post.age}</div>
+              <div className='w-[7vw] text-ellipsis overflow-hidden whitespace-nowrap'>Tuổi : {post.age}</div>
               <div className='w-[12vw] mr-[2vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-                実験 : {post.experience} 年
+                Kinh nghiệm : {post.experience} năm
               </div>
               <div className='w-[12vw] text-ellipsis overflow-hidden whitespace-nowrap'>
-                給料（円）: {displayNum(post.salary)}
+                Lương（Yên）: {displayNum(post.salary)}
               </div>
             </div>
-            <div className='mt-5'>勤務開始日 : {convertDate(post.dateStart)}</div>
+            <div className='mt-5'>Ngày bắt đầu công việc: {convertDate(post.dateStart)}</div>
 
             <div className='w-[30vw] mt-5 mb-12 line-clamp-2'>{post.description}</div>
           </div>
@@ -36,7 +36,7 @@ export default function JobPost({ post, pathName }) {
             onClick={() => navigate(pathName)}
             className='bg-[#C226F9] text-white rounded-3xl self-end px-[2vw] py-2 hover:bg-green-600'
           >
-            詳細情報
+            Chi tiết
           </button>
         </div>
       </div>

@@ -113,12 +113,12 @@ const Post2 = ({ request }) => {
           <div className='ml-1'>{request.postID.address}</div>
         </div>
         <div className='flex gap-8 text-[16px] mt-4'>
-          <div>年齢 : {request.postID.age}</div>
-          <div>実験 : {request.postID.experience} 年</div>
-          <div>給料 : {displayNum(request.postID.salary)}</div>
+          <div>Tuổi : {request.postID.age}</div>
+          <div>Kinh nghiệm : {request.postID.experience} năm</div>
+          <div>Lương : {displayNum(request.postID.salary)} yên</div>
         </div>
 
-        <div className='text-[16px] mt-4'>勤務開始日 : {convertDate(request.postID.dateStart)}</div>
+        <div className='text-[16px] mt-4'>Ngày bắt đầu công việc : {convertDate(request.postID.dateStart)}</div>
         <div className='text-[16px] mt-4'>{request.postID.description}</div>
       </div>
       <div className='flex ml-30 flex-col gap-20 ml-auto'>
@@ -126,13 +126,13 @@ const Post2 = ({ request }) => {
           onClick={onClickAccept}
           className='bg-[#41E309] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
         >
-          アクセス
+          Đồng ý
         </button>
         <button
           onClick={onClickDelete}
           className='bg-[#E72253] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
         >
-          キャンセル
+          Từ chối
         </button>
       </div>
     </div>

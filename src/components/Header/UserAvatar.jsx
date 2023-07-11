@@ -77,7 +77,7 @@ function UserAvatar({ handleLogout, info }) {
                   <div className='text-5xl pr-8'>
                     <BiHomeAlt />
                   </div>
-                  <div className='text-4xl'>ホームページ</div>
+                  <div className='text-4xl font-itim'>TRANG CHỦ</div>
                 </div>
               </Link>
             ) : (
@@ -98,7 +98,7 @@ function UserAvatar({ handleLogout, info }) {
                     <FaUserAlt />
                   </div>
 
-                  <div className='text-4xl'>自分情報</div>
+                  <div className='text-4xl font-itim'>THÔNG TIN CÁ NHÂN</div>
                 </div>
               </Link>
             ) : (
@@ -118,7 +118,7 @@ function UserAvatar({ handleLogout, info }) {
                   <div className='text-5xl pr-8'>
                     <AiOutlineCalendar />
                   </div>
-                  <div className='text-4xl'>エントリー</div>
+                  <div className='text-4xl font-itim'>TUYỂN DỤNG</div>
                   {userRequest.length === 0 ? (
                     ''
                   ) : (
@@ -145,7 +145,7 @@ function UserAvatar({ handleLogout, info }) {
                   <div className='text-5xl pr-8'>
                     <AiOutlineHeart />
                   </div>
-                  <div className='text-4xl'>契約</div>
+                  <div className='text-4xl font-itim'>HỢP ĐỒNG</div>
                 </div>
               </Link>
             ) : (
@@ -184,7 +184,7 @@ function UserAvatar({ handleLogout, info }) {
               <div className='text-5xl pr-8 '>
                 <FiLogOut />
               </div>
-              <div className='text-4xl'>ログアウト</div>
+              <div className='text-4xl font-itim'>{info.roles === 2 ? 'ĐĂNG XUẤT' : 'ログアウト'}</div>
             </div>
           </div>
         </div>

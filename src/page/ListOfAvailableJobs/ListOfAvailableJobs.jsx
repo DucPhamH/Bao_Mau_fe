@@ -89,7 +89,7 @@ export default function ListOfAvailableJobs() {
             })}
             onClick={() => handleRole('false')}
           >
-            ベビーシッター {checkHousemaidFalse()}
+            Chăm trẻ {checkHousemaidFalse()}
           </button>
           <button
             className={classNames('font-itim text-4xl col-start-6 col-span-4 py-5 rounded-full ', {
@@ -98,7 +98,7 @@ export default function ListOfAvailableJobs() {
             })}
             onClick={() => handleRole('true')}
           >
-            料理人 {checkHousemaidTrue()}
+            Nấu ăn {checkHousemaidTrue()}
           </button>
         </div>
         <div className='w-full mt-10 bg-[#ffffff] rounded-xl mb-96'>
@@ -108,7 +108,7 @@ export default function ListOfAvailableJobs() {
               onClick={() => handleSort('asc')}
               className='text-center hover:bg-slate-300 bg-[#D9D9D9] focus:outline-none rounded-full mt-12 ml-16 p-2.5 w-72 font-mono'
             >
-              給料&#32;&#8593;
+              Lương&#32;&#8593;
             </button>
           </div>
           <div className='mt-12 max-h-[70rem] overflow-y-auto overflow-hidden'>

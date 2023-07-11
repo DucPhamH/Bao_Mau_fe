@@ -12,7 +12,7 @@ export default function UserCreatedJobs() {
   const postUsers = data?.data.data
   // console.log(postUsers)
   return (
-    <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
+    <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col font-itim'>
       <div className='w-[50%] bg-[#FFF] text-center mt-24 rounded-3xl p-8 text-6xl font-bold'>
         あなたが作成した仕事リスト
       </div>

@@ -12,7 +12,7 @@ export default function EmployeeAcceptedJobs() {
   const userRequest = data?.data.data
   console.log(userRequest)
   return (
-    <div className='xl:w-[80%] rounded-2xl grid grid-cols-3 w-[95%] mx-64 gap-4 mt-24'>
+    <div className='xl:w-[80%] rounded-2xl grid grid-cols-3 w-[95%] mx-64 gap-4 mt-24 font-itim'>
       <div className='col-span-3 flex justify-center'>
         <div className='w-[80%] flex font-extrabold justify-center p-8 bg-white mx-64 text-6xl rounded-2xl'>
           HỢP ĐỒNG

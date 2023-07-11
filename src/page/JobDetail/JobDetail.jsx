@@ -50,8 +50,8 @@ export default function JobDetail() {
   return (
     <>
       {post && (
-        <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
-          <div className='w-4/5 bg-[#FFF] text-center mt-40 rounded-3xl p-8 text-6xl font-bold'>仕事の詳細</div>
+        <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col font-itim'>
+          <div className='w-4/5 bg-[#FFF] text-center mt-40 rounded-3xl p-8 text-6xl font-bold'>CHI TIẾT CÔNG VIỆC</div>
           <div className='w-[90%] bg-[#FFF] mt-12 mb-24 rounded-3xl p-32'>
             <div className='text-6xl font-bold text-center'>...</div>
             <div className='text-6xl mt-12 mb-8 text-center'>{post.data.title}</div>
@@ -62,22 +62,24 @@ export default function JobDetail() {
                     <GiPositionMarker size={24} cl /> {post.data.address}
                   </div>
                   <br />
-                  年齢 : {post.data.age}&emsp;経験: {post.data.experience}&emsp;給料 : {displayNum(post.data.salary)}
+                  Tuổi : {post.data.age}&emsp;Kinh nghiệm: {post.data.experience}&emsp;Lương :{' '}
+                  {displayNum(post.data.salary)}
                   <br />
-                  作成日: {convertDate(post.data.createdAt)}&emsp;勤務開始日 : {convertDate(post.data.dateStart)}
+                  Ngày tạo : {convertDate(post.data.createdAt)}&emsp;Ngày bắt đầu công việc :{' '}
+                  {convertDate(post.data.dateStart)}
                   <br />
-                  言語: {post.data.language}
+                  Ngôn ngữ : {post.data.language}
                 </div>
                 <div>
                   <button
                     onClick={onClick}
                     className='w-[24rem] h-[6rem] bg-[#7101FF] text-white rounded-[20px] hover:bg-[#2200ff]'
                   >
-                    応募する
+                    Ứng tuyển ngay
                   </button>
                 </div>
               </div>
-              <div className='mt-12'>仕事の詳細情報:</div>
+              <div className='mt-12'>Nôi dung công việc:</div>
               <div className='flex items-center flex-col'>
                 <div className='border-2 border-black rounded-[20px] w-[95%] h-[20rem] mt-12 resize-none outline-none p-8 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]'>
                   {post.data.description}
@@ -87,11 +89,11 @@ export default function JobDetail() {
                 <div className='text-6xl text-[#7101FF]'>
                   <FiClock />
                 </div>
-                <div className='ml-6'>作業時間</div>
+                <div className='ml-6'>Thời gian làm việc</div>
               </div>
               <div className='px-20'>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>月曜日</div>
+                  <div>Thứ 2</div>
                   <div className='flex flex-row select-none'>
                     <div
                       style={{ color: setDay(post.data.mo_morning) }}
@@ -100,7 +102,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       style={{ color: setDay(post.data.mo_afternoon) }}
@@ -109,12 +111,12 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>火曜日</div>
+                  <div>Thứ 3</div>
                   <div className='flex flex-row select-none'>
                     <div
                       style={{ color: setDay(post.data.tu_morning) }}
@@ -123,7 +125,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       style={{ color: setDay(post.data.tu_afternoon) }}
@@ -132,12 +134,12 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>水曜日</div>
+                  <div>Thứ 4</div>
                   <div className='flex flex-row select-none'>
                     <div
                       key={1}
@@ -147,7 +149,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       style={{ color: setDay(post.data.we_afternoon) }}
@@ -156,12 +158,12 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>木曜日</div>
+                  <div>Thứ 5</div>
                   <div className='flex flex-row select-none'>
                     <div
                       style={{ color: setDay(post.data.th_morning) }}
@@ -170,7 +172,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       style={{ color: setDay(post.data.th_afternoon) }}
@@ -179,12 +181,12 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>金曜日</div>
+                  <div>Thứ 6</div>
                   <div className='flex flex-row select-none'>
                     <div
                       key={1}
@@ -194,7 +196,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       key={2}
@@ -204,12 +206,12 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>土曜日</div>
+                  <div>Thứ 7</div>
                   <div className='flex flex-row select-none'>
                     <div
                       key={1}
@@ -219,7 +221,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       key={2}
@@ -229,12 +231,12 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
                 <div className='flex flex-row justify-between border-b-2 border-black p-6'>
-                  <div>日曜日</div>
+                  <div>Chủ nhật</div>
                   <div className='flex flex-row select-none'>
                     <div
                       key={1}
@@ -244,7 +246,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午前</div>
+                      <div>Sáng</div>
                     </div>
                     <div
                       key={2}
@@ -254,7 +256,7 @@ export default function JobDetail() {
                       <div className='mr-12'>
                         <BiCheckCircle />
                       </div>
-                      <div>午後</div>
+                      <div>Chiều</div>
                     </div>
                   </div>
                 </div>
