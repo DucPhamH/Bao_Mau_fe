@@ -78,7 +78,7 @@ export default function CreateJob() {
   })
 
   return (
-    <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col'>
+    <div className=' bg-[#DCEAFF] flex justify-center items-center flex-col font-itim'>
       <div className='w-[90%] bg-[#FFF] mt-12 mb-24 rounded-3xl p-12'>
         <form className='text-4xl leading-relaxed' onSubmit={onSubmit}>
           <div className='text-6xl flex flex-row font-bold'>
