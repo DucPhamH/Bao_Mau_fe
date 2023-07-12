@@ -185,7 +185,7 @@ export default function EmployeeProfile() {
             </div>
           </div>
         </div>
-        <form onSubmit={onSubmit} noValidate>
+        <form onSubmit={onSubmit}>
           <div className='mt-10 grid gap-x-6 gap-y-8'>
             <div className='bg-[#FFFFFF] rounded-3xl col-span-2 row-span-3 border-2 border-[#B9BFC9]'>
               <div className='my-8'>
@@ -263,6 +263,7 @@ export default function EmployeeProfile() {
                   <div className='col-span-2'>
                     <div className='ml-2'>Họ tên</div>
                     <input
+                      required
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1'
                       disabled={stateForm === 0 ? true : false}
                       name='name'
@@ -272,6 +273,7 @@ export default function EmployeeProfile() {
                   <div className='col-start-3 col-span-2'>
                     <div className='ml-2'>Giới tính</div>
                     <select
+                      required
                       className='inputedit bg-[rgba(217,217,217,0.15)] w-full border rounded-xl border-black text-center py-1 appearance-none'
                       disabled={stateForm === 0 ? true : false}
                       name='gender'
@@ -292,6 +294,7 @@ export default function EmployeeProfile() {
                   <div className='row-start-2 col-start-1 col-span-2'>
                     <div className='ml-2'>Ngày sinh</div>
                     <input
+                      required
                       type='date'
                       className='inputedit border w-full rounded-xl text-center py-1 border-black'
                       name='dateOB'
@@ -302,6 +305,7 @@ export default function EmployeeProfile() {
                   <div className='row-start-2 col-start-3 col-span-2 text-4xl'>
                     <div className='ml-2'>Lương（Yên）</div>
                     <input
+                      required
                       className='inputedit border rounded-xl w-full text-center py-1 border-black'
                       name='salary'
                       {...register('salary')}
@@ -320,6 +324,7 @@ export default function EmployeeProfile() {
                 ></textarea>
                 <div className='ml-2 mt-12 text-4xl'>Thông tin cơ bản</div>
                 <textarea
+                  required
                   disabled={stateForm === 0 ? true : false}
                   className='inputedit text-4xl bg-[rgba(217,217,217,0.15)] border rounded-xl border-black h-56 px-4 py-2 w-full resize-none'
                   name='description'
@@ -341,6 +346,7 @@ export default function EmployeeProfile() {
                 ></textarea>
                 <div className='mt-6'>Kinh nghiệm (Năm)</div>
                 <textarea
+                  required
                   disabled={stateForm === 0 ? true : false}
                   className='inputedit mt-4 border rounded-xl border-black h-24 px-4 py-2 w-full resize-none'
                   name='experience'
