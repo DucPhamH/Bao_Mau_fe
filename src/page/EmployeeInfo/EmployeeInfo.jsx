@@ -79,12 +79,7 @@ export default function EmployeeInfo() {
                     <div>
                       <div>{employee.data.userID.name}</div>
                     </div>
-                    <div className='flex flex-row items-center ml-12'>
-                      <div className='text-[#41E309] text-7xl'>
-                        <BsDot />
-                      </div>
-                      <div className='text-xl -ml-4'>オンライン</div>
-                    </div>
+                    <div className='flex flex-row items-center ml-12'></div>
                   </div>
                   <div className='text-3xl/relaxed'>
                     <div className='flex flex-row items-center'>

@@ -121,7 +121,7 @@ const Post = ({ request }) => {
           onClick={onClickAccept}
           className='bg-[#41E309] mx-10 text-white text-[20px] p-1 rounded-[20px] w-[14rem] border-2 border-black shadow-[0_4px_0_rgb(0,0,0)] hover:shadow-[0_1px_0px_rgb(0,0,0)] ease-out hover:translate-y-1 transition-all'
         >
-          アクセス
+          承認
         </button>
         <button
           onClick={onClickDelete}
